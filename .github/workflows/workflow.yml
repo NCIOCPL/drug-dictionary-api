@@ -29,6 +29,11 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '2.1.607'
+      - name: Launch the missles
+        run: |
+            pwd
+            ls -al
+            cat /etc/*release
       - name: Build with dotnet
         run: dotnet build --configuration Release /WarnAsError
       - name: Unit Tests (with Coverage)
