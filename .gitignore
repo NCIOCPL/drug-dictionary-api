@@ -8,6 +8,11 @@ appsettings.*.json
 !integration-tests/**/appsettings.inttest.json
 log/*.txt
 
+# files copied by running integration tests.
+src/NCI.OCPL.Api.SiteWideSearch/appsettings.inttest.json
+src/NCI.OCPL.Api.DrugDictionary/hosting.json
+
+
 # User-specific files
 *.suo
 *.user
