@@ -28,8 +28,15 @@ services:
             context: ../../
             ## This path is relative to the context. Fun, eh?
             dockerfile: integration-tests/docker-drug-api/api/Dockerfile
+        volumes:
+            # Project root
+            - ../..:/app
+            # Integration configuration files we don't want in the source tree.
+            - ../../integration-tests/docker-drug-api/api/runtime/appsettings.inttest.json:/app/src/NCI.OCPL.Api.DrugDictionary/appsettings.inttest.json
+            - ../../integration-tests/docker-drug-api/api/runtime/hosting.json:/app/src/NCI.OCPL.Api.DrugDictionary/hosting.json
+            # Use the user's existing GitHub credentials
+            - ~/.nuget/NuGet/NuGet.Config:/root/.nuget/NuGet/NuGet.Config
         ports:
-            # Lets make it one more than the default aspnetcore app
             - "5000:5000"
         ## NOTE: This does NOT mean that this machine will wait
         ## for elasticsearch to be running, just that the
