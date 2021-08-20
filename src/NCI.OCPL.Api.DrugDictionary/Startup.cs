@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 using NCI.OCPL.Api.Common;
 using NCI.OCPL.Api.DrugDictionary.Models;
@@ -17,9 +17,9 @@ namespace NCI.OCPL.Api.DrugDictionary
         /// <summary>
         /// Initializes a new instance of the <see cref="T:NCI.OCPL.Api.DrugDictionary.Startup"/> class.
         /// </summary>
-        /// <param name="env">Env.</param>
-        public Startup(IHostingEnvironment env)
-            : base(env) { }
+        /// <param name="configuration">Configuration.</param>
+        public Startup(IConfiguration configuration)
+            : base(configuration) { }
 
 
         /*****************************
@@ -57,9 +57,8 @@ namespace NCI.OCPL.Api.DrugDictionary
         /// <returns>The configure.</returns>
         /// <param name="app">App.</param>
         /// <param name="env">Env.</param>
-        /// <param name="loggerFactory">Logger.</param>
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        protected override void ConfigureAppSpecific(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        protected override void ConfigureAppSpecific(IApplicationBuilder app, IWebHostEnvironment env)
         {
             return;
         }
