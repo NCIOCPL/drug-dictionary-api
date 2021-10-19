@@ -40,8 +40,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                         {
                             ""script"": {
                                 ""script"": {
-                                    ""inline"": ""doc['name'].value.length() <= 40"",
-                                    ""lang"": ""painless""
+                                    ""source"": ""doc['name'].value.length() <= 40""
                                 }
                             }
                         }
