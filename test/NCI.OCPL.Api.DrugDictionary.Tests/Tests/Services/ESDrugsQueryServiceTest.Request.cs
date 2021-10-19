@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Moq;
 using Nest;
+using Nest.JsonNetSerializer;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
@@ -42,7 +43,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             string esContentType = String.Empty;
             HttpMethod esMethod = HttpMethod.DELETE; // Basically, something other than the expected value.
 
-            JObject requestBody = null;
+            JToken requestBody = null;
 
             ElasticsearchInterceptingConnection conn = new ElasticsearchInterceptingConnection();
             conn.RegisterRequestHandlerForType<Nest.SearchResponse<IDrugResource>>((req, res) =>
@@ -52,7 +53,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                 res.StatusCode = 200;
 
                 esURI = req.Uri;
-                esContentType = req.ContentType;
+                esContentType = req.RequestMimeType;
                 esMethod = req.Method;
                 requestBody = conn.GetRequestPost(req);
             });
@@ -60,7 +61,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             // The URI does not matter, an InMemoryConnection never requests from the server.
             var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
 
-            var connectionSettings = new ConnectionSettings(pool, conn);
+            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
             IElasticClient client = new ElasticClient(connectionSettings);
 
             // Setup the mocked Options
@@ -74,7 +75,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                 data.IncludeResourceTypes, data.IncludeNameTypes, data.ExcludeNameTypes
                 );
 
-            Assert.Equal("/drugv1/terms/_search", esURI.AbsolutePath);
+            Assert.Equal("/drugv1/_search", esURI.AbsolutePath);
             Assert.Equal("application/json", esContentType);
             Assert.Equal(HttpMethod.POST, esMethod);
             Assert.Equal(data.ExpectedData, requestBody, new JTokenEqualityComparer());
@@ -100,7 +101,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             string esContentType = String.Empty;
             HttpMethod esMethod = HttpMethod.DELETE; // Basically, something other than the expected value.
 
-            JObject requestBody = null;
+            JToken requestBody = null;
 
             ElasticsearchInterceptingConnection conn = new ElasticsearchInterceptingConnection();
             conn.RegisterRequestHandlerForType<Nest.SearchResponse<IDrugResource>>((req, res) =>
@@ -110,7 +111,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                 res.StatusCode = 200;
 
                 esURI = req.Uri;
-                esContentType = req.ContentType;
+                esContentType = req.RequestMimeType;
                 esMethod = req.Method;
                 requestBody = conn.GetRequestPost(req);
             });
@@ -118,7 +119,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             // The URI does not matter, an InMemoryConnection never requests from the server.
             var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
 
-            var connectionSettings = new ConnectionSettings(pool, conn);
+            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
             IElasticClient client = new ElasticClient(connectionSettings);
 
             // Setup the mocked Options
@@ -132,7 +133,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                 data.IncludeResourceTypes, data.IncludeNameTypes, data.ExcludeNameTypes
                 );
 
-            Assert.Equal("/drugv1/terms/_search", esURI.AbsolutePath);
+            Assert.Equal("/drugv1/_search", esURI.AbsolutePath);
             Assert.Equal("application/json", esContentType);
             Assert.Equal(HttpMethod.POST, esMethod);
             Assert.Equal(data.ExpectedData, requestBody, new JTokenEqualityComparer());
@@ -155,7 +156,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             string esContentType = String.Empty;
             HttpMethod esMethod = HttpMethod.DELETE; // Basically, something other than the expected value.
 
-            JObject requestBody = null;
+            JToken requestBody = null;
 
             ElasticsearchInterceptingConnection conn = new ElasticsearchInterceptingConnection();
             conn.RegisterRequestHandlerForType<Nest.SearchResponse<DrugTerm>>((req, res) =>
@@ -165,7 +166,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                 res.StatusCode = 200;
 
                 esURI = req.Uri;
-                esContentType = req.ContentType;
+                esContentType = req.RequestMimeType;
                 esMethod = req.Method;
                 requestBody = conn.GetRequestPost(req);
             });
@@ -173,7 +174,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             // The URI does not matter, an InMemoryConnection never requests from the server.
             var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
 
-            var connectionSettings = new ConnectionSettings(pool, conn);
+            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
             IElasticClient client = new ElasticClient(connectionSettings);
 
             // Setup the mocked Options
@@ -185,7 +186,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             // sets up the request correctly.
             DrugTerm result = await query.GetByName(data.PrettyUrlName);
 
-            Assert.Equal("/drugv1/terms/_search", esURI.AbsolutePath);
+            Assert.Equal("/drugv1/_search", esURI.AbsolutePath);
             Assert.Equal("application/json", esContentType);
             Assert.Equal(HttpMethod.POST, esMethod);
             Assert.Equal(data.ExpectedData, requestBody, new JTokenEqualityComparer());
@@ -211,7 +212,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             string esContentType = String.Empty;
             HttpMethod esMethod = HttpMethod.DELETE; // Basically, something other than the expected value.
 
-            JObject requestBody = null;
+            JToken requestBody = null;
 
             ElasticsearchInterceptingConnection conn = new ElasticsearchInterceptingConnection();
             conn.RegisterRequestHandlerForType<Nest.SearchResponse<DrugTerm>>((req, res) =>
@@ -221,15 +222,15 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                 res.StatusCode = 200;
 
                 esURI = req.Uri;
-                esContentType = req.ContentType;
+                esContentType = req.RequestMimeType;
                 esMethod = req.Method;
                 requestBody = conn.GetRequestPost(req);
             });
 
-            // The URI does not matter, an InMemoryConnection never requests from the server.
+            // The URI does not matter, this connection never requests from the server.
             var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
 
-            var connectionSettings = new ConnectionSettings(pool, conn);
+            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
             IElasticClient client = new ElasticClient(connectionSettings);
 
             // Setup the mocked Options
@@ -241,7 +242,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             // sets up the request correctly.
             DrugTermResults result = await query.Search(data.SearchText, data.MatchType, data.Size, data.From);
 
-            Assert.Equal("/drugv1/terms/_search", esURI.AbsolutePath);
+            Assert.Equal("/drugv1/_search", esURI.AbsolutePath);
             Assert.Equal("application/json", esContentType);
             Assert.Equal(HttpMethod.POST, esMethod);
             Assert.Equal(data.ExpectedData, requestBody, new JTokenEqualityComparer());

@@ -58,8 +58,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             try
             {
                 response = await _elasticClient.GetAsync<DrugTerm>(new DocumentPath<DrugTerm>(id),
-                        g => g.Index(this._apiOptions.AliasName).Type("terms"));
-
+                        g => g.Index(this._apiOptions.AliasName));
             }
             catch (Exception ex)
             {
@@ -95,15 +94,14 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         {
             // Set up the SearchRequest to send to elasticsearch.
             Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            Types types = Types.Type(new string[] { "terms" });
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query = new TermQuery { Field = "pretty_url_name",  Value = prettyUrlName.ToString() } &&
                         new TermQuery { Field = "type",             Value = DrugResourceType.DrugTerm.ToString() }
                 ,
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 }
             };
 
@@ -179,8 +177,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
 
             // Set up the SearchRequest to send to elasticsearch.
             Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            Types types = Types.Type(new string[] { "terms" });
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query =
                     new TermsQuery { Field = "type", Terms = includeResourceTypes.Select(p => p.ToString()) } &&
@@ -189,7 +186,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 ,
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 },
                 Size = size,
                 From = from,
@@ -259,8 +256,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
 
             // Set up the SearchRequest to send to elasticsearch.
             Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            Types types = Types.Type(new string[] { "terms" });
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query = (
                             (matchType == MatchType.Begins ?
@@ -280,7 +276,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 ,
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 },
                 Size = size,
                 From = from,
@@ -371,8 +367,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
 
             // Set up the SearchRequest to send to elasticsearch.
             Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            Types types = Types.Type(new string[] { "terms" });
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query =
                     new TermQuery { Field = "first_letter",         Value = firstCharacter.ToString() } &&
@@ -382,7 +377,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 ,
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 },
                 Size = size,
                 From = from,
