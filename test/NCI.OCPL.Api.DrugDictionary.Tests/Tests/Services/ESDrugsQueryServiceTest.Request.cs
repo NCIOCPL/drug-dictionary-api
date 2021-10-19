@@ -21,7 +21,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
     /// <summary>
     ///  Tests to verify the structure of requests to Elasticsearch.
     /// </summary>
-    public partial class ESDrugsQueryServiceTest
+    public class ESDrugsQueryServiceTest : ESDrugsQueryServiceTest_Common
     {
         public static IEnumerable<object[]> ExpandRequestScenarios = new[]
         {
@@ -248,6 +248,8 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             Assert.Equal(data.ExpectedData, requestBody, new JTokenEqualityComparer());
         }
 
+
+
         private Stream MockSingleTermResponse
         {
             get
@@ -334,22 +336,6 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         }
 
 
-        /// <summary>
-        /// Mock Elasticsearch configuraiton options.
-        /// </summary>
-        private IOptions<DrugDictionaryAPIOptions> GetMockOptions()
-        {
-            Mock<IOptions<DrugDictionaryAPIOptions>> clientOptions = new Mock<IOptions<DrugDictionaryAPIOptions>>();
-            clientOptions
-                .SetupGet(opt => opt.Value)
-                .Returns(new DrugDictionaryAPIOptions()
-                {
-                    AliasName = "drugv1"
-                }
-            );
-
-            return clientOptions.Object;
-        }
     }
 }
 

@@ -18,6 +18,21 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
     public class DrugsController : Controller
     {
         /// <summary>
+        /// Message returned when no result is found
+        /// </summary>
+        public const string NOT_FOUND_MESSAGE = "No result found.";
+
+        /// <summary>
+        /// Message returned when an invalid ID is provided.
+        /// </summary>
+        public const string INVALID_ID_MESSAGE = "Not a valid ID.";
+
+        /// <summary>
+        /// Message returned when internal errors are encountered.
+        /// </summary>
+        public const string INTERNAL_ERROR_MESSAGE = "Errors occured.";
+
+        /// <summary>
         /// The logger instance.
         /// </summary>
         private readonly ILogger _logger;
@@ -145,10 +160,23 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
         {
             if(id <= 0)
             {
-                throw new APIErrorException(400, $"Not a valid ID '{id}'.");
+                throw new APIErrorException(400, INVALID_ID_MESSAGE);
             }
 
-            DrugTerm res = await _termsQueryService.GetById(id);
+            DrugTerm res = null;
+            try
+            {
+                res = await _termsQueryService.GetById(id);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving id '{id}'.");
+                throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
+            }
+
+            if(res == null)
+                throw new APIErrorException(404,  NOT_FOUND_MESSAGE);
+
             return res;
         }
 

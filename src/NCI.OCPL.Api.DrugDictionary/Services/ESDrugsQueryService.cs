@@ -62,24 +62,14 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             catch (Exception ex)
             {
-                String msg = $"Could not retrieve term id '{id}'.";
-                _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(ex, msg);
-                throw new APIErrorException(500, msg);
+                _logger.LogError(ex, $"Could not retrieve term id '{id}'.\nError searching index: '{this._apiOptions.AliasName}'.");
+                throw;
             }
 
-            if (!response.IsValid)
+            if (!response.ApiCall.Success)
             {
-                String msg = $"Invalid response when retrieving id '{id}'.";
-                _logger.LogError(msg);
-                throw new APIErrorException(500, msg);
-            }
-
-            if (null == response.Source)
-            {
-                string msg = $"Not a valid ID '{id}'.";
-                _logger.LogDebug(msg);
-                throw new APIErrorException(404, msg);
+                _logger.LogError($"Invalid response when retrieving id '{id}' on index: '{this._apiOptions.AliasName}'.");
+                throw new APIInternalException("errors occured.");
             }
 
             return response.Source;
