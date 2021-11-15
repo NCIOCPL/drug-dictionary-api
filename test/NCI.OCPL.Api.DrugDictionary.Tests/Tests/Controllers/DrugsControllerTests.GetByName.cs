@@ -50,6 +50,62 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         }
 
         /// <summary>
+        /// Verify return of a 404 status on unknown ID.
+        /// </summary>
+        [Fact]
+        public async void GetByName_NotFound()
+        {
+            Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
+            querySvc.Setup(
+                svc => svc.GetByName(
+                    It.IsAny<string>()
+                )
+            )
+            .Returns(Task.FromResult((DrugTerm)null));
+
+            DrugsController controller = new DrugsController(NullLogger<DrugsController>.Instance, querySvc.Object);
+
+            APIErrorException ex = await Assert.ThrowsAsync<APIErrorException>(
+                () => controller.GetByName("chicken")
+            );
+            Assert.Equal(404, ex.HttpStatusCode);
+            Assert.Equal(DrugsController.NOT_FOUND_MESSAGE, ex.Message);
+        }
+
+        /// <summary>
+        /// Verify the controller gracefully handles errors in the service layer.
+        /// </summary>
+        [Theory]
+        [InlineData(typeof(APIInternalException))]
+        [InlineData(typeof(ArgumentNullException))]
+        public async void GetByName_ServiceErrors(Type exceptionType)
+        {
+            // In order to test throwing more than a single exception type, we need to to pass a type
+            // and construct it rather than throwing with a new.
+            Type[] constructorSignature = { typeof(string) };
+            System.Reflection.ConstructorInfo constructor = exceptionType.GetConstructor(constructorSignature);
+            Exception exception = (Exception)constructor.Invoke(new object[] { "An error message." });
+
+            Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
+            querySvc.Setup(
+                svc => svc.GetByName(
+                    It.IsAny<string>()
+                )
+            )
+            .Throws(exception);
+
+            DrugsController controller = new DrugsController(NullLogger<DrugsController>.Instance, querySvc.Object);
+
+            // No matter what the service throws, the controller should throw APIErrorException with a 500 status
+            APIErrorException ex = await Assert.ThrowsAsync<APIErrorException>(
+                () => controller.GetByName("chicken")
+            );
+
+            Assert.Equal(500, ex.HttpStatusCode);
+            Assert.Equal(DrugsController.INTERNAL_ERROR_MESSAGE, ex.Message);
+        }
+
+        /// <summary>
         /// Verify correct handling of a valid name.
         /// </summary>
         [Fact]

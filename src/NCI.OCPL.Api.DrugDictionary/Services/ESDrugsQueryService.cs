@@ -102,44 +102,23 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             catch (Exception ex)
             {
-                String msg = $"Could not search pretty URL name '{prettyUrlName}'.";
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(ex, msg);
-                throw new APIErrorException(500, msg);
+                _logger.LogError(ex, $"Could not search pretty URL name '{prettyUrlName}'.");
+                throw;
             }
 
             if (!response.IsValid)
             {
-                String msg = $"Invalid response when searching for pretty URL name '{prettyUrlName}'.";
-                _logger.LogError(msg);
-                _logger.LogError(response.DebugInformation);
-                throw new APIErrorException(500, "errors occured");
+                _logger.LogError($"Invalid response when searching for pretty URL name '{prettyUrlName}'.\n{response.DebugInformation}");
+                throw new APIInternalException("errors occured.");
             }
 
-            DrugTerm drugTerm;
+            DrugTerm drugTerm = null;
 
             // If there is one or more terms in the response, then the search by pretty URL name was successful.
             if (response.Total > 0)
             {
                 drugTerm = response.Documents.First();
-
-                // If there is more than one term in the response, log a warning.
-                if (response.Total > 1) {
-                    string msg = $"Multiple matches for pretty URL name '{prettyUrlName}'.";
-                    _logger.LogWarning(msg);
-                }
-            }
-            else if (response.Total == 0)
-            {
-                string msg = $"No match for pretty URL name '{prettyUrlName}'.";
-                _logger.LogDebug(msg);
-                throw new APIErrorException(404, msg);
-            }
-            else
-            {
-                string msg = $"Incorrect response when searching for pretty URL name '{prettyUrlName}'.";
-                _logger.LogError(msg);
-                throw new APIErrorException(500, "Errors have occured.");
             }
 
             return drugTerm;

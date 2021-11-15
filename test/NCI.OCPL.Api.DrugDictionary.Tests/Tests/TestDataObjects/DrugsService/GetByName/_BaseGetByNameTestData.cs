@@ -4,13 +4,13 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
     /// <summary>
     /// Base class for testing the ability of GetById to retrieve Drug Terms.
     /// </summary>
-    public abstract class BaseGetByIdTestData
+    public abstract class BaseGetByNameTestData
     {
         /// <summary>
-        /// The term's ID.
+        /// The term's pretty-url name.
         /// </summary>
 
-        public abstract int TermID { get; }
+        public abstract string PrettyUrlName { get; }
 
         /// <summary>
         /// The drug term which is expected to be retrieved.
