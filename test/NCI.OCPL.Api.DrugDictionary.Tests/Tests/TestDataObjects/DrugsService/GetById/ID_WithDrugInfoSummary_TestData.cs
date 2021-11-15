@@ -1,6 +1,6 @@
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
-    public class WithDrugInfoSummary_TestData : BaseGetByIDTestData
+    public class ID_WithDrugInfoSummary_TestData : BaseGetByIdTestData
     {
         /// <inheritdoc />
         public override int TermID => 801844;

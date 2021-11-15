@@ -191,7 +191,21 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
             if (String.IsNullOrWhiteSpace(prettyUrlName))
                 throw new APIErrorException(400, "You must specify the prettyUrlName parameter.");
 
-            return await _termsQueryService.GetByName(prettyUrlName);
+            DrugTerm result = null;
+            try
+            {
+                result = await _termsQueryService.GetByName(prettyUrlName);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving pretty url name '{prettyUrlName}'.");
+                throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
+            }
+
+            if (result == null)
+                throw new APIErrorException(404, NOT_FOUND_MESSAGE);
+
+            return result;
         }
 
         /// <summary>
