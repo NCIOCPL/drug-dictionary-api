@@ -70,7 +70,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify the controller gracefully handles errors in the service layer.
         /// </summary>
         [Theory]
-        //[InlineData(typeof(APIInternalException))]
+        [InlineData(typeof(APIInternalException))]
         [InlineData(typeof(ArgumentNullException))]
         public async void GetById_ServiceErrors(Type exceptionType)
         {
