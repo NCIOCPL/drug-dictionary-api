@@ -172,26 +172,34 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             catch (Exception ex)
             {
-                String msg = $"Could not search size '{size}', from '{from}'.";
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+
+                String msg = $"Could not search size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.";
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(msg, ex);
-                throw new APIErrorException(500, msg);
+                _logger.LogError(ex, msg);
+                throw;
             }
 
             if (!response.IsValid)
             {
-                String msg = $"Invalid response when searching for size '{size}', from '{from}'.";
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+
+                String msg = $"Invalid response when searching for size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.\nDebug info: {response.DebugInformation}";
                 _logger.LogError(msg);
-                throw new APIErrorException(500, "errors occured");
+                throw new APIInternalException("errors occured.");
             }
 
             DrugTermResults drugTermResults = new DrugTermResults();
 
             if (response.Total > 0)
             {
-                drugTermResults.Results = response.Documents.Select(res => (IDrugResource)res).ToArray();
+                drugTermResults.Results = response.Documents.ToArray();
             }
-            else if (response.Total == 0)
+            else
             {
                 // Create an empty list.
                 drugTermResults.Results = new IDrugResource[] { };
