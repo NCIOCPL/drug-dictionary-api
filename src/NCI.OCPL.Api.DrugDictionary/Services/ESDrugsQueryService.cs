@@ -272,7 +272,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             {
                 String msg = $"Could not search query '{query}', size '{size}', from '{from}'.";
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(msg, ex);
+                _logger.LogError(ex, msg);
                 throw new APIErrorException(500, msg);
             }
 
@@ -373,7 +373,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             {
                 String msg = $"Could not search character '{firstCharacter}', size '{size}', from '{from}'.";
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(msg, ex);
+                _logger.LogError(ex, msg);
                 throw new APIErrorException(500, msg);
             }
 
