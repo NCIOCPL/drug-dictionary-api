@@ -21,6 +21,11 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
     public class ESDrugsQueryService : IDrugsQueryService
     {
         /// <summary>
+        /// Internal errors message.
+        /// </summary>
+        public const string INTERNAL_ERRORS_MESSAGE = "errors occurred.";
+
+        /// <summary>
         /// The elasticsearch client
         /// </summary>
         private IElasticClient _elasticClient;
@@ -69,7 +74,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             if (!response.ApiCall.Success)
             {
                 _logger.LogError($"Invalid response when retrieving id '{id}' on index: '{this._apiOptions.AliasName}'.");
-                throw new APIInternalException("errors occured.");
+                throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
 
             return response.Source;
@@ -110,7 +115,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             if (!response.IsValid)
             {
                 _logger.LogError($"Invalid response when searching for pretty URL name '{prettyUrlName}'.\n{response.DebugInformation}");
-                throw new APIInternalException("errors occured.");
+                throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
 
             DrugTerm drugTerm = null;
@@ -190,7 +195,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
 
                 String msg = $"Invalid response when searching for size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.\nDebug info: {response.DebugInformation}";
                 _logger.LogError(msg);
-                throw new APIInternalException("errors occured.");
+                throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
 
             DrugTermResults drugTermResults = new DrugTermResults();
@@ -281,7 +286,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 String msg = $"Invalid response when searching for query '{query}', size '{size}', from '{from}'.";
                 _logger.LogError(msg);
                 _logger.LogError(response.DebugInformation);
-                throw new APIErrorException(500, "errors occured");
+                throw new APIErrorException(500, INTERNAL_ERRORS_MESSAGE);
             }
 
             DrugTermResults searchResults = new DrugTermResults();
@@ -371,33 +376,39 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             catch (Exception ex)
             {
-                String msg = $"Could not search character '{firstCharacter}', size '{size}', from '{from}'.";
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+                String msg = $"Could not search character '{firstCharacter}', size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.";
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
                 _logger.LogError(ex, msg);
-                throw new APIErrorException(500, msg);
+                throw;
             }
 
             if (!response.IsValid)
             {
-                String msg = $"Invalid response when searching for character '{firstCharacter}', size '{size}', from '{from}'.";
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+                String msg = $"Invalid response when searching for character '{firstCharacter}', size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.";
                 _logger.LogError(msg);
-                throw new APIErrorException(500, "errors occured");
+                throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
 
             DrugTermResults drugTermResults = new DrugTermResults();
 
             if (response.Total > 0)
             {
-                drugTermResults.Results = response.Documents.Select(res => (IDrugResource)res).ToArray();
+                drugTermResults.Results = response.Documents.ToArray();
             }
-            else if (response.Total == 0)
+            else
             {
-                // Add the defualt value of empty GlossaryTerm list.
-                drugTermResults.Results = new DrugTerm[] { };
+                // Return an empty array of DrugTerm.
+                drugTermResults.Results = new DrugTerm[0];
             }
 
             // Add the metadata for the returned results
-            drugTermResults.Meta = new ResultsMetadata()
+            drugTermResults.Meta = new ResultsMetadata
             {
                 TotalResults = (int)response.Total,
                 From = from
