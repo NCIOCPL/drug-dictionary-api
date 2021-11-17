@@ -56,7 +56,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             Exception ex = await Assert.ThrowsAsync<APIInternalException>(
                 () => drugClient.GetById(43234)
             );
-            Assert.Equal("errors occured.", ex.Message);
+            Assert.Equal(ESDrugsQueryService.INTERNAL_ERRORS_MESSAGE, ex.Message);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             Exception ex = await Assert.ThrowsAsync<APIInternalException>(
                 () => drugClient.GetById(43234)
             );
-            Assert.Equal("errors occured.", ex.Message);
+            Assert.Equal(ESDrugsQueryService.INTERNAL_ERRORS_MESSAGE, ex.Message);
         }
 
         [Fact]
