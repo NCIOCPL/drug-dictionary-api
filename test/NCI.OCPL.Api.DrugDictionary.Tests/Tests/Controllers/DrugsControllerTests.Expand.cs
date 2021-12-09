@@ -134,6 +134,45 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         }
 
         /// <summary>
+        /// Verify the controller gracefully handles errors in the service layer.
+        /// </summary>
+        [Theory]
+        [InlineData(typeof(APIInternalException))]
+        [InlineData(typeof(ArgumentNullException))]
+        public async void Expand_ServiceErrors(Type exceptionType)
+        {
+            // In order to test throwing more than a single exception type, we need to to pass a type
+            // and construct it rather than throwing with a new.
+            Type[] constructorSignature = { typeof(string) };
+            System.Reflection.ConstructorInfo constructor = exceptionType.GetConstructor(constructorSignature);
+            Exception exception = (Exception)constructor.Invoke(new object[] { "An error message." });
+
+            Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
+            querySvc.Setup(
+                svc => svc.Expand(
+                    It.IsAny<char>(),
+                    It.IsAny<int>(),
+                    It.IsAny<int>(),
+                    It.IsAny<DrugResourceType[]>(),
+                    It.IsAny<TermNameType[]>(),
+                    It.IsAny<TermNameType[]>()
+                )
+            )
+            .Throws(exception);
+
+            DrugsController controller = new DrugsController(NullLogger<DrugsController>.Instance, querySvc.Object);
+
+            // No matter what the service throws, the controller should throw APIErrorException with a 500 status
+            APIErrorException ex = await Assert.ThrowsAsync<APIErrorException>(
+                () => controller.Expand('b')
+            );
+
+            Assert.Equal(500, ex.HttpStatusCode);
+            Assert.Equal(DrugsController.INTERNAL_ERROR_MESSAGE, ex.Message);
+        }
+
+
+        /// <summary>
         /// Verify that Expand returns a DrugTermResults identical to the one it recieves from the service level.
         /// (This test will need to change if Expand ever gains any logic of its own.)
         /// </summary>
@@ -142,7 +181,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         {
             Mock<IDrugsQueryService> termsQueryService = new Mock<IDrugsQueryService>();
             DrugsController controller = new DrugsController(NullLogger<DrugsController>.Instance, termsQueryService.Object);
-            
+
             DrugTermResults drugTermResults = new DrugTermResults()
             {
                 Results = new DrugTerm[] {

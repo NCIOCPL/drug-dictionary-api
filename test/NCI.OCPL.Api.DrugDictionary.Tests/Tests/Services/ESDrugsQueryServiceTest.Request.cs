@@ -23,64 +23,6 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
     /// </summary>
     public class ESDrugsQueryServiceTest : ESDrugsQueryServiceTest_Common
     {
-        public static IEnumerable<object[]> ExpandRequestScenarios = new[]
-        {
-            new object[] { new ExpandSvc_Begins_MultipleResourceTypes_MultipleIncludes() },
-            new object[] { new ExpandSvc_Begins_MultipleResourceTypes_No_Include_MultipleExcludes() },
-            new object[] { new ExpandSvc_Begins_SingleResourceType_SingleInclude_SingleExclude() },
-            new object[] { new ExpandSvc_Contains_MultipleResourceTypes_MultipleIncludes() },
-            new object[] { new ExpandSvc_Contains_MultipleResourceTypes_No_Include_MultipleExcludes() },
-            new object[] { new ExpandSvc_Contains_SingleResourceType_SingleInclude_SingleExclude() }
-        };
-
-        /// <summary>
-        ///  Verify structure of the request for Expand.
-        /// </summary>
-        [Theory, MemberData(nameof(ExpandRequestScenarios))]
-        public async void Expand_TestRequestSetup(BaseExpandSvcRequestScenario data)
-        {
-            Uri esURI = null;
-            string esContentType = String.Empty;
-            HttpMethod esMethod = HttpMethod.DELETE; // Basically, something other than the expected value.
-
-            JToken requestBody = null;
-
-            ElasticsearchInterceptingConnection conn = new ElasticsearchInterceptingConnection();
-            conn.RegisterRequestHandlerForType<Nest.SearchResponse<IDrugResource>>((req, res) =>
-            {
-                // We don't really care about the response for this test.
-                res.Stream = MockEmptyResponse;
-                res.StatusCode = 200;
-
-                esURI = req.Uri;
-                esContentType = req.RequestMimeType;
-                esMethod = req.Method;
-                requestBody = conn.GetRequestPost(req);
-            });
-
-            // The URI does not matter, an InMemoryConnection never requests from the server.
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-
-            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
-            IElasticClient client = new ElasticClient(connectionSettings);
-
-            // Setup the mocked Options
-            IOptions<DrugDictionaryAPIOptions> clientOptions = GetMockOptions();
-
-            ESDrugsQueryService query = new ESDrugsQueryService(client, clientOptions, new NullLogger<ESDrugsQueryService>());
-
-            // We don't really care that this returns anything (for this test), only that the intercepting connection
-            // sets up the request correctly.
-            DrugTermResults result = await query.Expand(data.Letter, data.Size, data.From,
-                data.IncludeResourceTypes, data.IncludeNameTypes, data.ExcludeNameTypes
-                );
-
-            Assert.Equal("/drugv1/_search", esURI.AbsolutePath);
-            Assert.Equal("application/json", esContentType);
-            Assert.Equal(HttpMethod.POST, esMethod);
-            Assert.Equal(data.ExpectedData, requestBody, new JTokenEqualityComparer());
-        }
-
         public static IEnumerable<object[]> SearchRequestScenarios = new[]
         {
             new object[] { new SearchSvc_Begins_Olaparib() },
