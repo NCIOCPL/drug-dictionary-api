@@ -104,8 +104,21 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
             if (excludeNameTypes == null)
                 excludeNameTypes = new TermNameType[0];
 
-            DrugTermResults res = await _termsQueryService.Expand(character, size, from,
-                includeResourceTypes, includeNameTypes, excludeNameTypes);
+            DrugTermResults res = null;
+
+            try
+            {
+                res = await _termsQueryService.Expand(character, size, from,
+                    includeResourceTypes, includeNameTypes, excludeNameTypes);
+            }
+            catch (Exception ex)
+            {
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+                _logger.LogError(ex, $"Internal error occured expanding character: '{character}', size: '{size}', from: '{size}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.");
+                throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
+            }
 
             return res;
         }
