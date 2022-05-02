@@ -275,17 +275,16 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             catch (Exception ex)
             {
-                String msg = $"Could not search query '{query}', size '{size}', from '{from}'.";
+                _logger.LogError(ex, $"Could not search query '{query}', size '{size}', from '{from}'.");
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(ex, msg);
-                throw new APIErrorException(500, msg);
+                throw new APIErrorException(500, INTERNAL_ERRORS_MESSAGE);
             }
 
             if (!response.IsValid)
             {
-                String msg = $"Invalid response when searching for query '{query}', size '{size}', from '{from}'.";
-                _logger.LogError(msg);
+                _logger.LogError($"Invalid response when searching for query '{query}', size '{size}', from '{from}'.");
                 _logger.LogError(response.DebugInformation);
+                _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
                 throw new APIErrorException(500, INTERNAL_ERRORS_MESSAGE);
             }
 
