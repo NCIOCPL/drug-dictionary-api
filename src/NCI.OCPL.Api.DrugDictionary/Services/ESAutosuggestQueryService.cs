@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Elasticsearch.Net;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Nest;
@@ -207,5 +208,46 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             return request;
         }
 
+        /// <summary>
+        /// Checks whether the underlying data service is in a healthy condition.
+        /// </summary>
+        /// <returns>True if the data store is operational, false otherwise.</returns>
+        public async Task<bool> GetIsHealthy()
+        {
+            // Use the cluster health API to verify that the index is functioning.
+            // Maps to https://<SERVER_NAME>/_cluster/health/<INDEX_NAME>?pretty (or other server)
+            //
+            // References:
+            // https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html
+            // https://github.com/elastic/elasticsearch/blob/master/rest-api-spec/src/main/resources/rest-api-spec/api/cluster.health.json#L20
+
+            ClusterHealthResponse response;
+            try
+            {
+                Indices index = Indices.Index(new string[] { _apiOptions.AliasName });
+                response = await _elasticClient.Cluster.HealthAsync(index);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error checking ElasticSearch health for index '{_apiOptions.AliasName}'.");
+                return false;
+            }
+
+            if (!response.IsValid)
+            {
+                _logger.LogError($"Error checking ElasticSearch health for index '{_apiOptions.AliasName}'.");
+                _logger.LogError($"Returned debug info: {response.DebugInformation}.");
+                return false;
+            }
+
+            if (response.Status != Health.Green
+                && response.Status != Health.Yellow)
+            {
+                _logger.LogError($"Elasticsearch not healthy. Index status is '{response.Status}'.");
+                return false;
+            }
+
+            return true;
+        }
     }
 }
