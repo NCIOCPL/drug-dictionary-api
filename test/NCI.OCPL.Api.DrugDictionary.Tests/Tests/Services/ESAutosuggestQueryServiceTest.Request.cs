@@ -62,7 +62,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             IElasticClient client = new ElasticClient(connectionSettings);
 
             // Setup the mocked Options
-            IOptions<DrugDictionaryAPIOptions> clientOptions = GetMockOptions();
+            IOptions<DrugDictionaryAPIOptions> clientOptions = ESQueryServiceTest_Helper.MockSearchOptions;
             clientOptions.Value.Autosuggest.MaxSuggestionLength = data.MaxSuggestionLength;
 
             ESAutosuggestQueryService query = new ESAutosuggestQueryService(client, clientOptions, new NullLogger<ESAutosuggestQueryService>());
@@ -107,26 +107,5 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             }
         }
 
-
-        /// <summary>
-        /// Mock Elasticsearch configuraiton options.
-        /// </summary>
-        private IOptions<DrugDictionaryAPIOptions> GetMockOptions()
-        {
-            Mock<IOptions<DrugDictionaryAPIOptions>> clientOptions = new Mock<IOptions<DrugDictionaryAPIOptions>>();
-            clientOptions
-                .SetupGet(opt => opt.Value)
-                .Returns(new DrugDictionaryAPIOptions
-                {
-                    AliasName = "drugv1",
-                    Autosuggest = new AutosuggestOptions
-                    {
-                        MaxSuggestionLength = 30
-                    }
-                }
-            );
-
-            return clientOptions.Object;
-        }
     }
 }
