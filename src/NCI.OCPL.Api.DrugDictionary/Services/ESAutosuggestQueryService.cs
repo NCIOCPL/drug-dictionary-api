@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Elasticsearch.Net;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Nest;
@@ -64,7 +65,6 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         {
             // Set up the SearchRequest to send to elasticsearch.
             Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            Types types = Types.Type(new string[] { "terms" });
 
             ISearchResponse<Suggestion> response = null;
 
@@ -75,10 +75,10 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 {
                     default:
                     case MatchType.Begins:
-                        request = BuildBeginRequest(index, types, searchText, size, includeResourceTypes, includeNameTypes, excludeNameTypes);
+                        request = BuildBeginRequest(index, searchText, size, includeResourceTypes, includeNameTypes, excludeNameTypes);
                         break;
                     case MatchType.Contains:
-                        request = BuildContainsRequest(index, types, searchText, size, includeResourceTypes, includeNameTypes, excludeNameTypes);
+                        request = BuildContainsRequest(index, searchText, size, includeResourceTypes, includeNameTypes, excludeNameTypes);
                         break;
                 }
 
@@ -107,19 +107,18 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         /// Builds the SearchRequest for terms beginning with the search text.
         /// </summary>
         /// <param name="index">The index which will be searched against.</param>
-        /// <param name="types">The list of document types to search.</param>
         /// <param name="query">The text to search for.</param>
         /// <param name="size">The number of records to retrieve.</param>
         /// <param name="includeResourceTypes">The DrugResourceTypes to include. Default: All</param>
         /// <param name="includeNameTypes">The name types to include. Default: All</param>
         /// <param name="excludeNameTypes">The name types to exclude. Default: All</param>
-        private SearchRequest BuildBeginRequest(Indices index, Types types, string query, int size,
+        private SearchRequest BuildBeginRequest(Indices index, string query, int size,
                 DrugResourceType[] includeResourceTypes,
                     TermNameType[] includeNameTypes,
                     TermNameType[] excludeNameTypes
         )
         {
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query = new BoolQuery
                 {
@@ -137,15 +136,13 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                     {
                         new ScriptQuery
                         {
-                            Inline = $"doc['name'].value.length() <= {_apiOptions.Autosuggest.MaxSuggestionLength}",
-                            Lang = "painless"
+                            Script = new InlineScript($"doc['name'].value.length() <= {_apiOptions.Autosuggest.MaxSuggestionLength}")
                         }
                     }
-                }
-                ,
+                },
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 },
                 Source = new SourceFilter
                 {
@@ -161,19 +158,18 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         /// Builds the SearchRequest for terms containing with the search text.
         /// </summary>
         /// <param name="index">The index which will be searched against.</param>
-        /// <param name="types">The list of document types to search.</param>
         /// <param name="query">The text to search for.</param>
         /// <param name="size">The number of records to retrieve.</param>
         /// <param name="includeResourceTypes">The DrugResourceTypes to include. Default: All</param>
         /// <param name="includeNameTypes">The name types to include. Default: All</param>
         /// <param name="excludeNameTypes">The name types to exclude. Default: All</param>
-        private SearchRequest BuildContainsRequest(Indices index, Types types, string query, int size,
+        private SearchRequest BuildContainsRequest(Indices index, string query, int size,
                 DrugResourceType[] includeResourceTypes,
                     TermNameType[] includeNameTypes,
                     TermNameType[] excludeNameTypes
         )
         {
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query = new BoolQuery
                 {
@@ -193,15 +189,14 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                     {
                         new ScriptQuery
                         {
-                            Inline = $"doc['name'].value.length() <= {_apiOptions.Autosuggest.MaxSuggestionLength}",
-                            Lang = "painless"
+                            Script = new InlineScript($"doc['name'].value.length() <= {_apiOptions.Autosuggest.MaxSuggestionLength}")
                         }
                     }
                 }
                 ,
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 },
                 Source = new SourceFilter
                 {
@@ -213,5 +208,46 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             return request;
         }
 
+        /// <summary>
+        /// Checks whether the underlying data service is in a healthy condition.
+        /// </summary>
+        /// <returns>True if the data store is operational, false otherwise.</returns>
+        public async Task<bool> GetIsHealthy()
+        {
+            // Use the cluster health API to verify that the index is functioning.
+            // Maps to https://<SERVER_NAME>/_cluster/health/<INDEX_NAME>?pretty (or other server)
+            //
+            // References:
+            // https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html
+            // https://github.com/elastic/elasticsearch/blob/master/rest-api-spec/src/main/resources/rest-api-spec/api/cluster.health.json#L20
+
+            ClusterHealthResponse response;
+            try
+            {
+                Indices index = Indices.Index(new string[] { _apiOptions.AliasName });
+                response = await _elasticClient.Cluster.HealthAsync(index);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error checking ElasticSearch health for index '{_apiOptions.AliasName}'.");
+                return false;
+            }
+
+            if (!response.IsValid)
+            {
+                _logger.LogError($"Error checking ElasticSearch health for index '{_apiOptions.AliasName}'.");
+                _logger.LogError($"Returned debug info: {response.DebugInformation}.");
+                return false;
+            }
+
+            if (response.Status != Health.Green
+                && response.Status != Health.Yellow)
+            {
+                _logger.LogError($"Elasticsearch not healthy. Index status is '{response.Status}'.");
+                return false;
+            }
+
+            return true;
+        }
     }
 }

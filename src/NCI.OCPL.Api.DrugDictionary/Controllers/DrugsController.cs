@@ -18,6 +18,32 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
     public class DrugsController : Controller
     {
         /// <summary>
+        /// Message returned when no result is found
+        /// </summary>
+        public const string NOT_FOUND_MESSAGE = "No result found.";
+
+        /// <summary>
+        /// Message returned when an invalid ID is provided.
+        /// </summary>
+        public const string INVALID_ID_MESSAGE = "Not a valid ID.";
+
+        /// <summary>
+        /// Message returned when internal errors are encountered.
+        /// </summary>
+        public const string INTERNAL_ERROR_MESSAGE = "Errors occured.";
+
+        /// <summary>
+        /// Message to return for a "healthy" status.
+        /// </summary>
+        public const string HEALTHY_STATUS = "alive!";
+
+        /// <summary>
+        /// Message to return for an "unhealthy" status.
+        /// </summary>
+        public const string UNHEALTHY_STATUS = "Service not healthy.";
+
+
+        /// <summary>
         /// The logger instance.
         /// </summary>
         private readonly ILogger _logger;
@@ -89,8 +115,21 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
             if (excludeNameTypes == null)
                 excludeNameTypes = new TermNameType[0];
 
-            DrugTermResults res = await _termsQueryService.Expand(character, size, from,
-                includeResourceTypes, includeNameTypes, excludeNameTypes);
+            DrugTermResults res = null;
+
+            try
+            {
+                res = await _termsQueryService.Expand(character, size, from,
+                    includeResourceTypes, includeNameTypes, excludeNameTypes);
+            }
+            catch (Exception ex)
+            {
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+                _logger.LogError(ex, $"Internal error occured expanding character: '{character}', size: '{size}', from: '{size}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.");
+                throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
+            }
 
             return res;
         }
@@ -130,8 +169,20 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
             if (excludeNameTypes == null)
                 excludeNameTypes = new TermNameType[0];
 
-            DrugTermResults res = await _termsQueryService.GetAll(size, from,
-                includeResourceTypes, includeNameTypes, excludeNameTypes);
+            DrugTermResults res = null;
+            try
+            {
+                res = await _termsQueryService.GetAll(size, from,
+                    includeResourceTypes, includeNameTypes, excludeNameTypes);
+            }
+            catch (Exception ex)
+            {
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+                _logger.LogError(ex, $"Error calling _termsQueryService.GetAll with size: '{size}', from: '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.");
+                throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
+            }
 
             return res;
         }
@@ -145,10 +196,23 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
         {
             if(id <= 0)
             {
-                throw new APIErrorException(400, $"Not a valid ID '{id}'.");
+                throw new APIErrorException(400, INVALID_ID_MESSAGE);
             }
 
-            DrugTerm res = await _termsQueryService.GetById(id);
+            DrugTerm res = null;
+            try
+            {
+                res = await _termsQueryService.GetById(id);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving id '{id}'.");
+                throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
+            }
+
+            if(res == null)
+                throw new APIErrorException(404,  NOT_FOUND_MESSAGE);
+
             return res;
         }
 
@@ -163,7 +227,21 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
             if (String.IsNullOrWhiteSpace(prettyUrlName))
                 throw new APIErrorException(400, "You must specify the prettyUrlName parameter.");
 
-            return await _termsQueryService.GetByName(prettyUrlName);
+            DrugTerm result = null;
+            try
+            {
+                result = await _termsQueryService.GetByName(prettyUrlName);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving pretty url name '{prettyUrlName}'.");
+                throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
+            }
+
+            if (result == null)
+                throw new APIErrorException(404, NOT_FOUND_MESSAGE);
+
+            return result;
         }
 
         /// <summary>
@@ -197,6 +275,32 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
 
             DrugTermResults res = await _termsQueryService.Search(query, matchType, size, from);
             return res;
+        }
+
+        /// <summary>
+        /// Provides a simple report of system status, suitable for monitoring.
+        /// </summary>
+        /// <returns>If the system is healthy, returns an HTTP status 200 with the string "alive!".
+        /// Otherwise, an HTTP status 500 with the message "Service not healthy."</returns>
+        [HttpGet("status")]
+        public async Task<ActionResult<string>> GetStatus()
+        {
+            bool isHealthy = true;
+
+            try
+            {
+                isHealthy = await _termsQueryService.GetIsHealthy();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error checking health.");
+                isHealthy = false;
+            }
+
+            if(isHealthy)
+                return HEALTHY_STATUS;
+            else
+                return StatusCode(500, UNHEALTHY_STATUS);
         }
 
     }

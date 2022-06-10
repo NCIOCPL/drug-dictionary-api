@@ -20,6 +20,16 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
     public class AutosuggestController : Controller
     {
         /// <summary>
+        /// Message to return for a "healthy" status.
+        /// </summary>
+        public const string HEALTHY_STATUS = "alive!";
+
+        /// <summary>
+        /// Message to return for an "unhealthy" status.
+        /// </summary>
+        public const string UNHEALTHY_STATUS = "Service not healthy.";
+
+        /// <summary>
         /// Logger.
         /// </summary>
         private readonly ILogger _logger;
@@ -91,6 +101,32 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
                 excludeNameTypes = new TermNameType[0];
 
             return await _autosuggestQueryService.GetSuggestions(searchText, matchType, size, includeResourceTypes, includeNameTypes, excludeNameTypes);
+        }
+
+        /// <summary>
+        /// Provides a simple report of system status, suitable for monitoring.
+        /// </summary>
+        /// <returns>If the system is healthy, returns an HTTP status 200 with the string "alive!".
+        /// Otherwise, an HTTP status 500 with the message "Service not healthy."</returns>
+        [HttpGet("status")]
+        public async Task<ActionResult<string>> GetStatus()
+        {
+            bool isHealthy = true;
+
+            try
+            {
+                isHealthy = await _autosuggestQueryService.GetIsHealthy();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error checking health.");
+                isHealthy = false;
+            }
+
+            if (isHealthy)
+                return HEALTHY_STATUS;
+            else
+                return StatusCode(500, UNHEALTHY_STATUS);
         }
     }
 }

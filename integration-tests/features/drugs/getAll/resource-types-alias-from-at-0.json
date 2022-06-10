@@ -1,0 +1,909 @@
+{
+    "meta": {
+        "totalResults": 10000,
+        "from": 0
+    },
+    "results": [
+        {
+            "preferredName": "baloxavir marboxil",
+            "termId": 800205,
+            "name": "(((12aR)-12-((11S)-7,8-difluoro-6,11-dihydrodibenzo(b,E)thiepin-11-yl)-6,8-dioxo-3,4,6,8,12,12ahexahydro-1H-(1,4)oxazino(3,4-C)pyrido(2,1-F)(1,2,4)triazin-7-yl)oxy)methyl methyl carbonate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "baloxavir-marboxil"
+        },
+        {
+            "preferredName": "roxadustat",
+            "termId": 791414,
+            "name": "(((4-hydroxy-1-methyl-7-phenoxyisoquinolin-3-yl)carbonyl)amino)acetic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "roxadustat"
+        },
+        {
+            "preferredName": "polyamine analogue PG11047",
+            "termId": 467739,
+            "name": "((1)N,(12)N)bis(ethyl)-6,7-dehydrospermine",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "polyamine-analogue-pg11047"
+        },
+        {
+            "preferredName": "pevonedistat",
+            "termId": 596795,
+            "name": "((1S,2S,4R)-4-(4-((1S)-2,3-Dihydro-1H-inden-1-ylamino)-7H-pyrrolo(2,3-d)pyrimidin-7-yl)-2-hydroxycyclopentyl)methyl sulphamate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "pevonedistat"
+        },
+        {
+            "preferredName": "technetium Tc 99m-3PRGD2",
+            "termId": 743647,
+            "name": "((99m)Tc-3PRGD2)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "technetium-tc-99m-3prgd2"
+        },
+        {
+            "preferredName": "brepocitinib",
+            "termId": 798452,
+            "name": "((S)-2,2-difluorocyclopropyl)((1 R,5 S)-3-(2-((1-methyl-1 H-pyrazol-4-yl)amino)pyrimidin-4-yl)-3,8-diazabicyclo[3.2.1]octan-8-yl)methanone",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "brepocitinib"
+        },
+        {
+            "preferredName": "iodine I 131 MIP-1095",
+            "termId": 786538,
+            "name": "((S)-2-(3-((S)-1-carboxy-5-(3-(4-[(131)I]iodophenyl)ureido)pentyl)ureido)pentanedioic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "iodine-i-131-mip-1095"
+        },
+        {
+            "preferredName": "lenapenem",
+            "termId": 761707,
+            "name": "(+)-(4R,5S,6S)-6-((R)-1-hydroxyethyl)-3-(((3S,5S)-5-((R)-1-hydroxy-3-(methylamino)propyl)-3-pyrrolidinyl)thio)-4-methyl-7-oxo-1-azabicyclo(3.2.0)hept-2-ene-2-carboxylic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "lenapenem"
+        },
+        {
+            "preferredName": "irinotecan hydrochloride",
+            "termId": 41714,
+            "name": "(+)-(4S)-4,11-diethyl-4-hydroxy-9-[(4-piperidino-piperidino)carbonyloxy]-1H-pyrano[3',4':6,7]indolizino[1,2-b]quinol-3,14,(4H,12H)-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "irinotecan-hydrochloride"
+        },
+        {
+            "preferredName": "amrubicin hydrochloride",
+            "termId": 443682,
+            "name": "(+)-(7S,9S)-9-acetyl-9-amino-7-[(2-deoxy-β-D-erythro-pentopyranosyl)oxy]- 6,11-dihydroxy-7,8,9,10-tetrahydrotetracene-5,12-dione hydrochloride",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "amrubicin-hydrochloride"
+        },
+        {
+            "preferredName": "carbon C 13/nitrogen N 15-labeled valine",
+            "termId": 767080,
+            "name": "(+)-2-amino-3-methylbutyric Acid-13C5,15N (SY); L-valine-13C5,15N (SY); L-2-amino-3-methylbutanoic acid-13C5,15N",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "carbon-c-13-nitrogen-n-15-labeled-valine"
+        },
+        {
+            "preferredName": "bardoxolone",
+            "termId": 453589,
+            "name": "(+)-2-cyano-3,12-dioxooleana-1,9(11)-dien-28-oic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "bardoxolone"
+        },
+        {
+            "preferredName": "repaglinide",
+            "termId": 775334,
+            "name": "(+)-2-ethoxy-alpha-(((S)-alpha-isobutyl-o-piperidinobenzyl)carbamoyl)-p-toluic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "repaglinide"
+        },
+        {
+            "preferredName": "D-cycloserine",
+            "termId": 469006,
+            "name": "(+)-4-Amino-3-isoxazolidinone",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "cycloserine"
+        },
+        {
+            "preferredName": "tipifarnib",
+            "termId": 42626,
+            "name": "(+)-6-[amino(4-chlorophenyl)(1-methyl-1H-imidazol-5-yl)methyl]-4-(3-chlorophenyl)-1-methyl-2(1H)-quinolinone",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "tipifarnib"
+        },
+        {
+            "preferredName": "irinotecan hydrochloride",
+            "termId": 41714,
+            "name": "(+)-7-ethyl-10-hydroxycamptothecine 10-[1,4'-bipiperidine]-1'-carboxylate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "irinotecan-hydrochloride"
+        },
+        {
+            "preferredName": "atrasentan hydrochloride",
+            "termId": 38333,
+            "name": "(+)-A 127722",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CodeName",
+            "prettyUrlName": "atrasentan-hydrochloride"
+        },
+        {
+            "preferredName": "dextroamphetamine sulfate",
+            "termId": 769252,
+            "name": "(+)-alpha-methylphenethylamine sulphate (2:1)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "dextroamphetamine-sulfate"
+        },
+        {
+            "preferredName": "bupropion hydrochloride",
+            "termId": 38567,
+            "name": "(+-)-1-(3-chlorophenyl)-2-[(1,1-dimethylethyl)amino]-1-propanone hydrochloride",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "bupropion-hydrochloride"
+        },
+        {
+            "preferredName": "liarozole fumarate",
+            "termId": 41252,
+            "name": "(+-)-5-(m-chloro-alpha-imidazol-1-ylbenzyl)benzimidazole fumarate (2:3)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "liarozole-fumarate"
+        },
+        {
+            "preferredName": "zileuton",
+            "termId": 285649,
+            "name": "(+-)-N-Hydroxy-N-(1-benzo[b]thien-2-ylethyl)-urea",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "zileuton"
+        },
+        {
+            "preferredName": "tranylcypromine sulfate",
+            "termId": 765903,
+            "name": "(+-)-trans-2-phenylcyclopropylamine sulfate (2:1)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "tranylcypromine-sulfate"
+        },
+        {
+            "preferredName": "zopiclone",
+            "termId": 784213,
+            "name": "(+-)-zopiclone",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "zopiclone"
+        },
+        {
+            "preferredName": "norgestrel",
+            "termId": 39310,
+            "name": "(+/-)-13-ethyl-17alpha-hydroxy-18,19-dinorpregn-4-en-20-yne-3-one",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "norgestrel"
+        },
+        {
+            "preferredName": "rosiglitazone maleate",
+            "termId": 37793,
+            "name": "(+/-)-5-[[4-[2-(Methyl-2-pyridinylamino)ethoxy]phenyl]methyl]-2,4-thiazolidinedione, ( Z )-2-Butenedioate (1:1)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "rosiglitazone-maleate"
+        },
+        {
+            "preferredName": "bicalutamide",
+            "termId": 41298,
+            "name": "(+/-)-N-[4-cyano-3-(trifluoromethyl)phenyl]-3-[(4-fluorophenyl)sulfonyl]-2-hydroxy-2-methylpropanamide",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "bicalutamide"
+        },
+        {
+            "preferredName": "sulforaphane",
+            "termId": 691987,
+            "name": "(+/-)-sulforaphane",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "sulforaphane"
+        },
+        {
+            "preferredName": "levamisole hydrochloride",
+            "termId": 39058,
+            "name": "(-)-( S)-2,3,5, 6-tetrahydro-6-phenylimidazo [2,1-b] thiazole monohydrochloride",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "levamisole-hydrochloride"
+        },
+        {
+            "preferredName": "levoketoconazole",
+            "termId": 791452,
+            "name": "(-)-(2S,4R)-ketoconazole",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "levoketoconazole"
+        },
+        {
+            "preferredName": "timolol maleate gel forming solution",
+            "termId": 693407,
+            "name": "(-)-1-(tert-butylamino)-3-[(4-morpholino-1,2,5-thiadiazol-3-yl)oxy]-2-propanol maleate (1:1) (salt)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "timolol-maleate-gel-forming-solution"
+        },
+        {
+            "preferredName": "emtricitabine",
+            "termId": 540668,
+            "name": "(-)-2'-deoxy-5-fluoro-3'-thiacytidine",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "emtricitabine"
+        },
+        {
+            "preferredName": "alvocidib",
+            "termId": 42068,
+            "name": "(-)-2-(2-chlorophenyl)-5,7-dihydroxy-8-[(3R,4S)-3-hydroxy-1-methyl-4-piperidinyl]-4H-1-benzopyran-4-one hydrochloride",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "alvocidib-hydrochloride"
+        },
+        {
+            "preferredName": "armodafinil",
+            "termId": 617902,
+            "name": "(–)-2-[(R)-(diphenylmethyl)sulfinyl]acetamide",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "armodafinil"
+        },
+        {
+            "preferredName": "cyclophosphamide",
+            "termId": 39748,
+            "name": "(-)-cyclophosphamide",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "cyclophosphamide"
+        },
+        {
+            "preferredName": "epigallocatechin gallate",
+            "termId": 757137,
+            "name": "(-)-epigallocatechin-3-gallate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "epigallocatechin-gallate"
+        },
+        {
+            "preferredName": "patupilone",
+            "termId": 38702,
+            "name": "(-)-Epothilone B",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "patupilone"
+        },
+        {
+            "preferredName": "atomoxetine hydrochloride",
+            "termId": 475797,
+            "name": "(-)-N -methyl-3-phenyl-3-(o-tolyloxy)-propylamine hydrochloride",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "atomoxetine-hydrochloride"
+        },
+        {
+            "preferredName": "atomoxetine hydrochloride",
+            "termId": 475797,
+            "name": "(-)-N-methyl-gamma(2-methylphenoxy)benzenepropamine Hydrochloride",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "atomoxetine-hydrochloride"
+        },
+        {
+            "preferredName": "levodopa",
+            "termId": 42622,
+            "name": "(--)-2amino-3-)3,4-dihydroxyphenyl)propanoic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "levodopa"
+        },
+        {
+            "preferredName": "levodopa",
+            "termId": 42622,
+            "name": "(--)-3-(3,4-dihydroxyphenyl)-L-alanine",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "levodopa"
+        },
+        {
+            "preferredName": "diflunisal",
+            "termId": 691337,
+            "name": "(1,1'-biphenyl)-3-carboxylic acid, 2',4'-difluoro-4-hydroxy-",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "diflunisal"
+        },
+        {
+            "preferredName": "piritramide",
+            "termId": 767333,
+            "name": "(1,4'-bipiperidine)-4'-carboxamide, 1'-(3-cyano-3,3-diphenylpropyl)-",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "piritramide"
+        },
+        {
+            "preferredName": "alprostadil",
+            "termId": 360459,
+            "name": "(11alpha,13E,15S)-11,15-dihydroxy-9-oxoprost-13-en-1-oic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "alprostadil"
+        },
+        {
+            "preferredName": "DNA minor groove binding agent SG2000",
+            "termId": 415963,
+            "name": "(11aS,11a'S)-8,8'-(propane-1,3-diylbis(oxy))bis(7-methoxy-2-methylene-2,3-dihydro-1H-benzo[e]pyrrolo[1,2-a][1,4]diazepin-5(11aH)-one)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "dna-minor-groove-binding-agent-sg2000"
+        },
+        {
+            "preferredName": "therapeutic hydrocortisone",
+            "termId": 39274,
+            "name": "(11beta)-11,17,21-Trihydroxypregn-4-ene-3,20-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "therapeutic-hydrocortisone"
+        },
+        {
+            "preferredName": "prednisolone",
+            "termId": 43296,
+            "name": "(11beta)-11,17,21-trihydroxypregna-1,4-diene-3,20-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "prednisolone"
+        },
+        {
+            "preferredName": "hydrocortisone sodium succinate",
+            "termId": 39861,
+            "name": "(11beta)-21-(3-carboxy-1-oxopropyl)-11,17-dihydroxypregn-4-ene-3,20-dione, monosodium salt",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "hydrocortisone-sodium-succinate"
+        },
+        {
+            "preferredName": "mometasone furoate",
+            "termId": 531049,
+            "name": "(11beta,16alpha)-9,21-Dichloro-17-[(2-furanylcarbonyl)oxy]-11-hydroxy-16-methylpregna-1,4-diene-3,20-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "mometasone-furoate"
+        },
+        {
+            "preferredName": "triamcinolone",
+            "termId": 39275,
+            "name": "(11beta,16alpha)-9-fluoro-11,16,17,21-tetrahydroxypregna-1,4-diene-3,20-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "triamcinolone"
+        },
+        {
+            "preferredName": "dexamethasone",
+            "termId": 39789,
+            "name": "(11beta,16alpha)-9-fluoro-11,17,21-trihydroxy-16-methylpregna-1,4-diene-3,20-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "dexamethasone"
+        },
+        {
+            "preferredName": "beclomethasone dipropionate",
+            "termId": 39272,
+            "name": "(11beta,16beta)-9-chloro-11-hydroxy-16-methyl-17,21-bis(1-oxopropoxy)pregna-1,4-diene-3,20-dione dipropionate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "beclomethasone-dipropionate"
+        },
+        {
+            "preferredName": "fluoxymesterone",
+            "termId": 494707,
+            "name": "(11Beta,17beta)-9-fluoro-11,17-dihydroxy-17-methylandrost-4-en-3-one",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "fluoxymesterone"
+        },
+        {
+            "preferredName": "carbon C 11 N-desmethyl-loperamide",
+            "termId": 694530,
+            "name": "(11C)dLop",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Abbreviation",
+            "prettyUrlName": "carbon-c-11-n-desmethyl-loperamide"
+        },
+        {
+            "preferredName": "carbon C 11 N-desmethyl-loperamide",
+            "termId": 694530,
+            "name": "(11C)N-desmethyl-loperamide",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "carbon-c-11-n-desmethyl-loperamide"
+        },
+        {
+            "preferredName": "carbon C 11 PBR-28",
+            "termId": 772310,
+            "name": "(11C)PBR-28",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "carbon-c-11-pbr-28"
+        },
+        {
+            "preferredName": "iodine I 131 MIP-1095",
+            "termId": 786538,
+            "name": "(131) I-MIP-1095",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "iodine-i-131-mip-1095"
+        },
+        {
+            "preferredName": "licartin",
+            "termId": 744892,
+            "name": "(131)I-labeled HAb18 F(ab')(2)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "licartin"
+        },
+        {
+            "preferredName": "iobenguane I 131",
+            "termId": 38020,
+            "name": "(131)I-MIBG",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "iobenguane-i-131"
+        },
+        {
+            "preferredName": "iodine I 131 rituximab",
+            "termId": 739942,
+            "name": "(131)I-rituximab",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "iodine-i-131-rituximab"
+        },
+        {
+            "preferredName": "sodium iodide I-131",
+            "termId": 721984,
+            "name": "(131-I)sodium iodide",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "sodium-iodide-i-131"
+        },
+        {
+            "preferredName": "iodine I 131 anti-fibronectin antibody fragment L19-SIP",
+            "termId": 674133,
+            "name": "(131I) antibody L19-SIP",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "LexicalVariant",
+            "prettyUrlName": "iodine-i-131-anti-fibronectin-antibody-fragment-l19-sip"
+        },
+        {
+            "preferredName": "iodine I 131 anti-fibronectin antibody fragment L19-SIP",
+            "termId": 674133,
+            "name": "(131I) antibody L19SIP",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "LexicalVariant",
+            "prettyUrlName": "iodine-i-131-anti-fibronectin-antibody-fragment-l19-sip"
+        },
+        {
+            "preferredName": "iodine I 131 monoclonal antibody F16SIP",
+            "termId": 689747,
+            "name": "(131I) monoclonal antibody F16SIP",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "iodine-i-131-monoclonal-antibody-f16sip"
+        },
+        {
+            "preferredName": "TRK inhibitor LOXO-195",
+            "termId": 790661,
+            "name": "(13E,14E,22R,6R)-35-fluoro-6-methyl-7-aza-1(5,3)-pyrazolo[1,5-a]pyrimidina-3(3,2)-pyridina-2(1,2)-pyrrolidinacyclooctaphan-8-one",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "selitrectinib"
+        },
+        {
+            "preferredName": "norgestrel",
+            "termId": 39310,
+            "name": "(17alpha)-13-ethyl-17-hydroxy-18,19-dinorpregn-4-en-20-yn-3-one",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "norgestrel"
+        },
+        {
+            "preferredName": "levonorgestrel",
+            "termId": 534399,
+            "name": "(17Alpha)-13-ethyl-17-hydroxy-18,19-dinorpregn-4-en-20-yn-3-one",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "levonorgestrel"
+        },
+        {
+            "preferredName": "ethinyl estradiol",
+            "termId": 39238,
+            "name": "(17alpha)-19-norpregna-1,3,5(10)-trien-20-yne-3,17-diol",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "ethinyl-estradiol"
+        },
+        {
+            "preferredName": "danazol",
+            "termId": 39204,
+            "name": "(17alpha)-pregna-2,4-dien-20-yno[2,3-d]-isoxazol-17-ol",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "danazol"
+        },
+        {
+            "preferredName": "therapeutic testosterone",
+            "termId": 42926,
+            "name": "(17beta)-17-hydroxyandrost-4-en-3-one",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "therapeutic-testosterone"
+        },
+        {
+            "preferredName": "2-methoxyestradiol",
+            "termId": 38472,
+            "name": "(17beta)-2-Methoxyestra-1,3,5(10)-triene-3,17-diol",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "2-methoxyestradiol"
+        },
+        {
+            "preferredName": "therapeutic estradiol",
+            "termId": 39236,
+            "name": "(17beta)-estra-1,3,5(10)-triene-3,17-diol",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "therapeutic-estradiol"
+        },
+        {
+            "preferredName": "fluorine F 18-alfatide II",
+            "termId": 772164,
+            "name": "(18)F-AlF-NOTA-E[PEG4-c(RGDfk)]2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "fluorine-f-18-alfatide-ii"
+        },
+        {
+            "preferredName": "18-F-fluoroacetate",
+            "termId": 698007,
+            "name": "(18)F-FAC",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Abbreviation",
+            "prettyUrlName": "18-f-fluoroacetate"
+        },
+        {
+            "preferredName": "18F-labeled mini-PEG spacered RGD dimer",
+            "termId": 703211,
+            "name": "(18)F-FB-mini-PEG-E[c(RGDyK)](2)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Abbreviation",
+            "prettyUrlName": "18f-labeled-mini-peg-spacered-rgd-dimer"
+        },
+        {
+            "preferredName": "fluorine F 18 fluorobenzyl triphenyl phosphonium",
+            "termId": 763663,
+            "name": "(18)F-FBnTP",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Abbreviation",
+            "prettyUrlName": "fluorine-f-18-fluorobenzyl-triphenyl-phosphonium"
+        },
+        {
+            "preferredName": "fluorine F 18 FDHT",
+            "termId": 755182,
+            "name": "(18)F-FDHT",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Abbreviation",
+            "prettyUrlName": "fluorine-f-18-fdht"
+        },
+        {
+            "preferredName": "fluorine F 18 fluorodopa",
+            "termId": 681644,
+            "name": "(18)F-FDOPA",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Abbreviation",
+            "prettyUrlName": "fluorodopa-f-18"
+        },
+        {
+            "preferredName": "fluorine F 18 NOS",
+            "termId": 800445,
+            "name": "(18)F-NOS",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "fluorine-f-18-nos"
+        },
+        {
+            "preferredName": "liposomal rhenium Re 186",
+            "termId": 751420,
+            "name": "(186)Re-liposomes",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "liposomal-rhenium-re-186"
+        },
+        {
+            "preferredName": "rhenium Re 188 BMEDA-liposome",
+            "termId": 765863,
+            "name": "(188) Re-BMEDA-liposomes",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "rhenium-re-188-bmeda-labeled-liposomes"
+        },
+        {
+            "preferredName": "rhenium Re 188 ethiodized oil",
+            "termId": 674326,
+            "name": "(188Re) ethiodized oil",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "LexicalVariant",
+            "prettyUrlName": "rhenium-re-188-ethiodized-oil"
+        },
+        {
+            "preferredName": "rhenium Re 188 ethiodized oil",
+            "termId": 674326,
+            "name": "(188Re) SSS lipiodol",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "LexicalVariant",
+            "prettyUrlName": "rhenium-re-188-ethiodized-oil"
+        },
+        {
+            "preferredName": "calcitriol",
+            "termId": 41919,
+            "name": "(1alpha,3beta,5Z,7E)-9,10-secocholesta-5,7,10(19)-triene-1,3,25-triol",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "calcitriol"
+        },
+        {
+            "preferredName": "doxercalciferol",
+            "termId": 38406,
+            "name": "(1alpha,3beta,5Z,7E,22E)-9,10-Secoergosta-5,7,10(19),22-tetraene-1,3-diol",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "doxercalciferol"
+        },
+        {
+            "preferredName": "mitomycin",
+            "termId": 42674,
+            "name": "(1aS,8S,8aR,8bS)]-6-Amino-8-[[(aminocarbonyl)oxy]methyl]-1,1a,2,8,8a,8b-hexahydro-8a-methoxy-5-methylazirino[2',3':3,4]pyrrolo[1,2-a]indole-4,7-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "mitomycin"
+        },
+        {
+            "preferredName": "cisatracurium besylate",
+            "termId": 721951,
+            "name": "(1R,2R)-2-(2-carboxyethyl)-1,2,3,4-tetrahydro-6,7-dimethoxy-2-methyl-1-veratrylisoquinolinium benzenesulfonate, pentamethylene ester",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "cisatracurium-besylate"
+        },
+        {
+            "preferredName": "fosfomycin tromethamine",
+            "termId": 752157,
+            "name": "(1R,2S)-(1,2-epoxypropyl)phosphonic acid, compound with 2-amino-2-(hydroxymethyl)-1,3-propanediol(1:1)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "fosfomycin-tromethamine"
+        },
+        {
+            "preferredName": "ixabepilone",
+            "termId": 37860,
+            "name": "(1S,3S,7S,10R,11S,12S,16R)-7,11-Dihydroxy-8,8,10,12,16-pentamethyl-3-[(1E)-1-methyl-2-(2-methyl-4-thiazolyl)ethenyl]-17-oxa-4-azabicyclo[14.1.0]heptadecane-5,9-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "ixabepilone"
+        },
+        {
+            "preferredName": "patupilone",
+            "termId": 38702,
+            "name": "(1S,3S,7S,10R,11S,12S,16R)-7,11-Dihydroxy-8,8,10,12,16-pentamethyl-3-[(1E)-1-methyl-2-(2-methyl-4-thiazolyl)ethenyl]-4,17-dioxabicyclo[14.1.0]heptadecane-5,9-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "patupilone"
+        },
+        {
+            "preferredName": "sagopilone",
+            "termId": 615854,
+            "name": "(1S,3S,7S,10R,11S,12S,16R)-7,11-dihydroxy-8,8,12,16-tetramethyl-3-(2-methyl-1,3-benzothiazol-5-yl)-10-(prop-2-enyl)-4,17-dioxabicyclo(14.1.0)heptadecane-5,9-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "sagopilone"
+        },
+        {
+            "preferredName": "pirarubicin",
+            "termId": 38775,
+            "name": "(2\"R)-4'-O-Tetrahydropyranyladriamycin",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "pirarubicin"
+        },
+        {
+            "preferredName": "Cxcr1/2 inhibitor SX-682",
+            "termId": 792795,
+            "name": "(2-(((5-((4-fluorophenyl)carbamoyl)pyrimidin-2-yl)thio)methyl)-4-(trifluoromethoxy)phenyl)boronic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "cxcr1-2-inhibitor-sx-682"
+        },
+        {
+            "preferredName": "phenethyl isothiocyanate",
+            "termId": 37977,
+            "name": "(2-Isothiocyanatoethyl)benzene",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "phenethyl-isothiocyanate"
+        },
+        {
+            "preferredName": "trodusquemine",
+            "termId": 775873,
+            "name": "(24R)-3beta-((3-((4-((3-aminopropyl)amino)butyl)amino)propyl)amino)-7alpha-hydroxy-5alpha-cholestan-24-yl hydrogen sulfate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "trodusquemine"
+        },
+        {
+            "preferredName": "afatinib dimaleate",
+            "termId": 537572,
+            "name": "(2E)-N-(4-((3-chloro-4-fluorophenyl)amino)-7-(((3S)-tetrahydrofuran-3-yl)oxy)quinazolin- 6-yl)-4-(dimethylamino)but-2-enamide bis(hydrogen (2Z)-but-2-enedioate)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "afatinib-dimaleate"
+        },
+        {
+            "preferredName": "dacomitinib",
+            "termId": 462567,
+            "name": "(2E)-N-(4-((3-chloro-4-fluorophenyl)Amino)-7-methoxyquinazolin-6-yl)-4-piperidin-1-ylbut-2-enamide",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "dacomitinib"
+        },
+        {
+            "preferredName": "peretinoin",
+            "termId": 737371,
+            "name": "(2E,4e,6E,10e)-3,7,11,15-tetramethylhexadeca-2,4,6,10,14-pentaenoic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "peretinoin"
+        },
+        {
+            "preferredName": "trichostatin A",
+            "termId": 801296,
+            "name": "(2E,4E,6R)-7-[4-(dimethylamino)phenyl]-N-hydroxy-4,6-dimethyl-7-oxo-2,4-heptadienamide",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "trichostatin-a"
+        },
+        {
+            "preferredName": "miridesap",
+            "termId": 794046,
+            "name": "(2R)-1-[6-[(2R)-2-carboxypyrrolidin-1-yl]-6-oxohexanoyl]pyrrolidine-2-carboxylic acid",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "miridesap"
+        },
+        {
+            "preferredName": "eribulin mesylate",
+            "termId": 257773,
+            "name": "(2R,3R,3aS,7R,8aS,9S,10aR,11S,12R,13aR,13bS,15S,18S,21S,24S,26R,28R,29aS)-2- [(2S)-3-amino-2-hydroxypropyl]-3-methoxy-26-methyl-20,27-dimethylidenehexacosahydro- 11,15:18,21:24,28-triepoxy-7,9-ethano-12,15-methano-9H,15H-furo[3,2- i]furo[2',3':5,6]pyrano[4,3-b][1,4]dioxacyclopentacosin-5(4H)-one methanesulfonate (salt)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "eribulin-mesylate"
+        }
+    ],
+    "links": null
+}

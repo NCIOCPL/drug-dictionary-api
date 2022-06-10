@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
+using Elasticsearch.Net;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Nest;
@@ -20,6 +21,11 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
     /// </summary>
     public class ESDrugsQueryService : IDrugsQueryService
     {
+        /// <summary>
+        /// Internal errors message.
+        /// </summary>
+        public const string INTERNAL_ERRORS_MESSAGE = "errors occurred.";
+
         /// <summary>
         /// The elasticsearch client
         /// </summary>
@@ -58,29 +64,18 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             try
             {
                 response = await _elasticClient.GetAsync<DrugTerm>(new DocumentPath<DrugTerm>(id),
-                        g => g.Index(this._apiOptions.AliasName).Type("terms"));
-
+                        g => g.Index(this._apiOptions.AliasName));
             }
             catch (Exception ex)
             {
-                String msg = $"Could not retrieve term id '{id}'.";
-                _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(ex, msg);
-                throw new APIErrorException(500, msg);
+                _logger.LogError(ex, $"Could not retrieve term id '{id}'.\nError searching index: '{this._apiOptions.AliasName}'.");
+                throw;
             }
 
-            if (!response.IsValid)
+            if (!response.ApiCall.Success)
             {
-                String msg = $"Invalid response when retrieving id '{id}'.";
-                _logger.LogError(msg);
-                throw new APIErrorException(500, msg);
-            }
-
-            if (null == response.Source)
-            {
-                string msg = $"Not a valid ID '{id}'.";
-                _logger.LogDebug(msg);
-                throw new APIErrorException(404, msg);
+                _logger.LogError($"Invalid response when retrieving id '{id}' on index: '{this._apiOptions.AliasName}'.");
+                throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
 
             return response.Source;
@@ -95,15 +90,14 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         {
             // Set up the SearchRequest to send to elasticsearch.
             Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            Types types = Types.Type(new string[] { "terms" });
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query = new TermQuery { Field = "pretty_url_name",  Value = prettyUrlName.ToString() } &&
                         new TermQuery { Field = "type",             Value = DrugResourceType.DrugTerm.ToString() }
                 ,
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 }
             };
 
@@ -114,44 +108,23 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             catch (Exception ex)
             {
-                String msg = $"Could not search pretty URL name '{prettyUrlName}'.";
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(ex, msg);
-                throw new APIErrorException(500, msg);
+                _logger.LogError(ex, $"Could not search pretty URL name '{prettyUrlName}'.");
+                throw;
             }
 
             if (!response.IsValid)
             {
-                String msg = $"Invalid response when searching for pretty URL name '{prettyUrlName}'.";
-                _logger.LogError(msg);
-                _logger.LogError(response.DebugInformation);
-                throw new APIErrorException(500, "errors occured");
+                _logger.LogError($"Invalid response when searching for pretty URL name '{prettyUrlName}'.\n{response.DebugInformation}");
+                throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
 
-            DrugTerm drugTerm;
+            DrugTerm drugTerm = null;
 
             // If there is one or more terms in the response, then the search by pretty URL name was successful.
             if (response.Total > 0)
             {
                 drugTerm = response.Documents.First();
-
-                // If there is more than one term in the response, log a warning.
-                if (response.Total > 1) {
-                    string msg = $"Multiple matches for pretty URL name '{prettyUrlName}'.";
-                    _logger.LogWarning(msg);
-                }
-            }
-            else if (response.Total == 0)
-            {
-                string msg = $"No match for pretty URL name '{prettyUrlName}'.";
-                _logger.LogDebug(msg);
-                throw new APIErrorException(404, msg);
-            }
-            else
-            {
-                string msg = $"Incorrect response when searching for pretty URL name '{prettyUrlName}'.";
-                _logger.LogError(msg);
-                throw new APIErrorException(500, "Errors have occured.");
             }
 
             return drugTerm;
@@ -179,8 +152,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
 
             // Set up the SearchRequest to send to elasticsearch.
             Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            Types types = Types.Type(new string[] { "terms" });
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query =
                     new TermsQuery { Field = "type", Terms = includeResourceTypes.Select(p => p.ToString()) } &&
@@ -189,7 +161,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 ,
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 },
                 Size = size,
                 From = from,
@@ -206,26 +178,34 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             catch (Exception ex)
             {
-                String msg = $"Could not search size '{size}', from '{from}'.";
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+
+                String msg = $"Could not search size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.";
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(msg, ex);
-                throw new APIErrorException(500, msg);
+                _logger.LogError(ex, msg);
+                throw;
             }
 
             if (!response.IsValid)
             {
-                String msg = $"Invalid response when searching for size '{size}', from '{from}'.";
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+
+                String msg = $"Invalid response when searching for size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.\nDebug info: {response.DebugInformation}";
                 _logger.LogError(msg);
-                throw new APIErrorException(500, "errors occured");
+                throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
 
             DrugTermResults drugTermResults = new DrugTermResults();
 
             if (response.Total > 0)
             {
-                drugTermResults.Results = response.Documents.Select(res => (IDrugResource)res).ToArray();
+                drugTermResults.Results = response.Documents.ToArray();
             }
-            else if (response.Total == 0)
+            else
             {
                 // Create an empty list.
                 drugTermResults.Results = new IDrugResource[] { };
@@ -259,8 +239,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
 
             // Set up the SearchRequest to send to elasticsearch.
             Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            Types types = Types.Type(new string[] { "terms" });
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query = (
                             (matchType == MatchType.Begins ?
@@ -280,7 +259,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 ,
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 },
                 Size = size,
                 From = from,
@@ -297,18 +276,17 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             catch (Exception ex)
             {
-                String msg = $"Could not search query '{query}', size '{size}', from '{from}'.";
+                _logger.LogError(ex, $"Could not search query '{query}', size '{size}', from '{from}'.");
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(msg, ex);
-                throw new APIErrorException(500, msg);
+                throw new APIErrorException(500, INTERNAL_ERRORS_MESSAGE);
             }
 
             if (!response.IsValid)
             {
-                String msg = $"Invalid response when searching for query '{query}', size '{size}', from '{from}'.";
-                _logger.LogError(msg);
+                _logger.LogError($"Invalid response when searching for query '{query}', size '{size}', from '{from}'.");
                 _logger.LogError(response.DebugInformation);
-                throw new APIErrorException(500, "errors occured");
+                _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
+                throw new APIErrorException(500, INTERNAL_ERRORS_MESSAGE);
             }
 
             DrugTermResults searchResults = new DrugTermResults();
@@ -371,8 +349,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
 
             // Set up the SearchRequest to send to elasticsearch.
             Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            Types types = Types.Type(new string[] { "terms" });
-            SearchRequest request = new SearchRequest(index, types)
+            SearchRequest request = new SearchRequest(index)
             {
                 Query =
                     new TermQuery { Field = "first_letter",         Value = firstCharacter.ToString() } &&
@@ -382,7 +359,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 ,
                 Sort = new List<ISort>
                 {
-                    new SortField { Field = "name" }
+                    new FieldSort { Field = "name" }
                 },
                 Size = size,
                 From = from,
@@ -399,39 +376,87 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             catch (Exception ex)
             {
-                String msg = $"Could not search character '{firstCharacter}', size '{size}', from '{from}'.";
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+                String msg = $"Could not search character '{firstCharacter}', size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.";
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(msg, ex);
-                throw new APIErrorException(500, msg);
+                _logger.LogError(ex, msg);
+                throw;
             }
 
             if (!response.IsValid)
             {
-                String msg = $"Invalid response when searching for character '{firstCharacter}', size '{size}', from '{from}'.";
+                string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
+                string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
+                string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
+                String msg = $"Invalid response when searching for character '{firstCharacter}', size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.";
                 _logger.LogError(msg);
-                throw new APIErrorException(500, "errors occured");
+                throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
 
             DrugTermResults drugTermResults = new DrugTermResults();
 
             if (response.Total > 0)
             {
-                drugTermResults.Results = response.Documents.Select(res => (IDrugResource)res).ToArray();
+                drugTermResults.Results = response.Documents.ToArray();
             }
-            else if (response.Total == 0)
+            else
             {
-                // Add the defualt value of empty GlossaryTerm list.
-                drugTermResults.Results = new DrugTerm[] { };
+                // Return an empty array of DrugTerm.
+                drugTermResults.Results = new DrugTerm[0];
             }
 
             // Add the metadata for the returned results
-            drugTermResults.Meta = new ResultsMetadata()
+            drugTermResults.Meta = new ResultsMetadata
             {
                 TotalResults = (int)response.Total,
                 From = from
             };
 
             return drugTermResults;
+        }
+
+        /// <summary>
+        /// Checks whether the underlying data service is in a healthy condition.
+        /// </summary>
+        /// <returns>True if the data store is operational, false otherwise.</returns>
+        public async Task<bool> GetIsHealthy()
+        {
+            // Use the cluster health API to verify that the index is functioning.
+            // Maps to https://<SERVER_NAME>/_cluster/health/<INDEX_NAME>?pretty (or other server)
+            //
+            // References:
+            // https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html
+            // https://github.com/elastic/elasticsearch/blob/master/rest-api-spec/src/main/resources/rest-api-spec/api/cluster.health.json#L20
+
+            ClusterHealthResponse response;
+            try
+            {
+                Indices index = Indices.Index(new string[] { _apiOptions.AliasName });
+                response = await _elasticClient.Cluster.HealthAsync(index);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error checking ElasticSearch health for index '{_apiOptions.AliasName}'.");
+                return false;
+            }
+
+            if (!response.IsValid)
+            {
+                _logger.LogError($"Error checking ElasticSearch health for index '{_apiOptions.AliasName}'.");
+                _logger.LogError($"Returned debug info: {response.DebugInformation}.");
+                return false;
+            }
+
+            if (response.Status != Health.Green
+                && response.Status != Health.Yellow)
+            {
+                _logger.LogError($"Elasticsearch not healthy. Index status is '{response.Status}'.");
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>

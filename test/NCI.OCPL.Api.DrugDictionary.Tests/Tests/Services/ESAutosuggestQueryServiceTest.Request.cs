@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Logging.Testing;
 using Moq;
 using Nest;
+using Nest.JsonNetSerializer;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
@@ -39,7 +40,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             string esContentType = String.Empty;
             HttpMethod esMethod = HttpMethod.DELETE; // Basically, something other than the expected value.
 
-            JObject requestBody = null;
+            JToken requestBody = null;
 
             ElasticsearchInterceptingConnection conn = new ElasticsearchInterceptingConnection();
             conn.RegisterRequestHandlerForType<Nest.SearchResponse<Suggestion>>((req, res) =>
@@ -49,7 +50,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                 res.StatusCode = 200;
 
                 esURI = req.Uri;
-                esContentType = req.ContentType;
+                esContentType = req.RequestMimeType;
                 esMethod = req.Method;
                 requestBody = conn.GetRequestPost(req);
             });
@@ -57,11 +58,11 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             // The URI does not matter, an InMemoryConnection never requests from the server.
             var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
 
-            var connectionSettings = new ConnectionSettings(pool, conn);
+            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
             IElasticClient client = new ElasticClient(connectionSettings);
 
             // Setup the mocked Options
-            IOptions<DrugDictionaryAPIOptions> clientOptions = GetMockOptions();
+            IOptions<DrugDictionaryAPIOptions> clientOptions = ESQueryServiceTest_Helper.MockSearchOptions;
             clientOptions.Value.Autosuggest.MaxSuggestionLength = data.MaxSuggestionLength;
 
             ESAutosuggestQueryService query = new ESAutosuggestQueryService(client, clientOptions, new NullLogger<ESAutosuggestQueryService>());
@@ -71,7 +72,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             Suggestion[] result = await query.GetSuggestions(data.SearchText, data.MatchType, data.Size,
                 data.IncludeResourceTypes, data.IncludeNameTypes, data.ExcludeNameTypes);
 
-            Assert.Equal("/drugv1/terms/_search", esURI.AbsolutePath);
+            Assert.Equal("/drugv1/_search", esURI.AbsolutePath);
             Assert.Equal("application/json", esContentType);
             Assert.Equal(HttpMethod.POST, esMethod);
             Assert.Equal(data.ExpectedData, requestBody, new JTokenEqualityComparer());
@@ -106,26 +107,5 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             }
         }
 
-
-        /// <summary>
-        /// Mock Elasticsearch configuraiton options.
-        /// </summary>
-        private IOptions<DrugDictionaryAPIOptions> GetMockOptions()
-        {
-            Mock<IOptions<DrugDictionaryAPIOptions>> clientOptions = new Mock<IOptions<DrugDictionaryAPIOptions>>();
-            clientOptions
-                .SetupGet(opt => opt.Value)
-                .Returns(new DrugDictionaryAPIOptions
-                {
-                    AliasName = "drugv1",
-                    Autosuggest = new AutosuggestOptions
-                    {
-                        MaxSuggestionLength = 30
-                    }
-                }
-            );
-
-            return clientOptions.Object;
-        }
     }
 }

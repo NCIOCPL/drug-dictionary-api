@@ -32,7 +32,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             ""query"": {
                 ""bool"": {
                     ""must"": [
-                        { ""match"": { ""name._autocomplete"": { ""query"": ""gadavi"", ""type"": ""phrase"" } } },
+                        { ""match_phrase"": { ""name._autocomplete"": { ""query"": ""gadavi"" } } },
                         { ""match"": {""name._contain"": { ""query"": ""gadavi"" } } },
                         { ""terms"": { ""type"": [ ""DrugTerm"" ] } },
                         { ""terms"": { ""term_name_type"": [ ""USBrandName"" ] } }
@@ -45,8 +45,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                         {
                             ""script"": {
                                 ""script"": {
-                                    ""inline"": ""doc['name'].value.length() <= 30"",
-                                    ""lang"": ""painless""
+                                    ""source"": ""doc['name'].value.length() <= 30""
                                 }
                             }
                         }

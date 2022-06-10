@@ -1,0 +1,909 @@
+{
+    "meta": {
+        "totalResults": 10000,
+        "from": 1000
+    },
+    "results": [
+        {
+            "preferredName": "D-cycloserine",
+            "termId": 469006,
+            "name": "154851",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "cycloserine"
+        },
+        {
+            "preferredName": "pibrozelesin",
+            "termId": 42429,
+            "name": "154889-68-6",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "pibrozelesin"
+        },
+        {
+            "preferredName": "buformin hydrochloride",
+            "termId": 775344,
+            "name": "15537-73-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "buformin-hydrochloride"
+        },
+        {
+            "preferredName": "ivabradine hydrochloride",
+            "termId": 792710,
+            "name": "155974-00-8",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "ivabradine-hydrochloride"
+        },
+        {
+            "preferredName": "phenelzine sulfate",
+            "termId": 686546,
+            "name": "156-51-4",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "phenelzine-sulfate"
+        },
+        {
+            "preferredName": "cisplatin",
+            "termId": 39515,
+            "name": "15663-27-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "cisplatin"
+        },
+        {
+            "preferredName": "ifetroban sodium",
+            "termId": 798288,
+            "name": "156715-37-6",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "ifetroban-sodium"
+        },
+        {
+            "preferredName": "cephalexin",
+            "termId": 43417,
+            "name": "15686-71-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "cephalexin"
+        },
+        {
+            "preferredName": "ibuprofen",
+            "termId": 40475,
+            "name": "15687-27-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "ibuprofen"
+        },
+        {
+            "preferredName": "perifosine",
+            "termId": 43408,
+            "name": "157716-52-4",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "perifosine"
+        },
+        {
+            "preferredName": "irofulven",
+            "termId": 43097,
+            "name": "158440-71-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "irofulven"
+        },
+        {
+            "preferredName": "incyclinide",
+            "termId": 42884,
+            "name": "15866-90-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "incyclinide"
+        },
+        {
+            "preferredName": "abacavir sulfate",
+            "termId": 770208,
+            "name": "1592U89",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CodeName",
+            "prettyUrlName": "abacavir-sulfate"
+        },
+        {
+            "preferredName": "lobradimil",
+            "termId": 42352,
+            "name": "159768-75-9",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "labradimil"
+        },
+        {
+            "preferredName": "nelfinavir mesylate",
+            "termId": 42694,
+            "name": "159989-65-8",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "nelfinavir-mesylate"
+        },
+        {
+            "preferredName": "didemnin B",
+            "termId": 39974,
+            "name": "15H-pyrrolol[2,1-f][1,15,4,7,10,20]dioxatetraazacyclotri-cosine, Cyclic Peptide Deriv. (9CI)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "didemnin-b"
+        },
+        {
+            "preferredName": "16, 16-dimethyl prostaglandin E2",
+            "termId": 651165,
+            "name": "16,16-Dimethyl Prostaglandin E2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "LexicalVariant",
+            "prettyUrlName": "1616-dimethyl-prostaglandin-e2"
+        },
+        {
+            "preferredName": "iniparib",
+            "termId": 488465,
+            "name": "160003-66-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "iniparib"
+        },
+        {
+            "preferredName": "ondansetron",
+            "termId": 40693,
+            "name": "16002-70-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "ondansetron"
+        },
+        {
+            "preferredName": "pirarubicin",
+            "termId": 38775,
+            "name": "1609RB",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CodeName",
+            "prettyUrlName": "pirarubicin"
+        },
+        {
+            "preferredName": "threonine tyrosine kinase inhibitor CFI-402257",
+            "termId": 782180,
+            "name": "1610759-22-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "threonine-tyrosine-kinase-inhibitor-cfi-402257"
+        },
+        {
+            "preferredName": "plozalizumab",
+            "termId": 659685,
+            "name": "1610761-46-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "plozalizumab"
+        },
+        {
+            "preferredName": "niraparib tosylate monohydrate",
+            "termId": 615263,
+            "name": "1613220-15-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "niraparib-tosylate-monohydrate"
+        },
+        {
+            "preferredName": "rovalpituzumab tesirine",
+            "termId": 751419,
+            "name": "1613313-09-9",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "rovalpituzumab-tesirine"
+        },
+        {
+            "preferredName": "human varicella zoster immune globulin",
+            "termId": 775113,
+            "name": "1613465-05-6",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "human-varicella-zoster-immune-globulin"
+        },
+        {
+            "preferredName": "ceftolozane-tazobactam",
+            "termId": 795424,
+            "name": "1613740-46-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "ceftolozane-tazobactam"
+        },
+        {
+            "preferredName": "CD16/IL15/CD33 trispecific killer cell engager",
+            "termId": 793158,
+            "name": "161533",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CodeName",
+            "prettyUrlName": "cd16-il15-cd33-trispecific-killer-cell-engager"
+        },
+        {
+            "preferredName": "tucidinostat",
+            "termId": 702501,
+            "name": "1616493-44-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "tucidinostat"
+        },
+        {
+            "preferredName": "rofecoxib",
+            "termId": 38568,
+            "name": "162011-90-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "rofecoxib"
+        },
+        {
+            "preferredName": "aglatimagene besadenovec",
+            "termId": 581584,
+            "name": "1621271-62-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "aglatimagene-besadenovec"
+        },
+        {
+            "preferredName": "roflumilast",
+            "termId": 750521,
+            "name": "162401-32-3",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "roflumilast"
+        },
+        {
+            "preferredName": "temsirolimus",
+            "termId": 43369,
+            "name": "162635-04-3",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "temsirolimus"
+        },
+        {
+            "preferredName": "vinflunine",
+            "termId": 419548,
+            "name": "162652-95-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "vinflunine"
+        },
+        {
+            "preferredName": "pentamethylmelamine",
+            "termId": 39553,
+            "name": "16268-62-5",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "pentamethylmelamine"
+        },
+        {
+            "preferredName": "misonidazole",
+            "termId": 39504,
+            "name": "16288",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "misonidazole"
+        },
+        {
+            "preferredName": "carbon C 11 martinostat",
+            "termId": 797648,
+            "name": "1629052-59-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "carbon-c-11-martinostat"
+        },
+        {
+            "preferredName": "ladiratuzumab vedotin",
+            "termId": 754237,
+            "name": "1629760-29-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "ladiratuzumab-vedotin"
+        },
+        {
+            "preferredName": "pimodivir",
+            "termId": 797081,
+            "name": "1629869-44-8",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "pimodivir"
+        },
+        {
+            "preferredName": "ribavirin",
+            "termId": 40325,
+            "name": "163039",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "ribavirin"
+        },
+        {
+            "preferredName": "inecalcitol",
+            "termId": 782341,
+            "name": "163217-09-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "inecalcitol"
+        },
+        {
+            "preferredName": "ezetimibe",
+            "termId": 754008,
+            "name": "163222-33-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "ezetimibe"
+        },
+        {
+            "preferredName": "acivicin",
+            "termId": 39132,
+            "name": "163501",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "acivicin"
+        },
+        {
+            "preferredName": "stavudine",
+            "termId": 41064,
+            "name": "163661",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "stavudine"
+        },
+        {
+            "preferredName": "selective estrogen receptor degrader AZD9496",
+            "termId": 764993,
+            "name": "1639042-08-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "selective-estrogen-receptor-degrader-azd9496"
+        },
+        {
+            "preferredName": "givosiran",
+            "termId": 792164,
+            "name": "1639325-43-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "givosiran"
+        },
+        {
+            "preferredName": "tenalisib",
+            "termId": 756264,
+            "name": "1639417-53-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "tenalisib"
+        },
+        {
+            "preferredName": "zorubicin hydrochloride",
+            "termId": 39590,
+            "name": "164011",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "zorubicin-hydrochloride"
+        },
+        {
+            "preferredName": "trastuzumab duocarmazine",
+            "termId": 766012,
+            "name": "1642152-40-6",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "trastuzumab-duocarmazine"
+        },
+        {
+            "preferredName": "pantoprazole sodium",
+            "termId": 682170,
+            "name": "164579-32-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "pantoprazole-sodium"
+        },
+        {
+            "preferredName": "dutasteride",
+            "termId": 479183,
+            "name": "164656-23-9",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "dutasteride"
+        },
+        {
+            "preferredName": "Cxcr1/2 inhibitor SX-682",
+            "termId": 792795,
+            "name": "1648843-04-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "cxcr1-2-inhibitor-sx-682"
+        },
+        {
+            "preferredName": "pentostatin",
+            "termId": 39210,
+            "name": "16505",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "pentostatin"
+        },
+        {
+            "preferredName": "bruceantin",
+            "termId": 39169,
+            "name": "165563",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "bruceantin"
+        },
+        {
+            "preferredName": "tetradecanoylphorbol acetate",
+            "termId": 43661,
+            "name": "16561-29-8",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "tetradecanoylphorbol-acetate"
+        },
+        {
+            "preferredName": "linezolid",
+            "termId": 735710,
+            "name": "165800-03-3",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "linezolid"
+        },
+        {
+            "preferredName": "canerpaturev",
+            "termId": 660850,
+            "name": "1662666-66-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "canerpaturev"
+        },
+        {
+            "preferredName": "diaziquone",
+            "termId": 39161,
+            "name": "16707",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "diaziquone"
+        },
+        {
+            "preferredName": "chlorpromazine",
+            "termId": 39752,
+            "name": "167745",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "chlorpromazine"
+        },
+        {
+            "preferredName": "asaley",
+            "termId": 39151,
+            "name": "167780",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "asaley"
+        },
+        {
+            "preferredName": "flibanserin",
+            "termId": 797893,
+            "name": "167933-07-5",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "flibanserin"
+        },
+        {
+            "preferredName": "acivicin",
+            "termId": 39132,
+            "name": "16796",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "acivicin"
+        },
+        {
+            "preferredName": "mitoxantrone hydrochloride",
+            "termId": 39219,
+            "name": "16802",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "mitoxantrone-hydrochloride"
+        },
+        {
+            "preferredName": "PBN derivative OKN-007",
+            "termId": 739669,
+            "name": "168021-79-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "pbn-derivative-okn-007"
+        },
+        {
+            "preferredName": "aclarubicin",
+            "termId": 39131,
+            "name": "16864",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "aclarubicin"
+        },
+        {
+            "preferredName": "zanubrutinib",
+            "termId": 768510,
+            "name": "1691249-45-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "zanubrutinib"
+        },
+        {
+            "preferredName": "niacin",
+            "termId": 38351,
+            "name": "169454",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "niacin"
+        },
+        {
+            "preferredName": "celecoxib",
+            "termId": 43023,
+            "name": "169590-42-5",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "celecoxib"
+        },
+        {
+            "preferredName": "carbamazepine",
+            "termId": 42418,
+            "name": "169864",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "carbamazepine"
+        },
+        {
+            "preferredName": "methylphenidate hydrochloride",
+            "termId": 41225,
+            "name": "169868",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "methylphenidate-hydrochloride"
+        },
+        {
+            "preferredName": "droperidol",
+            "termId": 39227,
+            "name": "169874",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "droperidol"
+        },
+        {
+            "preferredName": "cyclobenzaprine hydrochloride",
+            "termId": 751769,
+            "name": "169900",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "cyclobenzaprine-hydrochloride"
+        },
+        {
+            "preferredName": "amitriptyline hydrochloride",
+            "termId": 614649,
+            "name": "169910",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "amitriptyline-hydrochloride"
+        },
+        {
+            "preferredName": "dexamethasone",
+            "termId": 39789,
+            "name": "16alpha-methyl-9alpha-fluoro-1,4-pregnadiene-11beta,17alpha,21-triol-3,20-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "dexamethasone"
+        },
+        {
+            "preferredName": "dexamethasone",
+            "termId": 39789,
+            "name": "16alpha-methyl-9alpha-fluoro-delta1-hydrocortisone",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "dexamethasone"
+        },
+        {
+            "preferredName": "dexamethasone",
+            "termId": 39789,
+            "name": "16alpha-methyl-9alpha-fluoroprednisolone",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "dexamethasone"
+        },
+        {
+            "preferredName": "megestrol acetate",
+            "termId": 43435,
+            "name": "17 alpha-acetoxy-6-methylpregna-4,6-diene-3,20-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "megestrol-acetate"
+        },
+        {
+            "preferredName": "therapeutic estradiol",
+            "termId": 39236,
+            "name": "17 beta-estradiol",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "therapeutic-estradiol"
+        },
+        {
+            "preferredName": "calusterone",
+            "termId": 41710,
+            "name": "17 beta-OH-7 beta, 17 alpha-dimethyl-androst-4-ene-3-one",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "calusterone"
+        },
+        {
+            "preferredName": "prednisone",
+            "termId": 42487,
+            "name": "17,21-dihydroxypregna-1,4-diene-3,11,20-trione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "prednisone"
+        },
+        {
+            "preferredName": "medroxyprogesterone acetate",
+            "termId": 39813,
+            "name": "17-(acetyloxy)-6alpha-methylpregn-4-ene-3,20-dione",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "medroxyprogesterone-acetate"
+        },
+        {
+            "preferredName": "methylnaltrexone",
+            "termId": 437863,
+            "name": "17-(Cyclopropylmethyl)-4,5alpha-epoxy-3,14-dihydroxy-17-methyl-6-oxomorphinanium",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "methylnaltrexone"
+        },
+        {
+            "preferredName": "tanespimycin",
+            "termId": 43635,
+            "name": "17-AAG",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Abbreviation",
+            "prettyUrlName": "tanespimycin"
+        },
+        {
+            "preferredName": "tanespimycin",
+            "termId": 43635,
+            "name": "17-allyl-aminogeldanamycin",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "tanespimycin"
+        },
+        {
+            "preferredName": "tanespimycin",
+            "termId": 43635,
+            "name": "17-allylamino-17-demethoxy-geldanamycin",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "tanespimycin"
+        },
+        {
+            "preferredName": "tanespimycin",
+            "termId": 43635,
+            "name": "17-allylamino-17-demethoxygeldanamycin",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "LexicalVariant",
+            "prettyUrlName": "tanespimycin"
+        },
+        {
+            "preferredName": "calusterone",
+            "termId": 41710,
+            "name": "17-beta-hydroxy-7-beta, 17-dimethylandrost-4-ene-3-one",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "calusterone"
+        },
+        {
+            "preferredName": "tanespimycin",
+            "termId": 43635,
+            "name": "17-demethoxy-17-(2-propenylamino)geldanamycin",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "tanespimycin"
+        },
+        {
+            "preferredName": "telatinib mesylate",
+            "termId": 652798,
+            "name": "17-demethoxy-17-allylaminogeldanamycin mesylate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "telatinib-mesylate"
+        },
+        {
+            "preferredName": "alvespimycin hydrochloride",
+            "termId": 378203,
+            "name": "17-DMAG HCL",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Abbreviation",
+            "prettyUrlName": "alvespimycin-hydrochloride"
+        },
+        {
+            "preferredName": "dienogest",
+            "termId": 743773,
+            "name": "17-hydroxy-3-oxo-19-nor-17.alpha.-pregna-4,9-diene-21-nitrile",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "dienogest"
+        },
+        {
+            "preferredName": "megestrol acetate",
+            "termId": 43435,
+            "name": "17-hydroxy-6-methylpregna-4,6-diene-3,20-dione acetate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "megestrol-acetate"
+        },
+        {
+            "preferredName": "medroxyprogesterone acetate",
+            "termId": 39813,
+            "name": "17-hydroxy-6alpha-methylpregn-4-ene-3,20-dione acetate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "medroxyprogesterone-acetate"
+        },
+        {
+            "preferredName": "spironolactone",
+            "termId": 39444,
+            "name": "17-hydroxy-7alpha-mercapto-3-oxo-17alpha-pregn-4-ene-21-carboxylic Acid, gamma Lactone, Acetate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "spironolactone"
+        },
+        {
+            "preferredName": "iso-fludelone",
+            "termId": 703135,
+            "name": "17-iso-oxazole-26-F3-9,10-dehydro-12,13-desoxy-epothilone B",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "iso-fludelone"
+        },
+        {
+            "preferredName": "iso-fludelone",
+            "termId": 703135,
+            "name": "17-iso-oxazole-fludelone",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "iso-fludelone"
+        },
+        {
+            "preferredName": "tanespimycin",
+            "termId": 43635,
+            "name": "17-N-allylamino-17-demethoxy geldanamycin",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "LexicalVariant",
+            "prettyUrlName": "tanespimycin"
+        },
+        {
+            "preferredName": "calusterone",
+            "termId": 41710,
+            "name": "17021-26-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "calusterone"
+        },
+        {
+            "preferredName": "tilarginine",
+            "termId": 42258,
+            "name": "17035-90-4",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "tilarginine"
+        },
+        {
+            "preferredName": "avapritinib",
+            "termId": 775630,
+            "name": "1703793-34-3",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "avapritinib"
+        },
+        {
+            "preferredName": "recombinant interferon gamma",
+            "termId": 40469,
+            "name": "1706",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "recombinant-interferon-gamma"
+        }
+    ],
+    "links": null
+}

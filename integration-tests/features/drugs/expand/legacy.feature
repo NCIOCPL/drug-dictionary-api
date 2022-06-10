@@ -1,10 +1,10 @@
 Feature: Expand, with includedNameTypes set to 'PreferredName', 'USBrandName' (equivalent to legacy WCMS functionality)
-    Letter: '<letter>', From: <from>
 
     Background:
         * url apiHost
 
     Scenario Outline: Given a letter of the alphabet, validate the query results.
+    Letter: '<letter>', From: <from>
 
         Given path 'Drugs', 'expand', letter
         And params {from: <from>, size: 6, includeNameTypes: ['PreferredName', 'USBrandName']}

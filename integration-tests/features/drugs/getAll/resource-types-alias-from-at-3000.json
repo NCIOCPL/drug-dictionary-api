@@ -1,0 +1,909 @@
+{
+    "meta": {
+        "totalResults": 10000,
+        "from": 3000
+    },
+    "results": [
+        {
+            "preferredName": "copper Cu 64-DOTA B-Fab",
+            "termId": 780300,
+            "name": "64 Cu-DOTA B-Fab",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-dota-b-fab"
+        },
+        {
+            "preferredName": "copper Cu 64-DOTA B-Fab",
+            "termId": 780300,
+            "name": "64 Cu-DOTA DS6 B-Fab",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-dota-b-fab"
+        },
+        {
+            "preferredName": "alcohol",
+            "termId": 446576,
+            "name": "64-17-5",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "alcohol"
+        },
+        {
+            "preferredName": "acetic acid",
+            "termId": 712834,
+            "name": "64-19-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "acetic-acid"
+        },
+        {
+            "preferredName": "morphine sulfate",
+            "termId": 41804,
+            "name": "64-31-3",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "morphine-sulfate"
+        },
+        {
+            "preferredName": "demeclocycline hydrochloride",
+            "termId": 659335,
+            "name": "64-73-3",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "demeclocycline-hydrochloride"
+        },
+        {
+            "preferredName": "tetracycline hydrochloride",
+            "termId": 42307,
+            "name": "64-75-5",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "tetracycline-hydrochloride"
+        },
+        {
+            "preferredName": "tolbutamide",
+            "termId": 684270,
+            "name": "64-77-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "tolbutamide"
+        },
+        {
+            "preferredName": "colchicine",
+            "termId": 39188,
+            "name": "64-86-8",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "colchicine"
+        },
+        {
+            "preferredName": "copper Cu 64 plerixafor",
+            "termId": 758399,
+            "name": "64-Cu-plerixafor",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-plerixafor"
+        },
+        {
+            "preferredName": "ethosuximide",
+            "termId": 694263,
+            "name": "64013",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "ethosuximide"
+        },
+        {
+            "preferredName": "beta-thioguanine deoxyriboside",
+            "termId": 39711,
+            "name": "64039-27-6 (monohydrate)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "beta-thioguanine-deoxyriboside"
+        },
+        {
+            "preferredName": "perillyl alcohol",
+            "termId": 42334,
+            "name": "641066",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "perillyl-alcohol"
+        },
+        {
+            "preferredName": "glucarpidase",
+            "termId": 41665,
+            "name": "641273",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "glucarpidase"
+        },
+        {
+            "preferredName": "nevirapine",
+            "termId": 712787,
+            "name": "641530",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "nevirapine"
+        },
+        {
+            "preferredName": "recombinant interleukin-12",
+            "termId": 42153,
+            "name": "6419",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "edodekin-alfa"
+        },
+        {
+            "preferredName": "diazoxide",
+            "termId": 39290,
+            "name": "64198",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "diazoxide"
+        },
+        {
+            "preferredName": "methanol extraction residue of BCG",
+            "termId": 39495,
+            "name": "642",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "methanol-extraction-residue-of-bcg"
+        },
+        {
+            "preferredName": "TNP-470",
+            "termId": 41725,
+            "name": "642492",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "o-chloroacetylcarbamoylfumagillol"
+        },
+        {
+            "preferredName": "azithromycin",
+            "termId": 695416,
+            "name": "643732",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "azithromycin"
+        },
+        {
+            "preferredName": "clarithromycin",
+            "termId": 42308,
+            "name": "643733",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "clarithromycin"
+        },
+        {
+            "preferredName": "eribulin mesylate",
+            "termId": 257773,
+            "name": "64395",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "eribulin-mesylate"
+        },
+        {
+            "preferredName": "monoclonal antibody A27.15",
+            "termId": 42834,
+            "name": "644261",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "monoclonal-antibody-a2715"
+        },
+        {
+            "preferredName": "monoclonal antibody E2.3",
+            "termId": 42835,
+            "name": "644262",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "monoclonal-antibody-e23"
+        },
+        {
+            "preferredName": "deferoxamine mesylate",
+            "termId": 41696,
+            "name": "644468",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "deferoxamine-mesylate"
+        },
+        {
+            "preferredName": "tizanidine hydrochloride",
+            "termId": 750207,
+            "name": "64461-82-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "tizanidine-hydrochloride"
+        },
+        {
+            "preferredName": "pegaspargase",
+            "termId": 40312,
+            "name": "644954",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "pegaspargase"
+        },
+        {
+            "preferredName": "altretamine",
+            "termId": 39475,
+            "name": "645-05-6",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "altretamine"
+        },
+        {
+            "preferredName": "milodistim",
+            "termId": 41615,
+            "name": "645014",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "milodistim"
+        },
+        {
+            "preferredName": "thymopentin",
+            "termId": 41655,
+            "name": "645363",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "thymopentin"
+        },
+        {
+            "preferredName": "aztreonam",
+            "termId": 788184,
+            "name": "646279",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "aztreonam"
+        },
+        {
+            "preferredName": "valspodar",
+            "termId": 41750,
+            "name": "648265",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "valspodar"
+        },
+        {
+            "preferredName": "talotrexin ammonium",
+            "termId": 387796,
+            "name": "648420-92-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "talotrexin-ammonium"
+        },
+        {
+            "preferredName": "trabectedin",
+            "termId": 42577,
+            "name": "648766",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "trabectedin"
+        },
+        {
+            "preferredName": "halofuginone hydrobromide",
+            "termId": 38485,
+            "name": "64924-67-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "halofuginone-hydrobromide"
+        },
+        {
+            "preferredName": "pentoxifylline",
+            "termId": 41432,
+            "name": "6493-05-6",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "pentoxifylline"
+        },
+        {
+            "preferredName": "alvocidib",
+            "termId": 42068,
+            "name": "649890",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "alvocidib-hydrochloride"
+        },
+        {
+            "preferredName": "copper Cu 64-CB-TE1A1P-PEG4-LLP2A",
+            "termId": 796462,
+            "name": "64Cu-CB-TE1A1P-PEG4-LLP2A",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-cb-te1a1p-peg4-llp2a"
+        },
+        {
+            "preferredName": "copper Cu 64-DOTA-ECL1i",
+            "termId": 797547,
+            "name": "64Cu-d(LGTFLKC)",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-dota-ecl1i"
+        },
+        {
+            "preferredName": "copper Cu 64-DOTA-AE105",
+            "termId": 761239,
+            "name": "64Cu-DOTA-AE105",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-dota-ae105"
+        },
+        {
+            "preferredName": "copper Cu-64-DOTA-alendronate",
+            "termId": 793386,
+            "name": "64Cu-DOTA-alendronate",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-dota-alendronate"
+        },
+        {
+            "preferredName": "copper Cu 64 DOTA-daratumumab",
+            "termId": 791270,
+            "name": "64Cu-DOTA-daratumumab",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-64-cu-dota-daratumumab"
+        },
+        {
+            "preferredName": "copper Cu 64-DOTA-ECL1i",
+            "termId": 797547,
+            "name": "64Cu-DOTA-ECL1i",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-dota-ecl1i"
+        },
+        {
+            "preferredName": "copper Cu 64 anti-CEA monoclonal antibody M5A",
+            "termId": 766769,
+            "name": "64Cu-DOTA-M5A",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-anti-cea-monoclonal-antibody-m5a"
+        },
+        {
+            "preferredName": "copper Cu 64-DOTA-rituximab",
+            "termId": 724695,
+            "name": "64Cu-DOTA-rituximab",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-dota-rituximab"
+        },
+        {
+            "preferredName": "copper Cu 64-DOTA-trastuzumab",
+            "termId": 667958,
+            "name": "64Cu-DOTA-trastuzumab",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-dota-trastuzumab"
+        },
+        {
+            "preferredName": "copper Cu 64-DOTA-anti-HER3 monoclonal antibody U3-1287",
+            "termId": 718878,
+            "name": "64Cu-DOTA-U3-1287",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Abbreviation",
+            "prettyUrlName": "copper-cu-64-dota-anti-her3-monoclonal-antibody-u3-1287"
+        },
+        {
+            "preferredName": "copper Cu 64-CB-TE1A1P-PEG4-LLP2A",
+            "termId": 796462,
+            "name": "64Cu-LLP2A",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-cb-te1a1p-peg4-llp2a"
+        },
+        {
+            "preferredName": "copper Cu 64 NOTA-PSMAi-PEG-Cy5.5-C' dots",
+            "termId": 800203,
+            "name": "64Cu-NOTA-PSMA-PEG-Cy5.5-C' dot tracer",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-nota-psmai-peg-cy55-c-dots"
+        },
+        {
+            "preferredName": "copper Cu 64 NOTA-PSMAi-PEG-Cy5.5-C' dots",
+            "termId": 800203,
+            "name": "64Cu-NOTA-PSMA-PEG-Cy5.5-C' dots",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-nota-psmai-peg-cy55-c-dots"
+        },
+        {
+            "preferredName": "copper Cu 64 NOTA-PSMAi-PEG-Cy5.5-C' dots",
+            "termId": 800203,
+            "name": "64Cu-NOTA-PSMAi-PEG-Cy5.5-C' dots",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-nota-psmai-peg-cy55-c-dots"
+        },
+        {
+            "preferredName": "copper Cu 64-CB-TE1A1P-PEG4-LLP2A",
+            "termId": 796462,
+            "name": "64Cu-PEG4-LLP2A",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "Synonym",
+            "prettyUrlName": "copper-cu-64-cb-te1a1p-peg4-llp2a"
+        },
+        {
+            "preferredName": "phentolamine mesylate",
+            "termId": 360460,
+            "name": "65-28-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "phentolamine-mesylate"
+        },
+        {
+            "preferredName": "KRN5500",
+            "termId": 42581,
+            "name": "650426",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "krn5500"
+        },
+        {
+            "preferredName": "LMB-1 immunotoxin",
+            "termId": 43265,
+            "name": "651311",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "lmb-1-immunotoxin"
+        },
+        {
+            "preferredName": "nicorandil",
+            "termId": 783858,
+            "name": "65141-46-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "nicorandil"
+        },
+        {
+            "preferredName": "mifepristone",
+            "termId": 40888,
+            "name": "652104",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "mifepristone"
+        },
+        {
+            "preferredName": "zanolimumab",
+            "termId": 352000,
+            "name": "652153-01-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "zanolimumab"
+        },
+        {
+            "preferredName": "mitoxantrone hydrochloride",
+            "termId": 39219,
+            "name": "65271-80-9",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "mitoxantrone-hydrochloride"
+        },
+        {
+            "preferredName": "ketoconazole",
+            "termId": 39488,
+            "name": "65277-42-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "ketoconazole"
+        },
+        {
+            "preferredName": "norgestrel",
+            "termId": 39310,
+            "name": "6533-00-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "norgestrel"
+        },
+        {
+            "preferredName": "becatecarin",
+            "termId": 42257,
+            "name": "655649",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "becatecarin"
+        },
+        {
+            "preferredName": "fenretinide",
+            "termId": 39582,
+            "name": "65646-68-6",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "fenretinide"
+        },
+        {
+            "preferredName": "silymarin",
+            "termId": 284684,
+            "name": "65666-07-1",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "silymarin"
+        },
+        {
+            "preferredName": "sulofenur",
+            "termId": 41122,
+            "name": "656667",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "sulofenur"
+        },
+        {
+            "preferredName": "metformin hydrochloride",
+            "termId": 593641,
+            "name": "657-24-9",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "metformin-hydrochloride"
+        },
+        {
+            "preferredName": "goserelin acetate",
+            "termId": 40224,
+            "name": "65807-02-5",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "goserelin-acetate"
+        },
+        {
+            "preferredName": "fazarabine",
+            "termId": 40564,
+            "name": "65886-71-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "fazarabine"
+        },
+        {
+            "preferredName": "LMB-7 immunotoxin",
+            "termId": 42683,
+            "name": "658931",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "lmb-7-immunotoxin"
+        },
+        {
+            "preferredName": "recombinant interferon beta",
+            "termId": 40468,
+            "name": "658933",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "recombinant-interferon-beta"
+        },
+        {
+            "preferredName": "dienogest",
+            "termId": 743773,
+            "name": "65928-58-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "dienogest"
+        },
+        {
+            "preferredName": "LMB-7 immunotoxin",
+            "termId": 42683,
+            "name": "659639",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "lmb-7-immunotoxin"
+        },
+        {
+            "preferredName": "alitretinoin",
+            "termId": 42147,
+            "name": "659772",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "alitretinoin"
+        },
+        {
+            "preferredName": "2-methoxyestradiol",
+            "termId": 38472,
+            "name": "659853",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "2-methoxyestradiol"
+        },
+        {
+            "preferredName": "lometrexol",
+            "termId": 41670,
+            "name": "660025",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "lometrexol"
+        },
+        {
+            "preferredName": "nimodipine",
+            "termId": 41210,
+            "name": "66085-59-4",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "nimodipine"
+        },
+        {
+            "preferredName": "iohexol",
+            "termId": 746786,
+            "name": "66108-95-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "iohexol"
+        },
+        {
+            "preferredName": "tributyrin",
+            "termId": 42290,
+            "name": "661583",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "tributyrin"
+        },
+        {
+            "preferredName": "detorubicin",
+            "termId": 39213,
+            "name": "66211-92-5",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "detorubicin"
+        },
+        {
+            "preferredName": "triapine",
+            "termId": 37830,
+            "name": "663249",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "triapine"
+        },
+        {
+            "preferredName": "aluminum hydroxide",
+            "termId": 42000,
+            "name": "664400",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "aluminum-hydroxide"
+        },
+        {
+            "preferredName": "propacetamol",
+            "termId": 749910,
+            "name": "66532-85-2",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "propacetamol"
+        },
+        {
+            "preferredName": "ondansetron hydrochloride",
+            "termId": 489533,
+            "name": "665799",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "ondansetron-hydrochloride"
+        },
+        {
+            "preferredName": "piroxicam",
+            "termId": 39761,
+            "name": "666076",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "piroxicam"
+        },
+        {
+            "preferredName": "LMB-2 immunotoxin",
+            "termId": 43377,
+            "name": "6662",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "lmb-2-immunotoxin"
+        },
+        {
+            "preferredName": "ketorolac",
+            "termId": 40569,
+            "name": "66635-83-4",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "ketorolac"
+        },
+        {
+            "preferredName": "trastuzumab",
+            "termId": 42265,
+            "name": "6667",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "trastuzumab"
+        },
+        {
+            "preferredName": "sulfasalazine",
+            "termId": 685032,
+            "name": "667219",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "sulfasalazine"
+        },
+        {
+            "preferredName": "bisoprolol fumarate",
+            "termId": 660819,
+            "name": "66722-44-9",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "bisoprolol-fumarate"
+        },
+        {
+            "preferredName": "linagliptin",
+            "termId": 793591,
+            "name": "668270-12-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "linagliptin"
+        },
+        {
+            "preferredName": "thalidomide",
+            "termId": 42332,
+            "name": "66847",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "thalidomide"
+        },
+        {
+            "preferredName": "recombinant vaccinia prostate-specific antigen vaccine",
+            "termId": 42691,
+            "name": "6698",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "INDCode",
+            "prettyUrlName": "recombinant-vaccinia-psa-vaccine"
+        },
+        {
+            "preferredName": "dideoxyadenosine",
+            "termId": 40799,
+            "name": "6698-26-6",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "dideoxyadenosine"
+        },
+        {
+            "preferredName": "dimethyl sulfoxide",
+            "termId": 39222,
+            "name": "67-68-5",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "dimethyl-sulfoxide"
+        },
+        {
+            "preferredName": "cholecalciferol",
+            "termId": 39734,
+            "name": "67-97-0",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "cholecalciferol"
+        },
+        {
+            "preferredName": "crenolanib besylate",
+            "termId": 779361,
+            "name": "670220-93-6",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "crenolanib-besylate"
+        },
+        {
+            "preferredName": "rasburicase",
+            "termId": 299001,
+            "name": "671264",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "rasburicase"
+        },
+        {
+            "preferredName": "octreotide acetate",
+            "termId": 38866,
+            "name": "671663",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "octreotide-acetate"
+        },
+        {
+            "preferredName": "metyrosine",
+            "termId": 39501,
+            "name": "672-87-7",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "CASRegistryName",
+            "prettyUrlName": "metyrosine"
+        },
+        {
+            "preferredName": "recombinant interleukin-12",
+            "termId": 42153,
+            "name": "672423",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "edodekin-alfa"
+        }
+    ],
+    "links": null
+}

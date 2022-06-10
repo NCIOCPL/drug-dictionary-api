@@ -32,7 +32,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             ""query"": {
                 ""bool"": {
                     ""must"": [
-                        { ""match"": { ""name._autocomplete"": { ""query"": ""ZFN ZFN-758"", ""type"": ""phrase"" } } },
+                        { ""match_phrase"": { ""name._autocomplete"": { ""query"": ""ZFN ZFN-758"" } } },
                         { ""match"": {""name._contain"": { ""query"": ""ZFN ZFN-758"" } } },
                         { ""terms"": { ""type"": [ ""DrugAlias"", ""DrugTerm"" ] } }
                     ],
@@ -44,8 +44,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                         {
                             ""script"": {
                                 ""script"": {
-                                    ""inline"": ""doc['name'].value.length() <= 33"",
-                                    ""lang"": ""painless""
+                                    ""source"": ""doc['name'].value.length() <= 33""
                                 }
                             }
                         }
