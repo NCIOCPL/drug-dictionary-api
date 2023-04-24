@@ -2,12 +2,18 @@ version: "3.7"
 
 services:
     elasticsearch:
-        image: elasticsearch:7.9.2
+        build:
+            # Point to the root of the project.
+            context: ../../
+            # This path is relative to the context.
+            dockerfile: integration-tests/docker-drug-api/elasticsearch/Dockerfile
         ## All of the ES settings can be set via the environment
         ## vars.
         environment:
             - discovery.type=single-node
             - ES_JAVA_OPTS=-Xms750m -Xmx750m
+            # Turn off warnings about not using HTTPS.
+            - xpack.security.enabled=false
         ## These exposed ports are for debugging only. .NET +
         ## Docker + MacOS == bad scene. (.NET always wants to
         ## use the hosts name, and on a mac that is actually
