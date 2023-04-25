@@ -8,16 +8,16 @@ namespace NCI.OCPL.Api.DrugDictionary
         /// <summary>
         /// Metadata about the results.
         /// </summary>
-        public ResultsMetadata Meta;
+        public ResultsMetadata Meta { get; set; }
 
         /// <summary>
         /// Array of Drug dictionary entries matching the search. May be empty.
         /// </summary>
-        public IDrugResource[] Results;
+        public IDrugResource[] Results { get; set; }
 
         /// <summary>
         /// Link to ????
         /// </summary>
-        public Metalink Links;
+        public Metalink Links { get; set; }
     }
 }

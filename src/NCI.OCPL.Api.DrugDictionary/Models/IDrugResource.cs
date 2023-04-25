@@ -11,7 +11,7 @@ namespace NCI.OCPL.Api.DrugDictionary
         /// <summary>
         /// The CDR ID of the full term for a DrugTerm, or the full term this alias represents.
         /// </summary>
-        long TermId {get;set;}
+        long TermId { get; set; }
 
         /// <summary>
         /// The name of this resource as it should be displayed on the listing pages

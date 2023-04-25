@@ -10,6 +10,6 @@ namespace NCI.OCPL.Api.DrugDictionary
         /// <summary>
         /// url
         /// </summary>
-        public Uri Self;
+        public Uri Self { get; set; }
     }
 }
