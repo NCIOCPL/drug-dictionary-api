@@ -45,6 +45,13 @@ namespace NCI.OCPL.Api.DrugDictionary
             services.AddTransient<IDrugsQueryService, ESDrugsQueryService>();
 
             services.Configure<DrugDictionaryAPIOptions>(Configuration.GetSection("DrugDictionaryAPI"));
+
+            // Get name for the Healthcheck alias.
+            services.AddTransient<IESAliasNameProvider>(p =>
+            {
+                string alias = Configuration["DrugDictionaryAPI:AliasName"];
+                return new ESAliasNameProvider() { Name = alias };
+            });
         }
 
         /*****************************
