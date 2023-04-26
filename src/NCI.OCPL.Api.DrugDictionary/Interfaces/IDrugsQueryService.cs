@@ -60,10 +60,5 @@ namespace NCI.OCPL.Api.DrugDictionary
             DrugResourceType[] includeResourceTypes, TermNameType[] includeNameTypes, TermNameType[] excludeNameTypes
         );
 
-        /// <summary>
-        /// Checks whether the underlying data service is in a healthy condition.
-        /// </summary>
-        /// <returns>True if the data store is operational, false otherwise.</returns>
-        Task<bool> GetIsHealthy();
     }
 }
