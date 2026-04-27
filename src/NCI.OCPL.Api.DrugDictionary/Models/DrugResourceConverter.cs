@@ -1,57 +1,39 @@
 using System;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace NCI.OCPL.Api.DrugDictionary
 {
-
     /// <summary>
-    /// Determines how to deserialize a generic IDrugResource into a specific implemenation.
+    /// Converter for polymorphic deserialization of IDrugResource.
     /// </summary>
     public class DrugResourceConverter : JsonConverter<IDrugResource>
     {
-        /// <summary>
-        /// Deserializes an instance of IDrugResource into either a DrugAlias or a DrugTerm.
-        /// </summary>
-        /// <param name="reader"></param>
-        /// <param name="objectType"></param>
-        /// <param name="existingValue"></param>
-        /// <param name="hasExistingValue"></param>
-        /// <param name="serializer"></param>
-        /// <returns></returns>
-        public override IDrugResource ReadJson(JsonReader reader, Type objectType, IDrugResource existingValue, bool hasExistingValue, JsonSerializer serializer)
+        /// <inheritdoc />
+        public override IDrugResource Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            var jsonObject = JObject.Load(reader);
-            var drugItem = default(IDrugResource);
-            string type = jsonObject["type"].Value<string>();
+            using JsonDocument doc = JsonDocument.ParseValue(ref reader);
+            JsonElement root = doc.RootElement;
 
-            switch (type != null ? type.ToLower() : type)
+            string type = null;
+            if (root.TryGetProperty("type", out JsonElement typeElement))
             {
-                case "drugalias":
-                    drugItem = new DrugAlias();
-                    break;
-
-                case "drugterm":
-                    drugItem = new DrugTerm();
-                    break;
+                type = typeElement.GetString();
             }
-            serializer.Populate(jsonObject.CreateReader(), drugItem);
-            return drugItem;
+
+            string rawJson = root.GetRawText();
+            return type?.ToLowerInvariant() switch
+            {
+                "drugalias" => JsonSerializer.Deserialize<DrugAlias>(rawJson, options),
+                "drugterm" => JsonSerializer.Deserialize<DrugTerm>(rawJson, options),
+                _ => throw new JsonException($"Unknown type value '{type}' for IDrugResource.")
+            };
         }
 
-        /// <summary>
-        /// Report that this covnerter can't be used for serializing.
-        /// Force the object's default (more specific) serialzation to be used instead.
-        /// </summary>
-        /// <value>Always returns false.</value>
-        public override bool CanWrite { get { return false; } }
-
-        /// <summary>
-        /// This method exists for the sake of satisfying the abstract base class but is not used.
-        /// </summary>
-        public override void WriteJson(JsonWriter writer, IDrugResource value, JsonSerializer serializer)
+        /// <inheritdoc />
+        public override void Write(Utf8JsonWriter writer, IDrugResource value, JsonSerializerOptions options)
         {
-            throw new NotImplementedException();
+            JsonSerializer.Serialize(writer, value, value.GetType(), options);
         }
     }
 }

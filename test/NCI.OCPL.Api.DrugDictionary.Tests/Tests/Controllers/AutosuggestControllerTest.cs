@@ -1,14 +1,10 @@
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 using Microsoft.Extensions.Logging.Testing;
 using Moq;
-using Newtonsoft.Json;
 using Xunit;
 
-using NCI.OCPL.Api.Common;
-using NCI.OCPL.Api.Common.Testing;
 using NCI.OCPL.Api.DrugDictionary.Controllers;
 using NCI.OCPL.Api.DrugDictionary.Tests.AutosuggestControllerTestData;
 
@@ -28,7 +24,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify that explicit values passed to the controller are passed in turn to the query service.
         /// </summary>
         [Fact]
-        public async void Verify_Explicit_Values_Passed_to_Service()
+        public async Task Verify_Explicit_Values_Passed_to_Service()
         {
             const string queryText = "chicken";
             const MatchType matchType = MatchType.Contains;
@@ -67,10 +63,10 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         }
 
         /// <summary>
-        /// Verify the correct defaults are passed to the query service when no valies are specified for beginsWith and size.
+        /// Verify the correct defaults are passed to the query service when no values are specified for beginsWith and size.
         /// </summary>
         [Fact]
-        public async void Verify_Default_Values_Passed_to_Service()
+        public async Task Verify_Default_Values_Passed_to_Service()
         {
             const string queryText = "chicken";
 
@@ -113,7 +109,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify that negative values for size and from are properly handled before the service is invoked.
         /// </summary>
         [Fact]
-        public async void Verify_Negative_Value_Handling()
+        public async Task Verify_Negative_Value_Handling()
         {
             const string queryText = "chicken";
             const MatchType matchType = MatchType.Contains;
@@ -157,7 +153,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify that passing zero for the  size argument is properly handled before the service is invoked.
         /// </summary>
         [Fact]
-        public async void Verify_Zero_Size_Handling()
+        public async Task Verify_Zero_Size_Handling()
         {
             const string queryText = "chicken";
             const MatchType matchType = MatchType.Begins;
@@ -204,7 +200,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         };
 
         [Theory, MemberData(nameof(TestData))]
-        public async void Autosuggest(BaseAutosuggestControllerScenario data)
+        public async Task Autosuggest(BaseAutosuggestControllerScenario data)
         {
             // Sanity check for test data.  The expected result array should never
             // be larger than the value of the Size property. (Smaller is fine.)
@@ -242,7 +238,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         [InlineData("AO+ Mist")]
         [InlineData("%20")]
         [InlineData("%3A")]
-        public async void SearchText(string searchString)
+        public async Task SearchText(string searchString)
         {
             // Set up the mock query service
             Mock<IAutosuggestQueryService> querySvc = new Mock<IAutosuggestQueryService>();

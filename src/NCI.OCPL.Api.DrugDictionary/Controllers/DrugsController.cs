@@ -30,7 +30,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
         /// <summary>
         /// Message returned when internal errors are encountered.
         /// </summary>
-        public const string INTERNAL_ERROR_MESSAGE = "Errors occured.";
+        public const string INTERNAL_ERROR_MESSAGE = "Errors occurred.";
 
 
         /// <summary>
@@ -117,7 +117,9 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
                 string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
                 string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
                 string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
-                _logger.LogError(ex, $"Internal error occured expanding character: '{character}', size: '{size}', from: '{size}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.");
+                string message = $"Internal error occurred expanding character: '{character}', size: '{size}', from: '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}."
+                    .Replace(Environment.NewLine, String.Empty);
+                _logger.LogError(ex, message);
                 throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
             }
 
@@ -170,7 +172,9 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
                 string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
                 string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
                 string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
-                _logger.LogError(ex, $"Error calling _termsQueryService.GetAll with size: '{size}', from: '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.");
+                string message = $"Error calling _termsQueryService.GetAll with size: '{size}', from: '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}."
+                    .Replace(Environment.NewLine, String.Empty);
+                _logger.LogError(ex, message);
                 throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
             }
 
@@ -224,7 +228,8 @@ namespace NCI.OCPL.Api.DrugDictionary.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error retrieving pretty url name '{prettyUrlName}'.");
+                string message = $"Error retrieving pretty url name '{prettyUrlName}'.".Replace(Environment.NewLine, String.Empty);
+                _logger.LogError(ex, message);
                 throw new APIErrorException(500, INTERNAL_ERROR_MESSAGE);
             }
 

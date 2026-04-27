@@ -22,7 +22,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         [InlineData(new object[] { null })]
         [InlineData(new object[] { "" })]       // Can't use String.Empty because it's a property instead of a constant.
         [InlineData(new object[] { "    " })]
-        public async void GetByName_InvalidName(string prettyName)
+        public async Task GetByName_InvalidName(string prettyName)
         {
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
             querySvc.Setup(
@@ -53,7 +53,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify return of a 404 status on unknown ID.
         /// </summary>
         [Fact]
-        public async void GetByName_NotFound()
+        public async Task GetByName_NotFound()
         {
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
             querySvc.Setup(
@@ -78,7 +78,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         [Theory]
         [InlineData(typeof(APIInternalException))]
         [InlineData(typeof(ArgumentNullException))]
-        public async void GetByName_ServiceErrors(Type exceptionType)
+        public async Task GetByName_ServiceErrors(Type exceptionType)
         {
             // In order to test throwing more than a single exception type, we need to to pass a type
             // and construct it rather than throwing with a new.
@@ -109,7 +109,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify correct handling of a valid name.
         /// </summary>
         [Fact]
-        public async void GetByName_ValidName()
+        public async Task GetByName_ValidName()
         {
             const string theName = "iodinated-contrast-agent";
 

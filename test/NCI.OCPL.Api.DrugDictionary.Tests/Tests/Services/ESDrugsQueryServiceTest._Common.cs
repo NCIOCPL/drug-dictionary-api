@@ -1,20 +1,7 @@
-using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Text;
-
-using Elasticsearch.Net;
-using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Moq;
-using Nest;
-using Nest.JsonNetSerializer;
-using Newtonsoft.Json.Linq;
-using Xunit;
 
-using NCI.OCPL.Api.Common.Testing;
 using NCI.OCPL.Api.DrugDictionary.Models;
-using NCI.OCPL.Api.DrugDictionary.Services;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
@@ -25,7 +12,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
     {
 
         /// <summary>
-        /// Mock Elasticsearch configuraiton options.
+        /// Mock Elasticsearch configuration options.
         /// </summary>
         protected IOptions<DrugDictionaryAPIOptions> GetMockOptions()
         {
@@ -41,12 +28,33 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             return clientOptions.Object;
         }
 
-        protected Stream MockSingleTermResponse
-        {
-            get
-            {
-                string res = @"
+        /// <summary>
+        /// Simulates a "no results found" response from Elasticsearch so we
+        /// have something for tests where we don't care about the response.
+        /// </summary>
+        protected string MockEmptyResponseString => @"
 {
+    ""took"" : 3,
+    ""timed_out"" : false,
+    ""_shards"" : {
+        ""total"" : 1,
+        ""successful"" : 1,
+        ""skipped"" : 0,
+        ""failed"" : 0
+    },
+    ""hits"" : {
+        ""total"" : {
+            ""value"" : 0,
+            ""relation"" : ""eq""
+        },
+        ""max_score"" : null,
+        ""hits"" : [ ]
+    }
+}";
+
+
+        protected string MockSingleTermResponseString =>
+@"{
     ""took"": 2,
     ""timed_out"": false,
     ""_shards"": {
@@ -56,7 +64,10 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         ""failed"": 0
     },
     ""hits"": {
-        ""total"": 1,
+        ""total"" : {
+            ""value"" : 1,
+            ""relation"" : ""eq""
+        },
         ""max_score"": null,
         ""hits"": [
             {
@@ -88,43 +99,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             }
         ]
     }
-}
-                ";
-
-                byte[] byteArray = Encoding.UTF8.GetBytes(res);
-                return new MemoryStream(byteArray);
-            }
-        }
-
-        /// <summary>
-        /// Simulates a "no results found" response from Elasticsearch so we
-        /// have something for tests where we don't care about the response.
-        /// </summary>
-        protected Stream MockEmptyResponse
-        {
-            get
-            {
-                string empty = @"
-{
-    ""took"": 223,
-    ""timed_out"": false,
-    ""_shards"": {
-        ""total"": 1,
-        ""successful"": 1,
-        ""skipped"": 0,
-        ""failed"": 0
-    },
-    ""hits"": {
-        ""total"": 0,
-        ""max_score"": null,
-        ""hits"": []
-    }
 }";
-                byte[] byteArray = Encoding.UTF8.GetBytes(empty);
-                return new MemoryStream(byteArray);
-            }
-        }
-
 
 
     }

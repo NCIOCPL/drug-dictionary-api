@@ -1,4 +1,4 @@
-using Nest;
+using System.Text.Json.Serialization;
 
 namespace NCI.OCPL.Api.DrugDictionary
 {
@@ -10,13 +10,11 @@ namespace NCI.OCPL.Api.DrugDictionary
         /// <summary>
         /// The definition, rendered as HTML.
         /// </summary>
-        [Text(Name = "html")]
         public string Html { get; set; }
 
         /// <summary>
         /// The definition, rendered as plain text.
         /// </summary>
-        [Text(Name = "text")]
         public string Text { get; set; }
     }
 }

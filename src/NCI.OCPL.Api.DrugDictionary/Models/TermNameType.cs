@@ -1,13 +1,11 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Nest;
+using System.Text.Json.Serialization;
 
 namespace NCI.OCPL.Api.DrugDictionary
 {
     /// <summary>
     /// Identifiers for the various types of names a term might have.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum TermNameType
     {
         /// <summary>

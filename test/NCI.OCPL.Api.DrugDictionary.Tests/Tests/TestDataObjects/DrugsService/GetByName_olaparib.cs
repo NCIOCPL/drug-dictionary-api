@@ -1,4 +1,4 @@
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
@@ -15,9 +15,9 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
     {
         public override string   PrettyUrlName => "olaparib";
 
-        public override JObject ExpectedData => JObject.Parse(@"
+        public override JsonNode ExpectedData => JsonNode.Parse(@"
         {
-            ""sort"": [ { ""name"": {} } ],
+            ""sort"": { ""name"": {} },
             ""query"": {
                 ""bool"": {
                     ""must"": [

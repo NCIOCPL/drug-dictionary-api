@@ -1,12 +1,11 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace NCI.OCPL.Api.DrugDictionary
 {
     /// <summary>
     /// Friendly names for the ways to perform a match.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum MatchType
     {
         /// <summary>

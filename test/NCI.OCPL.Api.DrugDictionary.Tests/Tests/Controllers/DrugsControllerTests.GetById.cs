@@ -22,7 +22,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         [InlineData(new object[] { 0 })]
         [InlineData(new object[] { -65537 })]
         [InlineData(new object[] { long.MinValue })]
-        public async void GetById_InvalidId(long id)
+        public async Task GetById_InvalidId(long id)
         {
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
             querySvc.Setup(
@@ -47,7 +47,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify return of a 404 status on unknown ID.
         /// </summary>
         [Fact]
-        public async void GetById_NotFound()
+        public async Task GetById_NotFound()
         {
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
             querySvc.Setup(
@@ -72,7 +72,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         [Theory]
         [InlineData(typeof(APIInternalException))]
         [InlineData(typeof(ArgumentNullException))]
-        public async void GetById_ServiceErrors(Type exceptionType)
+        public async Task GetById_ServiceErrors(Type exceptionType)
         {
             // In order to test throwing more than a single exception type, we need to to pass a type
             // and construct it rather than throwing with a new.
@@ -101,10 +101,10 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
 
 
         /// <summary>
-        /// Cerify correct handling of a valid ID.
+        /// Verify correct handling of a valid ID.
         /// </summary>
         [Fact]
-        public async void GetById_ValidId()
+        public async Task GetById_ValidId()
         {
             const int theID = 37780;
 

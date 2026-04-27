@@ -10,7 +10,7 @@ namespace NCI.OCPL.Api.DrugDictionary
     public interface IAutosuggestQueryService
     {
         /// <summary>
-        /// Retrieves a portion of the overall set of glossary terms for a given combination of dictionary, audience, and language.
+        /// Retrieves a portion of the overall set of drug terms.
         /// </summary>
         /// <param name="searchText">The search query</param>
         /// <param name="matchType">Should suggestions begin with the search text or contain it?.</param>

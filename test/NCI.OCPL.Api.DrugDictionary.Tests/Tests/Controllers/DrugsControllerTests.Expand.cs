@@ -1,18 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 using Microsoft.Extensions.Logging.Testing;
 using Moq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 using NCI.OCPL.Api.Common;
-using NCI.OCPL.Api.DrugDictionary;
 using NCI.OCPL.Api.DrugDictionary.Controllers;
-using NCI.OCPL.Api.Common.Testing;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
@@ -26,7 +20,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify that Expand behaves in the expected manner when only required parameters are passed in.
         /// </summary>
         [Fact]
-        public async void Expand_RequiredParametersOnly()
+        public async Task Expand_RequiredParametersOnly()
         {
             // Create a mock query that always returns the same result.
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
@@ -63,7 +57,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify that Expand behaves in the expected manner when size is an invalid value.
         /// </Summary>
         [Fact]
-        public async void Expand_InvalidSize()
+        public async Task Expand_InvalidSize()
         {
             // Create a mock query that always returns the same result.
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
@@ -102,7 +96,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify that Expand behaves in the expected manner when from is an invalid value.
         /// </summary>
         [Fact]
-        public async void Expand_InvalidFrom()
+        public async Task Expand_InvalidFrom()
         {
             // Create a mock query that always returns the same result.
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
@@ -139,7 +133,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         [Theory]
         [InlineData(typeof(APIInternalException))]
         [InlineData(typeof(ArgumentNullException))]
-        public async void Expand_ServiceErrors(Type exceptionType)
+        public async Task Expand_ServiceErrors(Type exceptionType)
         {
             // In order to test throwing more than a single exception type, we need to to pass a type
             // and construct it rather than throwing with a new.
@@ -173,11 +167,11 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
 
 
         /// <summary>
-        /// Verify that Expand returns a DrugTermResults identical to the one it recieves from the service level.
+        /// Verify that Expand returns a DrugTermResults identical to the one it receives from the service level.
         /// (This test will need to change if Expand ever gains any logic of its own.)
         /// </summary>
         [Fact]
-        public async void ExpandTerms()
+        public async Task ExpandTerms()
         {
             Mock<IDrugsQueryService> termsQueryService = new Mock<IDrugsQueryService>();
             DrugsController controller = new DrugsController(NullLogger<DrugsController>.Instance, termsQueryService.Object);

@@ -1,4 +1,4 @@
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
@@ -27,7 +27,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
 
         public override TermNameType[] ExcludeNameTypes => new TermNameType[] { TermNameType.CASRegistryName, TermNameType.ChemicalStructureName };
 
-        public override JObject ExpectedData => JObject.Parse(@"
+        public override JsonNode ExpectedData => JsonNode.Parse(@"
         {
             ""query"": {
                 ""bool"": {
@@ -35,10 +35,8 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                         { ""prefix"": { ""name"": { ""value"": ""zanoli"" } } },
                         { ""terms"": { ""type"": [ ""DrugAlias"", ""DrugTerm"" ] } }
                     ],
-                    ""must_not"": [
-                        { ""terms"": { ""term_name_type"": [ ""CASRegistryName"", ""ChemicalStructureName"" ] } }
-                    ],
-                    ""filter"": [
+                    ""must_not"": { ""terms"": { ""term_name_type"": [ ""CASRegistryName"", ""ChemicalStructureName"" ] } },
+                    ""filter"":
                         {
                             ""script"": {
                                 ""script"": {
@@ -46,11 +44,10 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                                 }
                             }
                         }
-                    ]
                 }
             },
             ""size"": 8,
-            ""sort"": [ { ""name"": {} } ],
+            ""sort"": { ""name"": {} },
             ""_source"": { ""includes"": [ ""term_id"", ""name"" ] }
         }
         ");

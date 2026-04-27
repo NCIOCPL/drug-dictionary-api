@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace NCI.OCPL.Api.DrugDictionary
 {
@@ -28,14 +28,13 @@ namespace NCI.OCPL.Api.DrugDictionary
         /// </summary>
         DrugResourceType Type { get; set; }
 
-
         /// <summary>
         /// The type of name for this resource.
         /// </summary>
         TermNameType TermNameType { get; set; }
 
         /// <summary>
-        /// The url fragment used in the full defintion URL of /def/&lt;PrettyUrlName&gt;.
+        /// The url fragment used in the full definition URL of /def/&lt;PrettyUrlName&gt;.
         /// </summary>
         string PrettyUrlName { get; set; }
 

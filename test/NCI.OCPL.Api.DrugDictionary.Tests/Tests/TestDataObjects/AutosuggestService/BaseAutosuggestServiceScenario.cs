@@ -1,14 +1,18 @@
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
+using Xunit.Abstractions;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
-    public abstract class BaseAutosuggestServiceScenario
+    // Need to implement IXunitSerializable in order for tests to be properly
+    // discoverable by xunit. No "real" serialization is needed, but this
+    // prevents JsonNode properties from causing discoverability issues.
+    public abstract class BaseAutosuggestServiceScenario : IXunitSerializable
     {
         /// <summary>
         /// Gets the expected response data object.  Typically a JSON string
-        /// wrapped in a call to JObject.Parse().
+        /// wrapped in a call to JsonNode.Parse().
         /// </summary>
-        public abstract JObject ExpectedData { get; }
+        public abstract JsonNode ExpectedData { get; }
 
         /// <summary>
         /// The text to search for.
@@ -45,5 +49,9 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// </summary>
         public abstract TermNameType[] ExcludeNameTypes { get; }
 
+        // All data is baked into hardcoded property return values on each concrete subclass,
+        // so there is no instance state to serialize or deserialize.
+        public void Deserialize(IXunitSerializationInfo info) { }
+        public void Serialize(IXunitSerializationInfo info) { }
     }
 }
