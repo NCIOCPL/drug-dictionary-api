@@ -1,4 +1,4 @@
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
@@ -27,7 +27,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
 
         public override TermNameType[] ExcludeNameTypes => new TermNameType[0];
 
-        public override JObject ExpectedData => JObject.Parse(@"
+        public override JsonNode ExpectedData => JsonNode.Parse(@"
         {
             ""query"": {
                 ""bool"": {
@@ -37,10 +37,8 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                         { ""terms"": { ""type"": [ ""DrugAlias"", ""DrugTerm"" ] } },
                         { ""terms"": { ""term_name_type"": [ ""USBrandName"", ""Synonym"" ] } }
                     ],
-                    ""must_not"": [
-                        { ""prefix"": { ""name"": { ""value"": ""bevaciz"" } } }
-                    ],
-                    ""filter"": [
+                    ""must_not"": { ""prefix"": { ""name"": { ""value"": ""bevaciz"" } } },
+                    ""filter"":
                         {
                             ""script"": {
                                 ""script"": {
@@ -48,10 +46,9 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                                 }
                             }
                         }
-                    ]
                 }
             },
-            ""sort"": [ { ""name"": {} } ],
+            ""sort"": { ""name"": {} },
             ""size"": 5,
             ""_source"": { ""includes"": [ ""term_id"", ""name"" ] }
         }

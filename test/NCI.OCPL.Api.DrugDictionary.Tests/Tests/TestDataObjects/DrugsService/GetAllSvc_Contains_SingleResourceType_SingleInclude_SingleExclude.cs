@@ -1,4 +1,4 @@
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
@@ -23,7 +23,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
 
         public override TermNameType[] ExcludeNameTypes => new TermNameType[] { TermNameType.Synonym };
 
-        public override JObject ExpectedData => JObject.Parse(@"
+        public override JsonNode ExpectedData => JsonNode.Parse(@"
         {
             ""from"": 55,
             ""size"": 20,
@@ -43,7 +43,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                     ""preferred_name""
                 ]
             },
-            ""sort"": [ { ""name"": {} } ],
+            ""sort"": { ""name"": {} },
             ""query"": {
                 ""bool"": {
                     ""must"": [
@@ -51,9 +51,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                         { ""terms"": { ""term_name_type"": [ ""USBrandName"" ] }
                         }
                     ],
-                    ""must_not"": [
-                        { ""terms"": { ""term_name_type"": [ ""Synonym"" ] } }
-                    ]
+                    ""must_not"": { ""terms"": { ""term_name_type"": [ ""Synonym"" ] } }
                 }
             }
         }

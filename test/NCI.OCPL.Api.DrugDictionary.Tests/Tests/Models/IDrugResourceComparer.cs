@@ -1,8 +1,5 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
-
-using NCI.OCPL.Api.DrugDictionary;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
@@ -42,7 +39,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
 
                 default:
                     throw new ArgumentException(
-                        message: "x and y are not a recognized implmentation of IDrugResource.",
+                        message: "x and y are not a recognized implementation of IDrugResource.",
                         paramName: nameof(x)
                     );
             }
@@ -60,7 +57,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
 
                 default:
                     throw new ArgumentException(
-                        message: "obj is not a recognized implmentation of IDrugResource.",
+                        message: "obj is not a recognized implementation of IDrugResource.",
                         paramName: nameof(obj)
                     );
             }

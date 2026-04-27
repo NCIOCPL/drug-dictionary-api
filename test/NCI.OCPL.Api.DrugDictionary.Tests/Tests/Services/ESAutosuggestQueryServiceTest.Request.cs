@@ -1,20 +1,18 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Text;
 
-using Elasticsearch.Net;
+using Elastic.Clients.Elasticsearch;
+using Elastic.Transport;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Logging.Testing;
-using Moq;
-using Nest;
-using Nest.JsonNetSerializer;
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 using NCI.OCPL.Api.Common.Testing;
 using NCI.OCPL.Api.DrugDictionary.Models;
 using NCI.OCPL.Api.DrugDictionary.Services;
+using System.Text.Json.Nodes;
+using System.Threading.Tasks;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
@@ -34,32 +32,21 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Test to verify that Elasticsearch requests are being assembled as expected.
         /// </summary>
         [Theory, MemberData(nameof(AutosuggestRequestScenarios))]
-        public async void GetSuggestions_TestRequestSetup(BaseAutosuggestServiceScenario data)
+        public async Task GetSuggestions_TestRequestSetup(BaseAutosuggestServiceScenario data)
         {
             Uri esURI = null;
-            string esContentType = String.Empty;
             HttpMethod esMethod = HttpMethod.DELETE; // Basically, something other than the expected value.
+            JsonNode requestBody = null;
 
-            JToken requestBody = null;
-
-            ElasticsearchInterceptingConnection conn = new ElasticsearchInterceptingConnection();
-            conn.RegisterRequestHandlerForType<Nest.SearchResponse<Suggestion>>((req, res) =>
-            {
-                // We don't really care about the response for this test.
-                res.Stream = MockEmptyResponse;
-                res.StatusCode = 200;
-
-                esURI = req.Uri;
-                esContentType = req.RequestMimeType;
-                esMethod = req.Method;
-                requestBody = conn.GetRequestPost(req);
-            });
-
-            // The URI does not matter, an InMemoryConnection never requests from the server.
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-
-            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
-            IElasticClient client = new ElasticClient(connectionSettings);
+            ElasticsearchClientSettings settings = TestingElasticsearchClientSettingsFactory.Create(
+                MockEmptyResponseString,
+                200, details =>
+                {
+                    esURI = details.Uri;
+                    esMethod = details.HttpMethod;
+                    requestBody = JsonNode.Parse(Encoding.UTF8.GetString(details.RequestBodyInBytes));
+                });
+            ElasticsearchClient client = new ElasticsearchClient(settings);
 
             // Setup the mocked Options
             IOptions<DrugDictionaryAPIOptions> clientOptions = ESQueryServiceTest_Helper.MockSearchOptions;
@@ -73,39 +60,34 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                 data.IncludeResourceTypes, data.IncludeNameTypes, data.ExcludeNameTypes);
 
             Assert.Equal("/drugv1/_search", esURI.AbsolutePath);
-            Assert.Equal("application/json", esContentType);
             Assert.Equal(HttpMethod.POST, esMethod);
-            Assert.Equal(data.ExpectedData, requestBody, new JTokenEqualityComparer());
+            Assert.True(JsonNode.DeepEquals(data.ExpectedData, requestBody));
         }
 
         /// <summary>
         /// Simulates a "no results found" response from Elasticsearch so we
         /// have something for tests where we don't care about the response.
         /// </summary>
-        private Stream MockEmptyResponse
-        {
-            get
-            {
-                string empty = @"
+        private string MockEmptyResponseString =>
+            @"
 {
-    ""took"": 223,
-    ""timed_out"": false,
-    ""_shards"": {
-                ""total"": 1,
-        ""successful"": 1,
-        ""skipped"": 0,
-        ""failed"": 0
+    ""took"" : 3,
+    ""timed_out"" : false,
+    ""_shards"" : {
+        ""total"" : 1,
+        ""successful"" : 1,
+        ""skipped"" : 0,
+        ""failed"" : 0
     },
-    ""hits"": {
-                ""total"": 0,
-        ""max_score"": null,
-        ""hits"": []
+    ""hits"" : {
+        ""total"" : {
+            ""value"" : 0,
+            ""relation"" : ""eq""
+        },
+        ""max_score"" : null,
+        ""hits"" : [ ]
     }
 }";
-                byte[] byteArray = Encoding.UTF8.GetBytes(empty);
-                return new MemoryStream(byteArray);
-            }
-        }
 
     }
 }

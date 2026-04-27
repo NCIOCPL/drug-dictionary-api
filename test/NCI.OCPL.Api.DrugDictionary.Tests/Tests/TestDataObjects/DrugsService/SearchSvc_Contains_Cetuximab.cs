@@ -1,4 +1,4 @@
-using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 
 namespace NCI.OCPL.Api.DrugDictionary.Tests
 {
@@ -12,7 +12,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
 
         public override int Size => 50;
 
-        public override JObject ExpectedData => JObject.Parse(@"
+        public override JsonNode ExpectedData => JsonNode.Parse(@"
 {
     ""from"": 100,
     ""size"": 50,
@@ -32,7 +32,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             ""preferred_name""
         ]
     },
-    ""sort"": [ { ""name"": {} } ],
+    ""sort"": { ""name"": {} },
     ""query"": {
         ""bool"": {
             ""should"": [

@@ -13,7 +13,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         public abstract string ResponseBody { get; }
 
         /// <summary>
-        /// /// The expected result.
+        /// The expected result.
         /// </summary>
         public abstract DrugTermResults ExpectedResult { get; }
     }

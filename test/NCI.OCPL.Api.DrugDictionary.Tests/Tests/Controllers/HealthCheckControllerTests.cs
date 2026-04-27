@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 
 using Microsoft.Extensions.Logging.Testing;
 
@@ -6,7 +7,6 @@ using Moq;
 using Xunit;
 
 using NCI.OCPL.Api.Common;
-using NCI.OCPL.Api.Common.Testing;
 using NCI.OCPL.Api.DrugDictionary.Controllers;
 
 
@@ -18,7 +18,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Handle the healthcheck reporting an unhealthy status.
         /// </summary>
         [Fact]
-        public async void IsUnhealthy()
+        public async Task IsUnhealthy()
         {
             var logger = NullLogger<HealthCheckController>.Instance;
             var healthcheckService = new Mock<IHealthCheckService>();
@@ -40,7 +40,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Handle the health service failing.
         /// </summary>
         [Fact]
-        public async void IsVeryUnhealthy()
+        public async Task IsVeryUnhealthy()
         {
             var logger = NullLogger<HealthCheckController>.Instance;
             var healthcheckService = new Mock<IHealthCheckService>();
@@ -63,7 +63,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Handle the healthcheck reporting a healthy status.
         /// </summary>
         [Fact]
-        public async void IsHealthy()
+        public async Task IsHealthy()
         {
             var logger = NullLogger<HealthCheckController>.Instance;
             var healthcheckService = new Mock<IHealthCheckService>();

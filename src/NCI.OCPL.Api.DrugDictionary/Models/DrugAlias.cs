@@ -1,5 +1,3 @@
-using Nest;
-
 namespace NCI.OCPL.Api.DrugDictionary
 {
     /// <summary>
@@ -10,7 +8,6 @@ namespace NCI.OCPL.Api.DrugDictionary
         /// <summary>
         /// The drug's preferred name.
         /// </summary>
-        [Keyword(Name = "preferred_name")]
         public string PreferredName { get; set; }
     }
 }

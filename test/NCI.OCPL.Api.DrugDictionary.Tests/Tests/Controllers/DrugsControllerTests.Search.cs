@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 
 using Microsoft.Extensions.Logging.Testing;
@@ -20,7 +19,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         [InlineData(new object[] { null })]
         [InlineData(new object[] { "" })]       // Can't use String.Empty because it's a property instead of a constant.
         [InlineData(new object[] { "    " })]
-        public async void Search_InvalidSearchString(string query)
+        public async Task Search_InvalidSearchString(string query)
         {
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
             querySvc.Setup(
@@ -66,7 +65,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         [InlineData("AO+ Mist")]
         [InlineData("%20")]
         [InlineData("%3A")]
-        public async void Search_ValidSearchString(string searchText)
+        public async Task Search_ValidSearchString(string searchText)
         {
             DrugTermResults testResults = new DrugTermResults()
             {

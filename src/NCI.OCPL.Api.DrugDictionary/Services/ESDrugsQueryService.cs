@@ -4,10 +4,11 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-using Elasticsearch.Net;
+using Elastic.Clients.Elasticsearch;
+using Elastic.Clients.Elasticsearch.Core.Search;
+using Elastic.Clients.Elasticsearch.QueryDsl;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Nest;
 
 using NCI.OCPL.Api.Common;
 using NCI.OCPL.Api.DrugDictionary.Models;
@@ -29,7 +30,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         /// <summary>
         /// The elasticsearch client
         /// </summary>
-        private IElasticClient _elasticClient;
+        private ElasticsearchClient _elasticClient;
 
         /// <summary>
         /// The API options.
@@ -44,7 +45,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         /// <summary>
         /// Constructor.
         /// </summary>
-        public ESDrugsQueryService(IElasticClient client, IOptions<DrugDictionaryAPIOptions> apiOptionsAccessor,
+        public ESDrugsQueryService(ElasticsearchClient client, IOptions<DrugDictionaryAPIOptions> apiOptionsAccessor,
             ILogger<ESDrugsQueryService> logger)
         {
             _elasticClient = client;
@@ -59,11 +60,11 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         /// </summary>
         public async Task<DrugTerm> GetById(long id)
         {
-            IGetResponse<DrugTerm> response = null;
+            GetResponse<DrugTerm> response = null;
 
             try
             {
-                response = await _elasticClient.GetAsync<DrugTerm>(new DocumentPath<DrugTerm>(id),
+                response = await _elasticClient.GetAsync<DrugTerm>(id,
                         g => g.Index(this._apiOptions.AliasName));
             }
             catch (Exception ex)
@@ -72,7 +73,14 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 throw;
             }
 
-            if (!response.ApiCall.Success)
+            // The ES client treats both 404 status codes and server errors as "Not Found" and also as "Not Valid",
+            // so we also have to check the status code to determine what's really going on.
+            if (!response.Found && response.ApiCallDetails.HttpStatusCode == 404)
+            {
+                return null;
+            }
+
+            if (!response.IsValidResponse)
             {
                 _logger.LogError($"Invalid response when retrieving id '{id}' on index: '{this._apiOptions.AliasName}'.");
                 throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
@@ -89,19 +97,23 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         public async Task<DrugTerm> GetByName(string prettyUrlName)
         {
             // Set up the SearchRequest to send to elasticsearch.
-            Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            SearchRequest request = new SearchRequest(index)
+            SearchRequest request = new SearchRequest(this._apiOptions.AliasName)
             {
-                Query = new TermQuery { Field = "pretty_url_name",  Value = prettyUrlName.ToString() } &&
-                        new TermQuery { Field = "type",             Value = DrugResourceType.DrugTerm.ToString() }
-                ,
-                Sort = new List<ISort>
+                Query = new BoolQuery
                 {
-                    new FieldSort { Field = "name" }
+                    Must = new Query[]
+                    {
+                        new TermQuery { Field = "pretty_url_name", Value = prettyUrlName.ToString() },
+                        new TermQuery { Field = "type",            Value = DrugResourceType.DrugTerm.ToString() }
+                    }
+                },
+                Sort = new List<SortOptions>
+                {
+                    new SortOptions { Field = new FieldSort { Field = "name" } }
                 }
             };
 
-            ISearchResponse<DrugTerm> response = null;
+            SearchResponse<DrugTerm> response = null;
             try
             {
                 response = await _elasticClient.SearchAsync<DrugTerm>(request);
@@ -109,13 +121,17 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
-                _logger.LogError(ex, $"Could not search pretty URL name '{prettyUrlName}'.");
+                _logger.LogError(ex, $"Could not search pretty URL name '{prettyUrlName}'.".Replace(Environment.NewLine, String.Empty));
                 throw;
             }
 
-            if (!response.IsValid)
+            if (!response.IsValidResponse)
             {
-                _logger.LogError($"Invalid response when searching for pretty URL name '{prettyUrlName}'.\n{response.DebugInformation}");
+                // Sanitize the user-generated portion of the log message, leave the debug info intact.
+                string msg = $"Invalid response when searching for pretty URL name '{prettyUrlName}'"
+                    .Replace(Environment.NewLine, String.Empty);
+                msg += $".\nDebug info: {response.DebugInformation}";
+                _logger.LogError(msg);
                 throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
 
@@ -150,28 +166,43 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                                     .Select(pi => new Field(pi))
                                     .ToArray();
 
-            // Set up the SearchRequest to send to elasticsearch.
-            Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            SearchRequest request = new SearchRequest(index)
+            // Build must clauses conditionally to avoid empty terms queries.
+            var mustClauses = new List<Query>
             {
-                Query =
-                    new TermsQuery { Field = "type", Terms = includeResourceTypes.Select(p => p.ToString()) } &&
-                    new TermsQuery { Field = "term_name_type", Terms = includeNameTypes.Select(p => p.ToString()) } &&
-                    !new TermsQuery { Field = "term_name_type", Terms = excludeNameTypes.Select(p => p.ToString()) }
-                ,
-                Sort = new List<ISort>
+                new TermsQuery { Field = "type", Terms = new TermsQueryField(includeResourceTypes.Select(p => (FieldValue)p.ToString()).ToList()) }
+            };
+            if (includeNameTypes.Length > 0)
+            {
+                mustClauses.Add(new TermsQuery { Field = "term_name_type", Terms = new TermsQueryField(includeNameTypes.Select(p => (FieldValue)p.ToString()).ToList()) });
+            }
+
+            var mustNotClauses = new List<Query>();
+            if (excludeNameTypes.Length > 0)
+            {
+                mustNotClauses.Add(new TermsQuery { Field = "term_name_type", Terms = new TermsQueryField(excludeNameTypes.Select(p => (FieldValue)p.ToString()).ToList()) });
+            }
+
+            // Set up the SearchRequest to send to elasticsearch.
+            SearchRequest request = new SearchRequest(this._apiOptions.AliasName)
+            {
+                Query = new BoolQuery
                 {
-                    new FieldSort { Field = "name" }
+                    Must = mustClauses.ToArray(),
+                    MustNot = mustNotClauses.Count > 0 ? mustNotClauses.ToArray() : null
+                },
+                Sort = new List<SortOptions>
+                {
+                    new SortOptions { Field = new FieldSort { Field = "name" } }
                 },
                 Size = size,
                 From = from,
-                Source = new SourceFilter
+                Source = new SourceConfig(new SourceFilter
                 {
                     Includes = fieldList
-                }
+                })
             };
 
-            ISearchResponse<IDrugResource> response = null;
+            SearchResponse<IDrugResource> response = null;
             try
             {
                 response = await _elasticClient.SearchAsync<IDrugResource>(request);
@@ -182,19 +213,21 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
                 string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
 
-                String msg = $"Could not search size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.";
+                String msg = $"Could not search size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}."
+                    .Replace(Environment.NewLine, String.Empty);
                 _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
                 _logger.LogError(ex, msg);
                 throw;
             }
 
-            if (!response.IsValid)
+            if (!response.IsValidResponse)
             {
                 string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
                 string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
                 string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
 
-                String msg = $"Invalid response when searching for size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.\nDebug info: {response.DebugInformation}";
+                String msg = $"Invalid response when searching for size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.\nDebug info: {response.DebugInformation}"
+                    .Replace(Environment.NewLine, String.Empty);
                 _logger.LogError(msg);
                 throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }
@@ -238,54 +271,63 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                                     .ToArray();
 
             // Set up the SearchRequest to send to elasticsearch.
-            Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            SearchRequest request = new SearchRequest(index)
+            SearchRequest request = new SearchRequest(this._apiOptions.AliasName)
             {
-                Query = (
-                            (matchType == MatchType.Begins ?
-                                (QueryBase)new PrefixQuery { Field = "name", Value = query } :
-                                (QueryBase)new MatchQuery { Field = "name._contain", Query = query }
-                            ) &&
-                            new TermQuery { Field = "type", Value = DrugResourceType.DrugTerm.ToString() }
-                        ) ||
-                        new NestedQuery
-                            {
-                                Path = "aliases",
-                                Query = (matchType == MatchType.Begins ?
-                                        (QueryBase)new PrefixQuery { Field = "aliases.name", Value = query} :
-                                        (QueryBase)new MatchQuery { Field = "aliases.name._contain", Query = query}
-                                    )
-                            }
-                ,
-                Sort = new List<ISort>
+                Query = new BoolQuery
                 {
-                    new FieldSort { Field = "name" }
+                    Should = new Query[]
+                    {
+                        new BoolQuery
+                        {
+                            Must = new Query[]
+                            {
+                                matchType == MatchType.Begins
+                                    ? (Query)new PrefixQuery { Field = "name", Value = query }
+                                    : (Query)new MatchQuery { Field = "name._contain", Query = query },
+                                new TermQuery { Field = "type", Value = DrugResourceType.DrugTerm.ToString() }
+                            }
+                        },
+                        new NestedQuery
+                        {
+                            Path = "aliases",
+                            Query = matchType == MatchType.Begins
+                                ? (Query)new PrefixQuery { Field = "aliases.name", Value = query }
+                                : (Query)new MatchQuery { Field = "aliases.name._contain", Query = query }
+                        }
+                    }
+                },
+                Sort = new List<SortOptions>
+                {
+                    new SortOptions { Field = new FieldSort { Field = "name" } }
                 },
                 Size = size,
                 From = from,
-                Source = new SourceFilter
+                Source = new SourceConfig(new SourceFilter
                 {
                     Includes = fieldList
-                }
+                })
             };
 
-            ISearchResponse<DrugTerm> response = null;
+            SearchResponse<DrugTerm> response = null;
             try
             {
                 response = await _elasticClient.SearchAsync<DrugTerm>(request);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Could not search query '{query}', size '{size}', from '{from}'.");
-                _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
+                string msg = $"Could not search query '{query}', size '{size}', from '{from}'."
+                    .Replace(Environment.NewLine, String.Empty);
+                msg += $"\nError searching index: '{this._apiOptions.AliasName}'.";
+                _logger.LogError(ex, msg);
                 throw new APIErrorException(500, INTERNAL_ERRORS_MESSAGE);
             }
 
-            if (!response.IsValid)
+            if (!response.IsValidResponse)
             {
-                _logger.LogError($"Invalid response when searching for query '{query}', size '{size}', from '{from}'.");
-                _logger.LogError(response.DebugInformation);
-                _logger.LogError($"Error searching index: '{this._apiOptions.AliasName}'.");
+                string msg = $"Invalid response when searching for query '{query}', size '{size}', from '{from}'."
+                    .Replace(Environment.NewLine, String.Empty);
+                msg += $"\nError searching index: '{this._apiOptions.AliasName}'.";
+                _logger.LogError(msg);
                 throw new APIErrorException(500, INTERNAL_ERRORS_MESSAGE);
             }
 
@@ -293,7 +335,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
 
             if (response.Total > 0)
             {
-                // Build the array of glossary terms for the returned results.
+                // Build the array of drug terms for the returned results.
                 List<DrugTerm> termResults = new List<DrugTerm>();
                 foreach (DrugTerm res in response.Documents)
                 {
@@ -311,7 +353,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
             }
             else if (response.Total == 0)
             {
-                // Add the defualt value of empty GlossaryTerm list.
+                // Add the default value of empty DrugTerm list.
                 searchResults.Results = new DrugTerm[0];
 
                 // Add the metadata for the returned results
@@ -347,29 +389,44 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                                     .Select(pi => new Field(pi))
                                     .ToArray();
 
-            // Set up the SearchRequest to send to elasticsearch.
-            Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-            SearchRequest request = new SearchRequest(index)
+            // Build must clauses conditionally to avoid empty terms queries.
+            var mustClauses = new List<Query>
             {
-                Query =
-                    new TermQuery { Field = "first_letter",         Value = firstCharacter.ToString() } &&
-                    new TermsQuery { Field = "type",                Terms = includeResourceTypes.Select(p => p.ToString())} &&
-                    new TermsQuery { Field = "term_name_type",      Terms = includeNameTypes.Select(p => p.ToString())} &&
-                    !new TermsQuery {Field = "term_name_type",      Terms = excludeNameTypes.Select(p => p.ToString())}
-                ,
-                Sort = new List<ISort>
+                new TermQuery { Field = "first_letter", Value = firstCharacter.ToString() },
+                new TermsQuery { Field = "type", Terms = new TermsQueryField(includeResourceTypes.Select(p => (FieldValue)p.ToString()).ToList()) }
+            };
+            if (includeNameTypes.Length > 0)
+            {
+                mustClauses.Add(new TermsQuery { Field = "term_name_type", Terms = new TermsQueryField(includeNameTypes.Select(p => (FieldValue)p.ToString()).ToList()) });
+            }
+
+            var mustNotClauses = new List<Query>();
+            if (excludeNameTypes.Length > 0)
+            {
+                mustNotClauses.Add(new TermsQuery { Field = "term_name_type", Terms = new TermsQueryField(excludeNameTypes.Select(p => (FieldValue)p.ToString()).ToList()) });
+            }
+
+            // Set up the SearchRequest to send to elasticsearch.
+            SearchRequest request = new SearchRequest(this._apiOptions.AliasName)
+            {
+                Query = new BoolQuery
                 {
-                    new FieldSort { Field = "name" }
+                    Must = mustClauses.ToArray(),
+                    MustNot = mustNotClauses.Count > 0 ? mustNotClauses.ToArray() : null
+                },
+                Sort = new List<SortOptions>
+                {
+                    new SortOptions { Field = new FieldSort { Field = "name" } }
                 },
                 Size = size,
                 From = from,
-                Source = new SourceFilter
+                Source = new SourceConfig(new SourceFilter
                 {
                     Includes = fieldList
-                }
+                })
             };
 
-            ISearchResponse<IDrugResource> response = null;
+            SearchResponse<IDrugResource> response = null;
             try
             {
                 response = await _elasticClient.SearchAsync<IDrugResource>(request);
@@ -385,12 +442,13 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 throw;
             }
 
-            if (!response.IsValid)
+            if (!response.IsValidResponse)
             {
                 string includeResourceTypesString = "[" + String.Join(',', includeResourceTypes) + "]";
                 string includeNameTypesString = "[" + String.Join(',', includeNameTypes) + "]";
                 string excludeNameTypesString = "[" + String.Join(',', excludeNameTypes) + "]";
-                String msg = $"Invalid response when searching for character '{firstCharacter}', size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}.";
+                String msg = $"Invalid response when searching for character '{firstCharacter}', size '{size}', from '{from}', includeResourceTypes: {includeResourceTypesString}, includeNameTypes: {includeNameTypesString}, excludeNameTypes: {excludeNameTypesString}."
+                    .Replace(Environment.NewLine, String.Empty);
                 _logger.LogError(msg);
                 throw new APIInternalException(INTERNAL_ERRORS_MESSAGE);
             }

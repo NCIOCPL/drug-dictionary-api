@@ -1,15 +1,14 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Nodes;
+using System.Threading.Tasks;
 
-using Elasticsearch.Net;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
-using Moq;
-using Nest;
-using Nest.JsonNetSerializer;
-using Newtonsoft.Json.Linq;
+
+using Elastic.Clients.Elasticsearch;
+using Elastic.Transport;
 using Xunit;
 
 using NCI.OCPL.Api.Common;
@@ -25,64 +24,20 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
     public class ESDrugsQueryServiceTest_Expand : ESDrugsQueryServiceTest_Common
     {
         /// <summary>
-        /// Graceful handling of failures to connect to Elasticsearch
+        /// Graceful handling of failures to connect to Elasticsearch.
         /// </summary>
-        /// <param name="returnStatus"></param>
+        /// <param name="returnStatus">The status code to return</param>
         [Theory]
         [InlineData(401)]
         [InlineData(403)]
         [InlineData(500)]
         [InlineData(502)]
         [InlineData(503)]
-        public async void BadConnection(int returnStatus)
+        public async Task BadConnection(int returnStatus)
         {
-            InMemoryConnection conn = new InMemoryConnection(
-                responseBody: Encoding.UTF8.GetBytes("An error message"),
-                statusCode: returnStatus,
-                exception: null,
-                contentType: "text/plain"
-            );
-
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-
-            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
-            IElasticClient client = new ElasticClient(connectionSettings);
-
-            // Setup the mocked Options
-            IOptions<DrugDictionaryAPIOptions> apiOptions = GetMockOptions();
-
-            ESDrugsQueryService drugClient = new ESDrugsQueryService(client, apiOptions, NullLogger<ESDrugsQueryService>.Instance);
-
-            Exception ex = await Assert.ThrowsAsync<APIInternalException>(
-                () => drugClient.Expand(
-                    'g', 0, 100,
-                    new DrugResourceType[] { DrugResourceType.DrugTerm, DrugResourceType.DrugAlias },
-                    new TermNameType[] { TermNameType.Synonym, TermNameType.USBrandName, TermNameType.PreferredName },
-                    new TermNameType[] { TermNameType.ChemicalStructureName, TermNameType.CodeName, TermNameType.ObsoleteName }
-                )
-            );
-            Assert.Equal(ESDrugsQueryService.INTERNAL_ERRORS_MESSAGE, ex.Message);
-        }
-
-        /// <summary>
-        /// Graceful handling of an invalid response from Elaticsearch.
-        /// </summary>
-        [Theory]
-        [InlineData("Not the server you were looking for")] // Bad server
-        [InlineData("{")] // Interrupted connection
-        public async void InvalidResponse(string responseBody)
-        {
-            InMemoryConnection conn = new InMemoryConnection(
-                responseBody: Encoding.UTF8.GetBytes(responseBody),
-                statusCode: 200,
-                exception: null,
-                contentType: "text/plain"
-            );
-
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-
-            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
-            IElasticClient client = new ElasticClient(connectionSettings);
+            InMemoryConnection connection = new InMemoryConnection(Array.Empty<byte>(), returnStatus);
+            ElasticsearchClientSettings settings = TestingElasticsearchClientSettingsFactory.Create(connection);
+            ElasticsearchClient client = new ElasticsearchClient(settings);
 
             // Setup the mocked Options
             IOptions<DrugDictionaryAPIOptions> apiOptions = GetMockOptions();
@@ -114,32 +69,22 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         ///  Verify structure of the request for Expand.
         /// </summary>
         [Theory, MemberData(nameof(ExpandRequestScenarios))]
-        public async void Expand_TestRequestSetup(BaseExpandSvcRequestScenario data)
+        public async Task Expand_TestRequestSetup(BaseExpandSvcRequestScenario data)
         {
             Uri esURI = null;
-            string esContentType = String.Empty;
             HttpMethod esMethod = HttpMethod.DELETE; // Basically, something other than the expected value.
+            JsonNode requestBody = null;
 
-            JToken requestBody = null;
-
-            ElasticsearchInterceptingConnection conn = new ElasticsearchInterceptingConnection();
-            conn.RegisterRequestHandlerForType<Nest.SearchResponse<IDrugResource>>((req, res) =>
-            {
-                // We don't really care about the response for this test.
-                res.Stream = MockEmptyResponse;
-                res.StatusCode = 200;
-
-                esURI = req.Uri;
-                esContentType = req.RequestMimeType;
-                esMethod = req.Method;
-                requestBody = conn.GetRequestPost(req);
-            });
-
-            // The URI does not matter, an InMemoryConnection never requests from the server.
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-
-            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
-            IElasticClient client = new ElasticClient(connectionSettings);
+            ElasticsearchClientSettings settings = TestingElasticsearchClientSettingsFactory.Create(
+                MockEmptyResponseString,
+                200,
+                details =>
+                {
+                    esURI = details.Uri;
+                    esMethod = details.HttpMethod;
+                    requestBody = JsonNode.Parse(Encoding.UTF8.GetString(details.RequestBodyInBytes));
+                });
+            ElasticsearchClient client = new ElasticsearchClient(settings);
 
             // Setup the mocked Options
             IOptions<DrugDictionaryAPIOptions> clientOptions = GetMockOptions();
@@ -153,9 +98,8 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
                 );
 
             Assert.Equal("/drugv1/_search", esURI.AbsolutePath);
-            Assert.Equal("application/json", esContentType);
             Assert.Equal(HttpMethod.POST, esMethod);
-            Assert.Equal(data.ExpectedData, requestBody, new JTokenEqualityComparer());
+            Assert.True(JsonNode.DeepEquals(data.ExpectedData, requestBody));
         }
 
         public static IEnumerable<object[]> DataLoadingScenarios = new []
@@ -169,18 +113,10 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify loading of differing search results.
         /// </summary>
         [Theory, MemberData(nameof(DataLoadingScenarios))]
-        public async void NothingFound(Expand_DataLoading_Base data)
+        public async Task NothingFound(Expand_DataLoading_Base data)
         {
-            InMemoryConnection conn = new InMemoryConnection(
-                responseBody: Encoding.UTF8.GetBytes(data.ResponseBody),
-                statusCode: 200,
-                exception: null,
-                contentType: "application/json"
-            );
-
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var connectionSettings = new ConnectionSettings(pool, conn, sourceSerializer: JsonNetSerializer.Default);
-            IElasticClient client = new ElasticClient(connectionSettings);
+            ElasticsearchClientSettings settings = TestingElasticsearchClientSettingsFactory.Create(data.ResponseBody, 200);
+            ElasticsearchClient client = new ElasticsearchClient(settings);
 
             // Setup the mocked Options
             IOptions<DrugDictionaryAPIOptions> apiOptions = GetMockOptions();

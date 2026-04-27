@@ -20,7 +20,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify that GetAll behaves in the expected manner when only required parameters are passed in.
         /// </summary>
         [Fact]
-        public async void GetAll_RequiredParametersOnly()
+        public async Task GetAll_RequiredParametersOnly()
         {
             // Create a mock query that always returns the same result.
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
@@ -56,7 +56,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify that GetAll behaves in the expected manner when size is an invalid value.
         /// </Summary>
         [Fact]
-        public async void GetAll_InvalidSize()
+        public async Task GetAll_InvalidSize()
         {
             // Create a mock query that always returns the same result.
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
@@ -94,7 +94,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         /// Verify that GetAll behaves in the expected manner when from is an invalid value.
         /// </summary>
         [Fact]
-        public async void GetAll_InvalidFrom()
+        public async Task GetAll_InvalidFrom()
         {
             // Create a mock query that always returns the same result.
             Mock<IDrugsQueryService> querySvc = new Mock<IDrugsQueryService>();
@@ -130,7 +130,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         [Theory]
         [InlineData(typeof(APIInternalException))]
         [InlineData(typeof(ArgumentNullException))]
-        public async void GetALL_ServiceErrors(Type exceptionType)
+        public async Task GetALL_ServiceErrors(Type exceptionType)
         {
             // In order to test throwing more than a single exception type, we need to to pass a type
             // and construct it rather than throwing with a new.
@@ -162,11 +162,11 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
         }
 
         /// <summary>
-        /// Verify that Expand returns a DrugTermResults identical to the one it recieves from the service level.
+        /// Verify that Expand returns a DrugTermResults identical to the one it receives from the service level.
         /// (This test will need to change if Expand ever gains any logic of its own.)
         /// </summary>
         [Fact]
-        public async void GetAllTerms()
+        public async Task GetAllTerms()
         {
             Mock<IDrugsQueryService> termsQueryService = new Mock<IDrugsQueryService>();
             DrugsController controller = new DrugsController(NullLogger<DrugsController>.Instance, termsQueryService.Object);

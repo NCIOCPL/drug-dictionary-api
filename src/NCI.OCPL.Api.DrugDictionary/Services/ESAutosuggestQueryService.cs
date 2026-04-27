@@ -1,21 +1,22 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Elasticsearch.Net;
+using Elastic.Clients.Elasticsearch;
+using Elastic.Clients.Elasticsearch.Core.Search;
+using Elastic.Clients.Elasticsearch.QueryDsl;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Nest;
 
 using NCI.OCPL.Api.Common;
 using NCI.OCPL.Api.DrugDictionary.Models;
-using System;
 
 namespace NCI.OCPL.Api.DrugDictionary.Services
 {
     /// <summary>
-    /// Elasticsearch implementation of the service for retrieveing suggestions for
-    /// GlossaryTerm objects.
+    /// Elasticsearch implementation of the service for retrieving suggestions for
+    /// DrugTerm objects.
     /// </summary>
     public class ESAutosuggestQueryService : IAutosuggestQueryService
     {
@@ -23,7 +24,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         /// <summary>
         /// The elasticsearch client
         /// </summary>
-        private IElasticClient _elasticClient;
+        private ElasticsearchClient _elasticClient;
 
         /// <summary>
         /// The API options.
@@ -38,7 +39,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         /// <summary>
         /// Constructor.
         /// </summary>
-        public ESAutosuggestQueryService(IElasticClient client,
+        public ESAutosuggestQueryService(ElasticsearchClient client,
             IOptions<DrugDictionaryAPIOptions> apiOptionsAccessor,
             ILogger<ESAutosuggestQueryService> logger)
         {
@@ -64,9 +65,7 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         )
         {
             // Set up the SearchRequest to send to elasticsearch.
-            Indices index = Indices.Index(new string[] { this._apiOptions.AliasName });
-
-            ISearchResponse<Suggestion> response = null;
+            SearchResponse<Suggestion> response = null;
 
             try
             {
@@ -75,10 +74,10 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 {
                     default:
                     case MatchType.Begins:
-                        request = BuildBeginRequest(index, searchText, size, includeResourceTypes, includeNameTypes, excludeNameTypes);
+                        request = BuildBeginRequest(searchText, size, includeResourceTypes, includeNameTypes, excludeNameTypes);
                         break;
                     case MatchType.Contains:
-                        request = BuildContainsRequest(index, searchText, size, includeResourceTypes, includeNameTypes, excludeNameTypes);
+                        request = BuildContainsRequest(searchText, size, includeResourceTypes, includeNameTypes, excludeNameTypes);
                         break;
                 }
 
@@ -92,10 +91,12 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 throw new APIErrorException(500, msg);
             }
 
-            if (!response.IsValid)
+            if (!response.IsValidResponse)
             {
-                _logger.LogError($"Invalid response when searching for query '{searchText}', contains '{matchType}', size '{size}'.");
-                throw new APIErrorException(500, "errors occured");
+                string msg = $"Invalid response when searching for query '{searchText}', contains '{matchType}', size '{size}'."
+                    .Replace(Environment.NewLine, String.Empty);
+                _logger.LogError(msg);
+                throw new APIErrorException(500, "errors occurred");
             }
 
             List<Suggestion> retVal = new List<Suggestion>(response.Documents);
@@ -106,48 +107,55 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         /// <summary>
         /// Builds the SearchRequest for terms beginning with the search text.
         /// </summary>
-        /// <param name="index">The index which will be searched against.</param>
         /// <param name="query">The text to search for.</param>
         /// <param name="size">The number of records to retrieve.</param>
         /// <param name="includeResourceTypes">The DrugResourceTypes to include. Default: All</param>
         /// <param name="includeNameTypes">The name types to include. Default: All</param>
         /// <param name="excludeNameTypes">The name types to exclude. Default: All</param>
-        private SearchRequest BuildBeginRequest(Indices index, string query, int size,
+        private SearchRequest BuildBeginRequest(string query, int size,
                 DrugResourceType[] includeResourceTypes,
                     TermNameType[] includeNameTypes,
                     TermNameType[] excludeNameTypes
         )
         {
-            SearchRequest request = new SearchRequest(index)
+            var mustClauses = new List<Query>
+            {
+                new PrefixQuery { Field = "name", Value = query },
+                new TermsQuery { Field = "type", Terms = new TermsQueryField(includeResourceTypes.Select(p => (FieldValue)p.ToString()).ToList()) }
+            };
+            if (includeNameTypes.Length > 0)
+            {
+                mustClauses.Add(new TermsQuery { Field = "term_name_type", Terms = new TermsQueryField(includeNameTypes.Select(p => (FieldValue)p.ToString()).ToList()) });
+            }
+
+            var mustNotClauses = new List<Query>();
+            if (excludeNameTypes.Length > 0)
+            {
+                mustNotClauses.Add(new TermsQuery { Field = "term_name_type", Terms = new TermsQueryField(excludeNameTypes.Select(p => (FieldValue)p.ToString()).ToList()) });
+            }
+
+            SearchRequest request = new SearchRequest(this._apiOptions.AliasName)
             {
                 Query = new BoolQuery
                 {
-                    Must = new QueryContainer[]
-                    {
-                        new PrefixQuery {Field = "name", Value = query },
-                        new TermsQuery { Field = "type", Terms = includeResourceTypes.Select(p => p.ToString()) },
-                        new TermsQuery { Field = "term_name_type", Terms = includeNameTypes.Select(p => p.ToString()) }
-                    },
-                    MustNot = new QueryContainer[]
-                    {
-                        new TermsQuery { Field = "term_name_type", Terms = excludeNameTypes.Select(p => p.ToString()) }
-                    },
-                    Filter = new QueryContainer[]
+                    Must = mustClauses.ToArray(),
+                    MustNot = mustNotClauses.Count > 0 ? mustNotClauses.ToArray() : null,
+                    Filter = new Query[]
                     {
                         new ScriptQuery
                         {
-                            Script = new InlineScript($"doc['name'].value.length() <= {_apiOptions.Autosuggest.MaxSuggestionLength}")
+                            Script = new Script { Source = $"doc['name'].value.length() <= {_apiOptions.Autosuggest.MaxSuggestionLength}" }
                         }
                     }
                 },
-                Sort = new List<ISort>
+                Sort = new List<SortOptions>
                 {
-                    new FieldSort { Field = "name" }
+                    new SortOptions { Field = new FieldSort { Field = "name" } }
                 },
-                Source = new SourceFilter
+                Source = new SourceConfig(new SourceFilter
                 {
-                    Includes = new string[]{"term_id", "name"}
-                },
+                    Includes = new Field[] { "term_id", "name" }
+                }),
                 Size = size
             };
 
@@ -155,53 +163,61 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
         }
 
         /// <summary>
-        /// Builds the SearchRequest for terms containing with the search text.
+        /// Builds the SearchRequest for terms containing the search text.
         /// </summary>
-        /// <param name="index">The index which will be searched against.</param>
         /// <param name="query">The text to search for.</param>
         /// <param name="size">The number of records to retrieve.</param>
         /// <param name="includeResourceTypes">The DrugResourceTypes to include. Default: All</param>
         /// <param name="includeNameTypes">The name types to include. Default: All</param>
         /// <param name="excludeNameTypes">The name types to exclude. Default: All</param>
-        private SearchRequest BuildContainsRequest(Indices index, string query, int size,
+        private SearchRequest BuildContainsRequest(string query, int size,
                 DrugResourceType[] includeResourceTypes,
                     TermNameType[] includeNameTypes,
                     TermNameType[] excludeNameTypes
         )
         {
-            SearchRequest request = new SearchRequest(index)
+            var mustClauses = new List<Query>
+            {
+                new MatchPhraseQuery { Field = "name._autocomplete", Query = query.ToString() },
+                new MatchQuery { Field = "name._contain", Query = query.ToString() },
+                new TermsQuery { Field = "type", Terms = new TermsQueryField(includeResourceTypes.Select(p => (FieldValue)p.ToString()).ToList()) }
+            };
+            if (includeNameTypes.Length > 0)
+            {
+                mustClauses.Add(new TermsQuery { Field = "term_name_type", Terms = new TermsQueryField(includeNameTypes.Select(p => (FieldValue)p.ToString()).ToList()) });
+            }
+
+            var mustNotClauses = new List<Query>
+            {
+                new PrefixQuery { Field = "name", Value = query }
+            };
+            if (excludeNameTypes.Length > 0)
+            {
+                mustNotClauses.Add(new TermsQuery { Field = "term_name_type", Terms = new TermsQueryField(excludeNameTypes.Select(p => (FieldValue)p.ToString()).ToList()) });
+            }
+
+            SearchRequest request = new SearchRequest(this._apiOptions.AliasName)
             {
                 Query = new BoolQuery
                 {
-                    Must = new QueryContainer[]
-                    {
-                        new MatchPhraseQuery { Field = "name._autocomplete", Query = query.ToString() },
-                        new MatchQuery { Field = "name._contain", Query = query.ToString() },
-                        new TermsQuery { Field = "type", Terms = includeResourceTypes.Select(p => p.ToString()) },
-                        new TermsQuery {Field = "term_name_type", Terms = includeNameTypes.Select(p => p.ToString()) }
-                    },
-                    MustNot = new QueryContainer[]
-                    {
-                        new PrefixQuery { Field = "name", Value = query },
-                        new TermsQuery { Field = "term_name_type", Terms = excludeNameTypes.Select(p => p.ToString())}
-                    },
-                    Filter = new QueryContainer[]
+                    Must = mustClauses.ToArray(),
+                    MustNot = mustNotClauses.ToArray(),
+                    Filter = new Query[]
                     {
                         new ScriptQuery
                         {
-                            Script = new InlineScript($"doc['name'].value.length() <= {_apiOptions.Autosuggest.MaxSuggestionLength}")
+                            Script = new Script { Source = $"doc['name'].value.length() <= {_apiOptions.Autosuggest.MaxSuggestionLength}" }
                         }
                     }
-                }
-                ,
-                Sort = new List<ISort>
-                {
-                    new FieldSort { Field = "name" }
                 },
-                Source = new SourceFilter
+                Sort = new List<SortOptions>
                 {
-                    Includes = new string[] { "term_id", "name" }
+                    new SortOptions { Field = new FieldSort { Field = "name" } }
                 },
+                Source = new SourceConfig(new SourceFilter
+                {
+                    Includes = new Field[] { "term_id", "name" }
+                }),
                 Size = size
             };
 

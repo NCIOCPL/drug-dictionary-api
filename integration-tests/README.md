@@ -10,7 +10,7 @@
 7. `./bin/karate ./features` -- This runs the tests
    * `./bin/karate -w ./features` will watch the feature files and rerun when they are changed. So good for devving tests
 
-## NuGet Configuraiton
+## NuGet Configuration
 1. Create a GitHub [Personal Access token](https://github.com/settings/tokens/) with a descriptive name such as "NuGet package".
 2. Assign the token the `packages:read` scope and save it.
 3. Copy the token's value.
@@ -20,7 +20,7 @@
     ```
 5. If you do NOT have the dotnet command line tool installed:
     1. Create `~/.nuget/NuGet/NuGet.Config`.
-    2. Put these lines in the file (be sure to substitute your username and toke value)
+    2. Put these lines in the file (be sure to substitute your username and token value)
        ```xml
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
