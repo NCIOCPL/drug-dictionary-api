@@ -109,7 +109,8 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 },
                 Sort = new List<SortOptions>
                 {
-                    new SortOptions { Field = new FieldSort { Field = "name" } }
+                    new SortOptions { Field = new FieldSort { Field = "name", Order = SortOrder.Asc } },
+                    new SortOptions { Field = new FieldSort { Field = "preferred_name", Order = SortOrder.Asc } }
                 }
             };
 
@@ -192,7 +193,8 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 },
                 Sort = new List<SortOptions>
                 {
-                    new SortOptions { Field = new FieldSort { Field = "name" } }
+                    new SortOptions { Field = new FieldSort { Field = "name", Order = SortOrder.Asc } },
+                    new SortOptions { Field = new FieldSort { Field = "preferred_name", Order = SortOrder.Asc } }
                 },
                 Size = size,
                 From = from,
@@ -298,7 +300,8 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 },
                 Sort = new List<SortOptions>
                 {
-                    new SortOptions { Field = new FieldSort { Field = "name" } }
+                    new SortOptions { Field = new FieldSort { Field = "name", Order = SortOrder.Asc } },
+                    new SortOptions { Field = new FieldSort { Field = "preferred_name", Order = SortOrder.Asc } }
                 },
                 Size = size,
                 From = from,
@@ -416,7 +419,8 @@ namespace NCI.OCPL.Api.DrugDictionary.Services
                 },
                 Sort = new List<SortOptions>
                 {
-                    new SortOptions { Field = new FieldSort { Field = "name" } }
+                    new SortOptions { Field = new FieldSort { Field = "name", Order = SortOrder.Asc } },
+                    new SortOptions { Field = new FieldSort { Field = "preferred_name", Order = SortOrder.Asc } }
                 },
                 Size = size,
                 From = from,

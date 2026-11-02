@@ -17,7 +17,10 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
 
         public override JsonNode ExpectedData => JsonNode.Parse(@"
         {
-            ""sort"": { ""name"": {} },
+            ""sort"": [
+                { ""name"": { ""order"": ""asc"" } },
+                { ""preferred_name"": { ""order"": ""asc"" } }
+            ],
             ""query"": {
                 ""bool"": {
                     ""must"": [
