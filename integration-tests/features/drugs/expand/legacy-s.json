@@ -1,6 +1,6 @@
 {
     "meta": {
-        "totalResults": 396,
+        "totalResults": 393,
         "from": 20
     },
     "results": [
@@ -150,13 +150,13 @@
             "prettyUrlName": "diphencyprone"
         },
         {
-            "preferredName": "granisetron transdermal system",
-            "termId": 642824,
+            "preferredName": "granisetron",
+            "termId": 794007,
             "name": "Sancuso",
             "firstLetter": "s",
             "type": "DrugAlias",
             "termNameType": "USBrandName",
-            "prettyUrlName": "granisetron-transdermal-patch"
+            "prettyUrlName": "granisetron"
         }
     ],
     "links": null

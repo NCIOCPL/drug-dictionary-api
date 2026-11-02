@@ -5,33 +5,6 @@
     },
     "results": [
         {
-            "preferredName": "copper Cu 64-DOTA B-Fab",
-            "termId": 780300,
-            "name": "64 Cu-DOTA B-Fab",
-            "firstLetter": "#",
-            "type": "DrugAlias",
-            "termNameType": "Synonym",
-            "prettyUrlName": "copper-cu-64-dota-b-fab"
-        },
-        {
-            "preferredName": "copper Cu 64-DOTA B-Fab",
-            "termId": 780300,
-            "name": "64 Cu-DOTA DS6 B-Fab",
-            "firstLetter": "#",
-            "type": "DrugAlias",
-            "termNameType": "Synonym",
-            "prettyUrlName": "copper-cu-64-dota-b-fab"
-        },
-        {
-            "preferredName": "alcohol",
-            "termId": 446576,
-            "name": "64-17-5",
-            "firstLetter": "#",
-            "type": "DrugAlias",
-            "termNameType": "CASRegistryName",
-            "prettyUrlName": "alcohol"
-        },
-        {
             "preferredName": "acetic acid",
             "termId": 712834,
             "name": "64-19-7",
@@ -408,15 +381,6 @@
             "type": "DrugAlias",
             "termNameType": "Synonym",
             "prettyUrlName": "copper-cu-64-dota-rituximab"
-        },
-        {
-            "preferredName": "copper Cu 64-DOTA-trastuzumab",
-            "termId": 667958,
-            "name": "64Cu-DOTA-trastuzumab",
-            "firstLetter": "#",
-            "type": "DrugAlias",
-            "termNameType": "Synonym",
-            "prettyUrlName": "copper-cu-64-dota-trastuzumab"
         },
         {
             "preferredName": "copper Cu 64-DOTA-anti-HER3 monoclonal antibody U3-1287",
@@ -903,6 +867,42 @@
             "type": "DrugAlias",
             "termNameType": "NSCNumber",
             "prettyUrlName": "edodekin-alfa"
+        },
+        {
+            "preferredName": "MART-1:27-35 peptide vaccine",
+            "termId": 476336,
+            "name": "672643",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "mart-127-35-peptide-vaccine"
+        },
+        {
+            "preferredName": "carcinoembryonic antigen peptide 1",
+            "termId": 42585,
+            "name": "672683",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "carcinoembryonic-antigen-peptide-1"
+        },
+        {
+            "preferredName": "granisetron hydrochloride",
+            "termId": 42236,
+            "name": "672814",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "granisetron-hydrochloride"
+        },
+        {
+            "preferredName": "paclitaxel",
+            "termId": 39762,
+            "name": "673089",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "NSCNumber",
+            "prettyUrlName": "paclitaxel"
         }
     ],
     "links": null
