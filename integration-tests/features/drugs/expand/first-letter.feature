@@ -20,7 +20,7 @@ Feature: Expand shows a list of terms starting with the specified letter.
         When method get
         Then status 200
         And match each $.results[*].firstLetter == letter
-        And match each $.results[*].name[0] == letter
+        And match each $.results[*].name == '#? _.charAt(0).toLowerCase() == letter'
 
         Examples:
             | letter |
