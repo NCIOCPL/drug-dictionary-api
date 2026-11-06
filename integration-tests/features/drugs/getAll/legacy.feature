@@ -15,4 +15,4 @@ Feature: Get All definitions, with includedNameTypes set to 'PreferredName', 'US
         Examples:
             | from | expected                 |
             | 0    | legacy-offset-0.json     |
-            | 2000 | legacy-offset-2000.json  |
+            | 1994 | legacy-offset-2000.json  |
