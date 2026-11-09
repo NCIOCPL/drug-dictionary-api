@@ -1,168 +1,9 @@
 {
     "meta": {
-        "totalResults": 6013,
+        "totalResults": 5994,
         "from": 1000
     },
     "results": [
-        {
-            "aliases": [
-                {
-                    "type": "ForeignBrandName",
-                    "name": "Erwinase"
-                },
-                {
-                    "type": "USBrandName",
-                    "name": "Erwinaze"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "cristantaspase"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "crisantaspasum"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "Erwinia L-asparginase"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "asparaginase-Erwinia"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "krisantaspas"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "krisantaspaasi"
-                },
-                {
-                    "type": "NSCNumber",
-                    "name": "106977"
-                },
-                {
-                    "type": "CASRegistryName",
-                    "name": "9015-68-3"
-                }
-            ],
-            "definition": {
-                "html": "An enzyme isolated from the bacterium Erwinia chrysanthemi (E. carotovora). Asparagine is critical to protein synthesis in leukemic cells, which cannot synthesize this amino acid due to the absence of the enzyme asparagine synthase. Asparaginase hydrolyzes L-asparagine to L-aspartic acid and ammonia, thereby depleting leukemic cells of asparagine and blocking protein synthesis and tumor cell proliferation, especially in the G1 phase of the cell cycle.  This agent also induces apoptosis in tumor cells. The Erwinia-derived product is often used for those patients who have experienced a hypersensitivity reaction to the E. Coli formulation.",
-                "text": "An enzyme isolated from the bacterium Erwinia chrysanthemi (E. carotovora). Asparagine is critical to protein synthesis in leukemic cells, which cannot synthesize this amino acid due to the absence of the enzyme asparagine synthase. Asparaginase hydrolyzes L-asparagine to L-aspartic acid and ammonia, thereby depleting leukemic cells of asparagine and blocking protein synthesis and tumor cell proliferation, especially in the G1 phase of the cell cycle.  This agent also induces apoptosis in tumor cells. The Erwinia-derived product is often used for those patients who have experienced a hypersensitivity reaction to the E. Coli formulation."
-            },
-            "drugInfoSummaryLink": {
-                "uri": "https://www.cancer.gov/about-cancer/treatment/drugs/asparaginase-erwinia-chrysanthemi",
-                "text": "Asparaginase Erwinia chrysanthemi"
-            },
-            "nciConceptId": "C64260",
-            "nciConceptName": "Asparaginase Erwinia chrysanthemi",
-            "termId": 601044,
-            "name": "asparaginase Erwinia chrysanthemi",
-            "firstLetter": "a",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "asparaginase-erwinia-chrysanthemi"
-        },
-        {
-            "aliases": [
-                {
-                    "type": "Synonym",
-                    "name": "astatine 211-labeled anti-CD38 monoclonal antibody OKT10-B10"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "At211-OKT10-B10"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "astatine-211-OKT10-B10"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "211At-OKT10-B10"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "[211At]OKT10-B10"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "astatine At 211 anti-CD38 MoAb OKT10-B10"
-                }
-            ],
-            "definition": {
-                "html": "A radioimmunoconjugate composed of the anti-CD38 monoclonal antibody (MoAb) OKT10-B10 labeled with the alpha-emitting radionuclide astatine (At) 211 (211At), with potential antineoplastic activity. Upon administration of astatine At 211 anti-CD38 MoAb OKT10-B10, the MoAb moiety targets and binds to CD38-expressing tumor cells, thereby delivering a cytotoxic dose of alpha radiation directly to the CD38-expressing tumor cells. CD38, a type II transmembrane glycoprotein and tumor-associated antigen (TAA), is present on various immune cells and in hematologic malignancies; its expression has been correlated with poor prognosis.",
-                "text": "A radioimmunoconjugate composed of the anti-CD38 monoclonal antibody (MoAb) OKT10-B10 labeled with the alpha-emitting radionuclide astatine (At) 211 (211At), with potential antineoplastic activity. Upon administration of astatine At 211 anti-CD38 MoAb OKT10-B10, the MoAb moiety targets and binds to CD38-expressing tumor cells, thereby delivering a cytotoxic dose of alpha radiation directly to the CD38-expressing tumor cells. CD38, a type II transmembrane glycoprotein and tumor-associated antigen (TAA), is present on various immune cells and in hematologic malignancies; its expression has been correlated with poor prognosis."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C165280",
-            "nciConceptName": "Astatine At 211 Anti-CD38 Monoclonal Antibody OKT10-B10",
-            "termId": 799762,
-            "name": "astatine At 211 anti-CD38 monoclonal antibody OKT10-B10",
-            "firstLetter": "a",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "astatine-at-211-anti-cd38-monoclonal-antibody-okt10-b10"
-        },
-        {
-            "aliases": [
-                {
-                    "type": "ChemicalStructureName",
-                    "name": "(3S,3'S)-3,3'-dihydroxy-beta,beta-carotene-4,4'-dione"
-                },
-                {
-                    "type": "CASRegistryName",
-                    "name": "472-61-7"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "Astaxanthine"
-                },
-                {
-                    "type": "ForeignBrandName",
-                    "name": "Algalif"
-                }
-            ],
-            "definition": {
-                "html": "A natural and synthetic xanthophyll and nonprovitamin A carotenoid, with potential antioxidant, anti-inflammatory and antineoplastic activities. Upon administration, astaxanthin may act as an antioxidant and reduce oxidative stress, thereby preventing protein and lipid oxidation and DNA damage. By decreasing the production of reactive oxygen species (ROS) and free radicals, it may also prevent ROS-induced activation of nuclear factor-kappa B (NF-kB) transcription factor and the production of inflammatory cytokines such as interleukin-1beta (IL-1b), IL-6 and tumor necrosis factor-alpha (TNF-a). In addition, astaxanthin may inhibit cyclooxygenase-1 (COX-1) and nitric oxide (NO) activities, thereby reducing inflammation. Oxidative stress and inflammation play key roles in the pathogenesis of many diseases, including cardiovascular, neurological, autoimmune and neoplastic diseases.\n",
-                "text": "A natural and synthetic xanthophyll and nonprovitamin A carotenoid, with potential antioxidant, anti-inflammatory and antineoplastic activities. Upon administration, astaxanthin may act as an antioxidant and reduce oxidative stress, thereby preventing protein and lipid oxidation and DNA damage. By decreasing the production of reactive oxygen species (ROS) and free radicals, it may also prevent ROS-induced activation of nuclear factor-kappa B (NF-kB) transcription factor and the production of inflammatory cytokines such as interleukin-1beta (IL-1b), IL-6 and tumor necrosis factor-alpha (TNF-a). In addition, astaxanthin may inhibit cyclooxygenase-1 (COX-1) and nitric oxide (NO) activities, thereby reducing inflammation. Oxidative stress and inflammation play key roles in the pathogenesis of many diseases, including cardiovascular, neurological, autoimmune and neoplastic diseases.\n"
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C63653",
-            "nciConceptName": "Astaxanthin",
-            "termId": 801793,
-            "name": "astaxanthin",
-            "firstLetter": "a",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "astaxanthin"
-        },
-        {
-            "aliases": [
-                {
-                    "type": "CodeName",
-                    "name": "SH003"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "Am/Ag/Tk herbal extract SH003"
-                }
-            ],
-            "definition": {
-                "html": "A traditional Chinese medicine (TCM)-based herbal extract composed of Astragalus membranaceus (Am), Angelica gigas (Ag) and Trichosanthes kirilowii Maximowicz (Tk), with potential anti-angiogenic and antineoplastic activities. Upon administration, the active ingredients in Am/Ag/Tk mixed herbal extract SH003 work synergistically to exert a number of activities through various mechanisms of action (MOA); although, not all of the MOAs are fully elucidated. SH003 blocks the binding of vascular endothelial growth factor (VEGF) to its receptor VEGF receptor 2 (VEGFR2; KDR), thereby inhibiting VEGF/VEGFR2-mediated signaling and VEGF-induced tumor endothelial cell migration, invasion and tube formation. This inhibits tumor angiogenesis. In addition, SH003 inhibits signal transducer and activator of transcription 3 (STAT3) activation and STAT3-mediated signaling, decreases the production of the pro-inflammatory cytokine interleukin-6 (IL-6) and the expression of STAT3 target genes. This induces apoptosis in, and reduces proliferation and metastasis of, cancer cells in which STAT3 signaling is overactivated. STAT3 activation contributes to inflammation in the cancer environment and tumor cell proliferation.",
-                "text": "A traditional Chinese medicine (TCM)-based herbal extract composed of Astragalus membranaceus (Am), Angelica gigas (Ag) and Trichosanthes kirilowii Maximowicz (Tk), with potential anti-angiogenic and antineoplastic activities. Upon administration, the active ingredients in Am/Ag/Tk mixed herbal extract SH003 work synergistically to exert a number of activities through various mechanisms of action (MOA); although, not all of the MOAs are fully elucidated. SH003 blocks the binding of vascular endothelial growth factor (VEGF) to its receptor VEGF receptor 2 (VEGFR2; KDR), thereby inhibiting VEGF/VEGFR2-mediated signaling and VEGF-induced tumor endothelial cell migration, invasion and tube formation. This inhibits tumor angiogenesis. In addition, SH003 inhibits signal transducer and activator of transcription 3 (STAT3) activation and STAT3-mediated signaling, decreases the production of the pro-inflammatory cytokine interleukin-6 (IL-6) and the expression of STAT3 target genes. This induces apoptosis in, and reduces proliferation and metastasis of, cancer cells in which STAT3 signaling is overactivated. STAT3 activation contributes to inflammation in the cancer environment and tumor cell proliferation."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C148489",
-            "nciConceptName": "Astragalus membranaceus/Angelica gigas/Trichosanthes kirilowii Maximowicz Mixed Herbal Extract SH003",
-            "termId": 792574,
-            "name": "Astragalus membranaceus/Angelica gigas/Trichosanthes kirilowii Maximowicz mixed herbal extract SH003",
-            "firstLetter": "a",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": ""
-        },
         {
             "aliases": [
                 {
@@ -3006,6 +2847,130 @@
             "type": "DrugTerm",
             "termNameType": "PreferredName",
             "prettyUrlName": "autologous-anti-psca-car-4-1bb-tcrzeta-cd19t-expressing-t-lymphocytes"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "Synonym",
+                    "name": "autologous anti-prostate-specific membrane antigen gene-modified T-cells"
+                },
+                {
+                    "type": "LexicalVariant",
+                    "name": "Autologous Anti-PSMA Gene-Modified T-Lymphocytes"
+                }
+            ],
+            "definition": {
+                "html": "Autologous prostate specific membrane antigen (PSMA) gene-modified T lymphocytes with potential antineoplastic activity. Human autologous T-lymphocytes are isolated and transduced ex vivo with a retrovirus encoding a chimeric immune receptor (CIR) consisting of an antibody fragment against PSMA fused with signaling domains of the T cell. Upon reintroduction into the patient, autologous anti-PSMA gene-modified T-cells bind to PSMA-expressing prostate cancer cells, which may result in specific cytotoxic T-lymphocyte (CTL) tumor cell killing.",
+                "text": "Autologous prostate specific membrane antigen (PSMA) gene-modified T lymphocytes with potential antineoplastic activity. Human autologous T-lymphocytes are isolated and transduced ex vivo with a retrovirus encoding a chimeric immune receptor (CIR) consisting of an antibody fragment against PSMA fused with signaling domains of the T cell. Upon reintroduction into the patient, autologous anti-PSMA gene-modified T-cells bind to PSMA-expressing prostate cancer cells, which may result in specific cytotoxic T-lymphocyte (CTL) tumor cell killing."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C78197",
+            "nciConceptName": "Autologous Anti-PSMA Gene-Modified T-Lymphocytes",
+            "termId": 595296,
+            "name": "autologous anti-PSMA gene-modified T-cells",
+            "firstLetter": "a",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "autologous-anti-psma-gene-modified-t-lymphocytes"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "Synonym",
+                    "name": "autologous anti-SLAMF7 CAR T cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "anti-CS1 CAR-expressing T cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "anti-SLAMF7 CAR-expressing T lymphocytes"
+                }
+            ],
+            "definition": {
+                "html": "A preparation of autologous T lymphocytes that have been genetically modified to express a chimeric antigen receptor (CAR) recognizing human SLAM family member 7 (SLAMF7; CD319 CRACC; CS-1) with potential antineoplastic activity. Upon intravenous administration, the autologous anti-SLAMF7 CAR-expressing T cells target and induce selective toxicity in SLAMF7-expressing tumor cells. SLAMF7 is a member of the signaling lymphocytic activation molecule (SLAM) family of transmembrane receptors that modulate the function of immune cells through immunoreceptor tyrosine-based switch motifs (ITSMs) and intracellular adaptor proteins. SLAMF7 is highly expressed on certain malignant plasma cells and is minimally expressed on healthy immune cells.\n",
+                "text": "A preparation of autologous T lymphocytes that have been genetically modified to express a chimeric antigen receptor (CAR) recognizing human SLAM family member 7 (SLAMF7; CD319 CRACC; CS-1) with potential antineoplastic activity. Upon intravenous administration, the autologous anti-SLAMF7 CAR-expressing T cells target and induce selective toxicity in SLAMF7-expressing tumor cells. SLAMF7 is a member of the signaling lymphocytic activation molecule (SLAM) family of transmembrane receptors that modulate the function of immune cells through immunoreceptor tyrosine-based switch motifs (ITSMs) and intracellular adaptor proteins. SLAMF7 is highly expressed on certain malignant plasma cells and is minimally expressed on healthy immune cells.\n"
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C161635",
+            "nciConceptName": "Autologous Anti-SLAMF7 CAR-expressing T-cells",
+            "termId": 798436,
+            "name": "autologous anti-SLAMF7 CAR-expressing T cells",
+            "firstLetter": "a",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "autologous-anti-slamf7-car-expressing-t-cells"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "CodeName",
+                    "name": "CCT301-38"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "CCT301 38"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "autologous CAR-T cells targeting AXL CCT301-38"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "CCT30138 CAR-T cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "autologous anti-AXL CAR-T Cells CCT30138"
+                }
+            ],
+            "definition": {
+                "html": "A preparation of genetically modified autologous T lymphocytes transduced with a lentiviral vector to express a chimeric antigen receptor (CAR) targeting the receptor tyrosine kinase (RTK) AXL, with potential immunomodulatory and antineoplastic activities. After isolation, transduction, and expansion in culture, the CCT301-38 cells are reintroduced into the patient and are activated within the tumor microenvironment (TME) using proprietary Conditionally Active Biologic (CAB) technology. Upon activation, CAB antibodies bind to a proprietary T-cell signaling domain, promoting T-cell recognition and killing of AXL-expressing tumor cells. AXL is a RTK and oncogene that is overexpressed in many cancer types and is involved in the stimulation of tumor cell proliferation.",
+                "text": "A preparation of genetically modified autologous T lymphocytes transduced with a lentiviral vector to express a chimeric antigen receptor (CAR) targeting the receptor tyrosine kinase (RTK) AXL, with potential immunomodulatory and antineoplastic activities. After isolation, transduction, and expansion in culture, the CCT301-38 cells are reintroduced into the patient and are activated within the tumor microenvironment (TME) using proprietary Conditionally Active Biologic (CAB) technology. Upon activation, CAB antibodies bind to a proprietary T-cell signaling domain, promoting T-cell recognition and killing of AXL-expressing tumor cells. AXL is a RTK and oncogene that is overexpressed in many cancer types and is involved in the stimulation of tumor cell proliferation."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C154276",
+            "nciConceptName": "Autologous AXL-targeted CAR T-cells CCT301-38",
+            "termId": 794160,
+            "name": "autologous AXL-targeted CAR-T cells CCT301-38",
+            "firstLetter": "a",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "autologous-axl-targeted-car-t-cells-cct301-38"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "CodeName",
+                    "name": "BVAC-B"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "BVACB"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "BVAC B"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "HER2/neu-specific autologous B-cell/monocyte vaccine BVAC-B"
+                }
+            ],
+            "definition": {
+                "html": "An autologous vaccine composed of the antigen presenting cells (APCs) B lymphocytes and monocytes presenting the tumor-associated antigen (TAA) human epidermal growth factor receptor type 2 (HER2/neu; HER-2; EGFR2; ErbB2). Upon administration of the autologous B-cell- and monocyte-presenting HER2/neu antigen vaccine BVAC-B, the APCs may stimulate the immune system to mount a HER2/neu-specific cytotoxic T-lymphocyte (CTL) immune response as well as a natural killer (NK) cell, and antibody-mediated immune response against HER-2/neu-positive tumor cells, which may result in tumor cell death and decreased tumor growth. HER-2, a tyrosine kinase receptor for epidermal growth factor (EGF), is overexpressed by a variety of tumors.",
+                "text": "An autologous vaccine composed of the antigen presenting cells (APCs) B lymphocytes and monocytes presenting the tumor-associated antigen (TAA) human epidermal growth factor receptor type 2 (HER2/neu; HER-2; EGFR2; ErbB2). Upon administration of the autologous B-cell- and monocyte-presenting HER2/neu antigen vaccine BVAC-B, the APCs may stimulate the immune system to mount a HER2/neu-specific cytotoxic T-lymphocyte (CTL) immune response as well as a natural killer (NK) cell, and antibody-mediated immune response against HER-2/neu-positive tumor cells, which may result in tumor cell death and decreased tumor growth. HER-2, a tyrosine kinase receptor for epidermal growth factor (EGF), is overexpressed by a variety of tumors."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C156153",
+            "nciConceptName": "Autologous B-cell/Monocyte-presenting HER2/neu Antigen Vaccine BVAC-B",
+            "termId": 795331,
+            "name": "autologous B-cell/monocyte-presenting HER2/neu antigen vaccine BVAC-B",
+            "firstLetter": "a",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "autologous-b-cell-monocyte-presenting-her2-neu-antigen-vaccine-bvac-b"
         }
     ],
     "links": null

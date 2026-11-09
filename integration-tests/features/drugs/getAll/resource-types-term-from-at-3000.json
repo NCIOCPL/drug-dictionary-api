@@ -1,285 +1,9 @@
 {
     "meta": {
-        "totalResults": 6013,
+        "totalResults": 5994,
         "from": 3000
     },
     "results": [
-        {
-            "aliases": [
-                {
-                    "type": "Synonym",
-                    "name": "hepcidin agonist PTG-300"
-                },
-                {
-                    "type": "CodeName",
-                    "name": "PTG-300"
-                },
-                {
-                    "type": "CodeName",
-                    "name": "PTG 300"
-                },
-                {
-                    "type": "CodeName",
-                    "name": "PTG300"
-                }
-            ],
-            "definition": {
-                "html": "An injectable peptide mimetic of hepcidin (hepcidin antimicrobial peptide; HAMP; putative liver tumor regressor; PLTR; liver-expressed antimicrobial peptide 1; LEAP-1) with potential use in the treatment of iron deficiency anemia and iron overload secondary to hematologic disorders. Upon administration, the hepcidin mimetic PTG-300 mimics endogenous hepcidin, a  protein primarily produced in hepatocytes, and increases hepcidin levels. As hepcidin plays a key role in the homeostasis of systemic iron, PTG-300 may serve to normalize iron levels. Low levels of endogenous hepcidin are associated with iron overload secondary to excessive absorption of iron as seen in beta thalassemia and paradoxically with iron deficiency anemia.",
-                "text": "An injectable peptide mimetic of hepcidin (hepcidin antimicrobial peptide; HAMP; putative liver tumor regressor; PLTR; liver-expressed antimicrobial peptide 1; LEAP-1) with potential use in the treatment of iron deficiency anemia and iron overload secondary to hematologic disorders. Upon administration, the hepcidin mimetic PTG-300 mimics endogenous hepcidin, a  protein primarily produced in hepatocytes, and increases hepcidin levels. As hepcidin plays a key role in the homeostasis of systemic iron, PTG-300 may serve to normalize iron levels. Low levels of endogenous hepcidin are associated with iron overload secondary to excessive absorption of iron as seen in beta thalassemia and paradoxically with iron deficiency anemia."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C162883",
-            "nciConceptName": "Hepcidin Mimetic PTG-300",
-            "termId": 799095,
-            "name": "hepcidin mimetic PTG-300",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "hepcidin-mimetic-ptg-300"
-        },
-        {
-            "aliases": [
-                {
-                    "type": "ChemicalStructureName",
-                    "name": "1,7-heptanediyl ester sulfamic acid"
-                },
-                {
-                    "type": "INDCode",
-                    "name": "32057"
-                },
-                {
-                    "type": "NSCNumber",
-                    "name": "329680"
-                },
-                {
-                    "type": "CASRegistryName",
-                    "name": "96892-57-8"
-                }
-            ],
-            "definition": {
-                "html": "A bisulfamic ester which is similar in structure to busulfan and belongs to the family of drugs known as alkylsulfonate alkylating agents.  Hepsulfam forms covalent linkages with nucleophilic centers in DNA, resulting in depurination, base miscoding, strand scission, DNA-DNA and DNA-protein cross-linking, and cytotoxicity.",
-                "text": "A bisulfamic ester which is similar in structure to busulfan and belongs to the family of drugs known as alkylsulfonate alkylating agents.  Hepsulfam forms covalent linkages with nucleophilic centers in DNA, resulting in depurination, base miscoding, strand scission, DNA-DNA and DNA-protein cross-linking, and cytotoxicity."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C1123",
-            "nciConceptName": "Hepsulfam",
-            "termId": 39454,
-            "name": "hepsulfam",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "hepsulfam"
-        },
-        {
-            "aliases": null,
-            "definition": {
-                "html": "A vaccine comprised of HER-2-neu and carcinoembryonic antigen synthetic (CEA) peptides, combined with the adjuvants granulocyte-macrophage colony stimulating factor (GM-CSF), and Montanide ISA-51 with potential antineoplastic activity. HER-2-neu, CEA peptides, GM-CSF, Montanide ISA-51 vaccine may stimulate a cytotoxic T-cell response against HER-2-neu- and CEA-expressing tumor cells. The GM-CSF adjuvant stimulates the proliferation of monocytes and monocyte differentiation into macrophages and dendritic cells, immunohematopoietic elements with important antitumoral functions. Montanide ISA-51, also known as incomplete Freund's adjuvant or IFA, is a stabilized water-in-oil emulsion adjuvant containing mineral oil with mannide oleate added as a surfactant that non-specifically stimulates cell-mediated immune responses to antigens.",
-                "text": "A vaccine comprised of HER-2-neu and carcinoembryonic antigen synthetic (CEA) peptides, combined with the adjuvants granulocyte-macrophage colony stimulating factor (GM-CSF), and Montanide ISA-51 with potential antineoplastic activity. HER-2-neu, CEA peptides, GM-CSF, Montanide ISA-51 vaccine may stimulate a cytotoxic T-cell response against HER-2-neu- and CEA-expressing tumor cells. The GM-CSF adjuvant stimulates the proliferation of monocytes and monocyte differentiation into macrophages and dendritic cells, immunohematopoietic elements with important antitumoral functions. Montanide ISA-51, also known as incomplete Freund's adjuvant or IFA, is a stabilized water-in-oil emulsion adjuvant containing mineral oil with mannide oleate added as a surfactant that non-specifically stimulates cell-mediated immune responses to antigens."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C48392",
-            "nciConceptName": "HER-2-neu, CEA Peptides, GM-CSF, Montanide ISA-51 Vaccine",
-            "termId": 442901,
-            "name": "HER-2-neu, CEA peptides, GM-CSF, Montanide ISA-51 vaccine",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "her-2-neu-cea-peptides-gm-csf-montanide-isa-51-vaccine"
-        },
-        {
-            "aliases": [
-                {
-                    "type": "CodeName",
-                    "name": "IMU-131"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "HER-Vaxx"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "IMU-131 vaccine"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "MU-131 HER2/Neu peptide vaccine"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "P467-CRM197/Montanide vaccine IMU-131"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "HER-Vaxx peptide vaccine"
-                }
-            ],
-            "definition": {
-                "html": "A cancer vaccine consisting of a fusion peptide, composed of three peptides derived from the extracellular domain (ECD) of the HER2 peptide antigen found on B-cells (P4, P6 and P7; P467), conjugated to the carrier protein DT-CRM197, a non-toxic, mutated form of diphtheria toxin (DT), and combined with the immunoadjuvant montanide ISA 51, with potential immunostimulatory and antineoplastic activities. Upon administration, IMU-131 vaccine induces the production of polyclonal antibodies against the HER2 protein. In turn, the antibodies bind to three separate binding sites on HER2 expressed on tumor cells and inhibit HER2 dimerization and activity, resulting in the inhibition of HER2-mediated signal transduction pathways. This induces apoptosis in and reduces cellular proliferation of HER2-overexpressing tumor cells. In addition, IMU-131 induces a cytotoxic T-lymphocyte (CTL) response against the HER2-expressing tumor cells. The tumor-associated antigen (TAA) HER2, also called Neu or ErbB2, is a tyrosine kinase receptor for epidermal growth factor (EGF) and is often overexpressed by a variety of tumor cell types. Montanide ISA 51, also known as incomplete Freund's adjuvant or IFA, is a stabilized water-in-oil (w/o) emulsion adjuvant containing mineral oil with mannide oleate added as a surfactant that non-specifically stimulates cell-mediated immune responses to antigens. DT-CRM197 is used to increase the immunogenicity of the HER2/neu peptide antigen. In P467, the three B-cell epitopes were combined in a specific order into a single 49 amino acid peptide antigen.",
-                "text": "A cancer vaccine consisting of a fusion peptide, composed of three peptides derived from the extracellular domain (ECD) of the HER2 peptide antigen found on B-cells (P4, P6 and P7; P467), conjugated to the carrier protein DT-CRM197, a non-toxic, mutated form of diphtheria toxin (DT), and combined with the immunoadjuvant montanide ISA 51, with potential immunostimulatory and antineoplastic activities. Upon administration, IMU-131 vaccine induces the production of polyclonal antibodies against the HER2 protein. In turn, the antibodies bind to three separate binding sites on HER2 expressed on tumor cells and inhibit HER2 dimerization and activity, resulting in the inhibition of HER2-mediated signal transduction pathways. This induces apoptosis in and reduces cellular proliferation of HER2-overexpressing tumor cells. In addition, IMU-131 induces a cytotoxic T-lymphocyte (CTL) response against the HER2-expressing tumor cells. The tumor-associated antigen (TAA) HER2, also called Neu or ErbB2, is a tyrosine kinase receptor for epidermal growth factor (EGF) and is often overexpressed by a variety of tumor cell types. Montanide ISA 51, also known as incomplete Freund's adjuvant or IFA, is a stabilized water-in-oil (w/o) emulsion adjuvant containing mineral oil with mannide oleate added as a surfactant that non-specifically stimulates cell-mediated immune responses to antigens. DT-CRM197 is used to increase the immunogenicity of the HER2/neu peptide antigen. In P467, the three B-cell epitopes were combined in a specific order into a single 49 amino acid peptide antigen."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C128283",
-            "nciConceptName": "HER-2-positive B-cell Peptide Antigen P467-DT-CRM197/Montanide Vaccine IMU-131",
-            "termId": 782063,
-            "name": "HER-2-positive B-cell peptide antigen IMU-131",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": ""
-        },
-        {
-            "aliases": [
-                {
-                    "type": "Synonym",
-                    "name": "HER-2 ICD Peptide"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "HER-2/neu ICD Protein"
-                }
-            ],
-            "definition": {
-                "html": "The cytoplasmic domain or intracellular domain (ICD) of the HER2/neu protein that exhibits tyrosine kinase activity.  Based on sensitization theory, co-administration of trastuzumab (anti-HER-2/neu monoclonal antibody) and HER-2/neu intracellular domain protein may result in the potentiation of a HER2/neu-specific cytotoxic T lymphocyte (CTL) response against tumor cells overexpressing the HER2/neu protein. HER-2/neu protein, a glycoprotein cell surface receptor that is composed of an extracellular domain (ECD), a transmembrane domain, and an ICD, is overexpressed by many adenocarcinomas including breast adenocarcinoma.",
-                "text": "The cytoplasmic domain or intracellular domain (ICD) of the HER2/neu protein that exhibits tyrosine kinase activity.  Based on sensitization theory, co-administration of trastuzumab (anti-HER-2/neu monoclonal antibody) and HER-2/neu intracellular domain protein may result in the potentiation of a HER2/neu-specific cytotoxic T lymphocyte (CTL) response against tumor cells overexpressing the HER2/neu protein. HER-2/neu protein, a glycoprotein cell surface receptor that is composed of an extracellular domain (ECD), a transmembrane domain, and an ICD, is overexpressed by many adenocarcinomas including breast adenocarcinoma."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C2593",
-            "nciConceptName": "HER-2/neu Intracellular Domain Protein",
-            "termId": 38047,
-            "name": "HER-2/neu intracellular domain protein",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "her-2-neu-intracellular-domain-protein"
-        },
-        {
-            "aliases": [
-                {
-                    "type": "Abbreviation",
-                    "name": "HER-2"
-                }
-            ],
-            "definition": {
-                "html": "A cancer vaccine comprised of peptides derived from the extracellular domain of the tumor-associated antigen Her-2/neu with potential antineoplastic activity. HER-2/neu peptide vaccine may induce antibodies with anti-tumor activity and may also elicit a specific CD8 T-cell response against specific tumor cell types.",
-                "text": "A cancer vaccine comprised of peptides derived from the extracellular domain of the tumor-associated antigen Her-2/neu with potential antineoplastic activity. HER-2/neu peptide vaccine may induce antibodies with anti-tumor activity and may also elicit a specific CD8 T-cell response against specific tumor cell types."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C2537",
-            "nciConceptName": "HER-2/neu Peptide Vaccine",
-            "termId": 42662,
-            "name": "HER-2/neu peptide vaccine",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "her-2-neu-peptide-vaccine"
-        },
-        {
-            "aliases": [
-                {
-                    "type": "CodeName",
-                    "name": "AVX901"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "HER2 VRP"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "DUKE-002-VRP"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "VRP-HER2 ECDTM"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "HER2 ECDTM VRP"
-                }
-            ],
-            "definition": {
-                "html": "A cancer vaccine based on virus-like replicon particles (VRP) packaged with an alphaviral vector encoding the extracellular domain (ECD) and transmembrane (TM) regions of the human epidermal growth factor receptor 2 (EGFR2, NEU or HER2), with potential antineoplastic activity. After immunization with HER2 ECD+TM virus-like replicon particles vaccine AVX901, the VRPs infect cells and express HER2 ECD+TM protein that may activate the immune system to elicit a cytotoxic T-lymphocyte (CTL) response against HER2-expressing tumor cells. The alphaviral replicon of this vaccine is an attenuated strain of the Venezuelan equine encephalitis virus (VEEV) in which 3 of the 7 viral genes were substituted with a truncated HER2 gene to create a self-amplifying replicon RNA. HER2, a tyrosine kinase involved in several cell growth signaling pathways, is dysregulated or overexpressed in a wide variety of cancer cell types.",
-                "text": "A cancer vaccine based on virus-like replicon particles (VRP) packaged with an alphaviral vector encoding the extracellular domain (ECD) and transmembrane (TM) regions of the human epidermal growth factor receptor 2 (EGFR2, NEU or HER2), with potential antineoplastic activity. After immunization with HER2 ECD+TM virus-like replicon particles vaccine AVX901, the VRPs infect cells and express HER2 ECD+TM protein that may activate the immune system to elicit a cytotoxic T-lymphocyte (CTL) response against HER2-expressing tumor cells. The alphaviral replicon of this vaccine is an attenuated strain of the Venezuelan equine encephalitis virus (VEEV) in which 3 of the 7 viral genes were substituted with a truncated HER2 gene to create a self-amplifying replicon RNA. HER2, a tyrosine kinase involved in several cell growth signaling pathways, is dysregulated or overexpressed in a wide variety of cancer cell types."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": null,
-            "nciConceptName": null,
-            "termId": 725234,
-            "name": "HER2 ECD+TM virus-like replicon particles vaccine AVX901",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "her2-ecdtm-virus-like-replicon-particles-vaccine-avx901"
-        },
-        {
-            "aliases": [
-                {
-                    "type": "CodeName",
-                    "name": "TAS0728"
-                },
-                {
-                    "type": "CodeName",
-                    "name": "TAS 0728"
-                },
-                {
-                    "type": "CodeName",
-                    "name": "TAS-0728"
-                },
-                {
-                    "type": "CodeName",
-                    "name": "TPC-107"
-                }
-            ],
-            "definition": {
-                "html": "An orally available covalent inhibitor of human epidermal growth factor receptor 2 (HER2; ERBB2), with potential antineoplastic activity. Upon oral administration, HER2 inhibitor TAS0728 specifically and irreversibly binds to and inhibits the activity of HER2. This prevents HER2-mediated signaling and leads to cell death in HER2- and HER3 (ErbB3)-expressing tumor cells. HER2, a receptor tyrosine kinase mutated or overexpressed in many tumor cell types, play key roles in tumor cell proliferation and tumor vascularization. HER3 has no active kinase domain but is activated through heterodimerization with other members of the EGFR receptor family, such as HER2.",
-                "text": "An orally available covalent inhibitor of human epidermal growth factor receptor 2 (HER2; ERBB2), with potential antineoplastic activity. Upon oral administration, HER2 inhibitor TAS0728 specifically and irreversibly binds to and inhibits the activity of HER2. This prevents HER2-mediated signaling and leads to cell death in HER2- and HER3 (ErbB3)-expressing tumor cells. HER2, a receptor tyrosine kinase mutated or overexpressed in many tumor cell types, play key roles in tumor cell proliferation and tumor vascularization. HER3 has no active kinase domain but is activated through heterodimerization with other members of the EGFR receptor family, such as HER2."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C146810",
-            "nciConceptName": "HER2 Inhibitor TAS0728",
-            "termId": 792168,
-            "name": "HER2 inhibitor TAS0728",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "her2-inhibitor-tas0728"
-        },
-        {
-            "aliases": [
-                {
-                    "type": "Synonym",
-                    "name": "tri-specific NK cell engager DF1001"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "HER2 tri-specific NK cell engager DF1001"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "tri-specific natural killer cell engager DF1001"
-                },
-                {
-                    "type": "CodeName",
-                    "name": "DF-1001"
-                },
-                {
-                    "type": "CodeName",
-                    "name": "DF 1001"
-                }
-            ],
-            "definition": {
-                "html": "An engineered molecule based on tri-specific natural killer (NK) cell engager therapies (TriNKET) that is directed against human epidermal growth factor receptor 2 (EGFR2; HER2; ErbB2), with potential immunostimulating and antineoplastic activities. Upon administration, HER2 tri-specific NK cell engager DF1001 targets and binds to HER2 on tumor cells and simultaneously binds to NK cells, thereby bringing HER2-expressing tumor cells and NK cells together, which stimulates the NK cells and results in the selective NK cell-mediated tumor cell lysis of HER2-expressing tumor cells. The binding of HER2-expressing tumor cells and NK cells may also lead to the activation of T cells and B cells, potentiating the immune response against HER2-expressing tumor cells. HER2, a receptor tyrosine kinase (RTK) mutated or overexpressed in many tumor cell types, plays a key role in tumor cell proliferation and tumor vascularization.",
-                "text": "An engineered molecule based on tri-specific natural killer (NK) cell engager therapies (TriNKET) that is directed against human epidermal growth factor receptor 2 (EGFR2; HER2; ErbB2), with potential immunostimulating and antineoplastic activities. Upon administration, HER2 tri-specific NK cell engager DF1001 targets and binds to HER2 on tumor cells and simultaneously binds to NK cells, thereby bringing HER2-expressing tumor cells and NK cells together, which stimulates the NK cells and results in the selective NK cell-mediated tumor cell lysis of HER2-expressing tumor cells. The binding of HER2-expressing tumor cells and NK cells may also lead to the activation of T cells and B cells, potentiating the immune response against HER2-expressing tumor cells. HER2, a receptor tyrosine kinase (RTK) mutated or overexpressed in many tumor cell types, plays a key role in tumor cell proliferation and tumor vascularization."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C172279",
-            "nciConceptName": "HER2 Tri-specific Natural Killer Cell Engager DF1001",
-            "termId": 801897,
-            "name": "HER2 tri-specific natural killer cell engager DF1001",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "her2-tri-specific-natural-killer-cell-engager-df1001"
-        },
         {
             "aliases": [
                 {
@@ -2432,31 +2156,6 @@
         {
             "aliases": [
                 {
-                    "type": "CodeName",
-                    "name": "SNX-2112"
-                },
-                {
-                    "type": "CodeName",
-                    "name": "PF 04928473"
-                }
-            ],
-            "definition": {
-                "html": "A human heat-shock protein 90 (Hsp90) inhibitor, with potential antineoplastic activity. SNX-2112 selectively accumulates in tumors compared to normal tissues, and binds to the N-terminal adenosine triphosphate binding site of Hsp90, inhibiting its activity. This results in the proteasomal degradation of oncogenic client proteins, which prevents signaling through these client proteins, induces apoptosis and inhibits tumor cell proliferation. Hsp90 is a 90kDa molecular chaperone that plays a key role in the conformational maturation and stabilization of oncogenic signaling proteins, such as HER2/ERBB2, AKT, RAF1, BCR-ABL, and mutated p53, as well as many other molecules that are important in cell cycle regulation, proliferation, apoptosis, and survival; Hsp90 is overexpressed by certain types of tumor cells.",
-                "text": "A human heat-shock protein 90 (Hsp90) inhibitor, with potential antineoplastic activity. SNX-2112 selectively accumulates in tumors compared to normal tissues, and binds to the N-terminal adenosine triphosphate binding site of Hsp90, inhibiting its activity. This results in the proteasomal degradation of oncogenic client proteins, which prevents signaling through these client proteins, induces apoptosis and inhibits tumor cell proliferation. Hsp90 is a 90kDa molecular chaperone that plays a key role in the conformational maturation and stabilization of oncogenic signaling proteins, such as HER2/ERBB2, AKT, RAF1, BCR-ABL, and mutated p53, as well as many other molecules that are important in cell cycle regulation, proliferation, apoptosis, and survival; Hsp90 is overexpressed by certain types of tumor cells."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C91068",
-            "nciConceptName": "Hsp90 Inhibitor SNX-5422 Mesylate",
-            "termId": 787228,
-            "name": "Hsp90 inhibitor SNX-2112",
-            "firstLetter": "h",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "hsp90-inhibitor-snx-5422-mesylate"
-        },
-        {
-            "aliases": [
-                {
                     "type": "LexicalVariant",
                     "name": "Hsp90 Inhibitor SNX-5542 Mesylate"
                 },
@@ -2536,6 +2235,283 @@
             "type": "DrugTerm",
             "termNameType": "PreferredName",
             "prettyUrlName": "hsp90-inhibitor-xl888"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "CodeName",
+                    "name": "HS-201"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "Hsp90 inhibitor-linked verteporfin"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "HS 201"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "HS201"
+                }
+            ],
+            "definition": {
+                "html": "A conjugate consisting of a heat shock protein 90 (Hsp90) inhibitor connected via a linker to verteporfin, a photosensitizing agent, with potential imaging, photodynamic and antineoplastic activities. Upon administration, the Hsp90 inhibitor moiety of HS-201 selectively binds to the Hsp90 ATP binding domain in tumor cells and HS-201 accumulates in tumor cells. The verteporfin moiety of HS-201 allows for visualization and photodynamic therapy of the tumors. Hsp90, a chaperone protein upregulated in a variety of tumor cells, regulates the folding, stability and degradation of many oncogenic signaling proteins. Verteporfin is a synthetic photosensitizer with photodynamic activity.",
+                "text": "A conjugate consisting of a heat shock protein 90 (Hsp90) inhibitor connected via a linker to verteporfin, a photosensitizing agent, with potential imaging, photodynamic and antineoplastic activities. Upon administration, the Hsp90 inhibitor moiety of HS-201 selectively binds to the Hsp90 ATP binding domain in tumor cells and HS-201 accumulates in tumor cells. The verteporfin moiety of HS-201 allows for visualization and photodynamic therapy of the tumors. Hsp90, a chaperone protein upregulated in a variety of tumor cells, regulates the folding, stability and degradation of many oncogenic signaling proteins. Verteporfin is a synthetic photosensitizer with photodynamic activity."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C172190",
+            "nciConceptName": "Hsp90-targeted Photosensitizer HS-201",
+            "termId": 801530,
+            "name": "HSP90-targeted photosensitizer HS-201",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "hsp90-targeted-photosensitizer-hs-201"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "CodeName",
+                    "name": "PEN-866"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "PEN866"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "PEN 866"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "HDC SN-38"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "STA-12-8666"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "STA-8666"
+                }
+            ],
+            "definition": {
+                "html": "A miniature drug conjugate composed of the irinotecan metabolite 7-ethyl-10-hydroxy-camptothecin (SN-38) conjugated, through a cleavable linker, to a ligand of chaperone protein heat shock protein 90 (Hsp90), with potential antineoplastic activity. Upon administration of HSP90-targeted SN-38 conjugate PEN-866, the HSP90 ligand moiety targets HSP90, which allows the conjugate to penetrate, accumulate and be retained in the tumor cell. Once the linker is cleaved, the SN-38 moiety is released in a sustained manner. SN-38 then binds to and inhibits topoisomerase I by stabilizing the cleavable complex between topoisomerase I and DNA, which results in DNA breaks, inhibition of DNA replication and apoptosis. Compared to SN-38 alone, PEN-866 preferentially targets, accumulates  and is retained in the tumor cells due to its binding to Hsp90, which results in increased concentrations of SN-38 at the tumor site. This allows sustained release of SN-38 and leads to increased and prolonged efficacy while reducing toxicity to normal, healthy tissues. Hsp90, a chaperone protein upregulated and activated in a variety of tumor cells compared to normal healthy tissue, regulates the folding, stability and degradation of many oncogenic signaling proteins.",
+                "text": "A miniature drug conjugate composed of the irinotecan metabolite 7-ethyl-10-hydroxy-camptothecin (SN-38) conjugated, through a cleavable linker, to a ligand of chaperone protein heat shock protein 90 (Hsp90), with potential antineoplastic activity. Upon administration of HSP90-targeted SN-38 conjugate PEN-866, the HSP90 ligand moiety targets HSP90, which allows the conjugate to penetrate, accumulate and be retained in the tumor cell. Once the linker is cleaved, the SN-38 moiety is released in a sustained manner. SN-38 then binds to and inhibits topoisomerase I by stabilizing the cleavable complex between topoisomerase I and DNA, which results in DNA breaks, inhibition of DNA replication and apoptosis. Compared to SN-38 alone, PEN-866 preferentially targets, accumulates  and is retained in the tumor cells due to its binding to Hsp90, which results in increased concentrations of SN-38 at the tumor site. This allows sustained release of SN-38 and leads to increased and prolonged efficacy while reducing toxicity to normal, healthy tissues. Hsp90, a chaperone protein upregulated and activated in a variety of tumor cells compared to normal healthy tissue, regulates the folding, stability and degradation of many oncogenic signaling proteins."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C151953",
+            "nciConceptName": "HSP90-targeted SN-38 Conjugate PEN-866",
+            "termId": 793183,
+            "name": "HSP90-targeted SN-38 conjugate PEN-866",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "hsp90-targeted-sn-38-conjugate-pen-866"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "Synonym",
+                    "name": "heat shock protein 90alpha/beta inhibitor TAS-116"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "TAS-116"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "TAS116"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "HSP90a/b inhibitor TAS-116"
+                }
+            ],
+            "definition": {
+                "html": "A specific inhibitor of heat shock protein 90 (Hsp90) subtypes alpha and beta, with potential antineoplastic and chemo/radiosensitizing activities. Upon oral administration, Hsp90alpha/beta inhibitor TAS-116 specifically binds to and inhibits the activity of Hsp90 alpha and beta; this results in the proteasomal degradation of oncogenic client proteins, which inhibits client protein dependent-signaling, induces apoptosis, and inhibits the proliferation of cells overexpressing HSP90alpha/beta. Hsp90, a family of molecular chaperone proteins that are upregulated in a variety of tumor cells, plays a key role in the conformational maturation, stability, and function of \"client\" proteins within the cell,; many of which are involved in signal transduction, cell cycle regulation and apoptosis, including kinases, cell-cycle regulators, transcription factors and hormone receptors. As TAS-116 selectively inhibits cytosolic HSP90alpha and beta only and does not inhibit HSP90 paralogs, such as endoplasmic reticulum GRP94 or mitochondrial TRAP1, this agent may have less off-target toxicity as compared to non-selective HSP90 inhibitors.",
+                "text": "A specific inhibitor of heat shock protein 90 (Hsp90) subtypes alpha and beta, with potential antineoplastic and chemo/radiosensitizing activities. Upon oral administration, Hsp90alpha/beta inhibitor TAS-116 specifically binds to and inhibits the activity of Hsp90 alpha and beta; this results in the proteasomal degradation of oncogenic client proteins, which inhibits client protein dependent-signaling, induces apoptosis, and inhibits the proliferation of cells overexpressing HSP90alpha/beta. Hsp90, a family of molecular chaperone proteins that are upregulated in a variety of tumor cells, plays a key role in the conformational maturation, stability, and function of \"client\" proteins within the cell,; many of which are involved in signal transduction, cell cycle regulation and apoptosis, including kinases, cell-cycle regulators, transcription factors and hormone receptors. As TAS-116 selectively inhibits cytosolic HSP90alpha and beta only and does not inhibit HSP90 paralogs, such as endoplasmic reticulum GRP94 or mitochondrial TRAP1, this agent may have less off-target toxicity as compared to non-selective HSP90 inhibitors."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C134448",
+            "nciConceptName": "Pimitespib",
+            "termId": 788861,
+            "name": "HSP90alpha/beta inhibitor TAS-116",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "pimitespib"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "Synonym",
+                    "name": "HPV 16 E7/HSP65 Vaccine"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "HPV E7 Peptide Epitope Vaccine"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "SGN-00101"
+                },
+                {
+                    "type": "INDCode",
+                    "name": "10007"
+                },
+                {
+                    "type": "NSCNumber",
+                    "name": "713219"
+                },
+                {
+                    "type": "CASRegistryName",
+                    "name": "295371-00-5"
+                }
+            ],
+            "definition": {
+                "html": "A recombinant chimeric protein composed of the heat shock protein 65 (Hsp65) from Mycobacterium bovis, and the human papilloma viral (HPV) protein E7.  Hsp65, similar to other members of its family of proteins, elicits a strong immune response and may be used to design vaccines against a number of different cancers.  E7 protein is involved in carcinogenesis of anal and cervical tumors, and represents a tumor antigen that may be specifically targeted by lymphocytes.",
+                "text": "A recombinant chimeric protein composed of the heat shock protein 65 (Hsp65) from Mycobacterium bovis, and the human papilloma viral (HPV) protein E7.  Hsp65, similar to other members of its family of proteins, elicits a strong immune response and may be used to design vaccines against a number of different cancers.  E7 protein is involved in carcinogenesis of anal and cervical tumors, and represents a tumor antigen that may be specifically targeted by lymphocytes."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C2811",
+            "nciConceptName": "Verpasep Caltespen",
+            "termId": 269165,
+            "name": "HspE7",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "verpasep-caltespen"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "LexicalVariant",
+                    "name": "HSV-TK Transduced Donor Lymphocytes"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "HSV-TK-engineered donor lymphocytes"
+                }
+            ],
+            "definition": {
+                "html": "A preparation of donor lymphocytes transduced with the \"suicide\" gene herpes simplex virus thymidine kinase  (HSV-TK) with potential immunomodulating activity. Administration of HSV-TK-transduced lymphocytes after T cell-depleted allogeneic stem cell transplantation allows an early controllable immune reconstitution, which takes advantage of the antitumor effect of donor lymphocytes and helps to mitigate the risk of post-transplant opportunistic infection. To  control graft-versus-host disease (GvHD) due to donor lymphocyte  infusion, HSV-TK-transduced donor lymphocytes are selectively eliminated by administration of the antiviral agent ganciclovir. Ganciclovir, a prodrug, is readily phosphorylated by the suicide gene HSV-TK within  HSV-TK-transduced lymphocytes to its monophosphate form and, subsequently, converted into its active triphosphate form, which specifically kills HSV-TK- transduced donor lymphocytes. ",
+                "text": "A preparation of donor lymphocytes transduced with the \"suicide\" gene herpes simplex virus thymidine kinase  (HSV-TK) with potential immunomodulating activity. Administration of HSV-TK-transduced lymphocytes after T cell-depleted allogeneic stem cell transplantation allows an early controllable immune reconstitution, which takes advantage of the antitumor effect of donor lymphocytes and helps to mitigate the risk of post-transplant opportunistic infection. To  control graft-versus-host disease (GvHD) due to donor lymphocyte  infusion, HSV-TK-transduced donor lymphocytes are selectively eliminated by administration of the antiviral agent ganciclovir. Ganciclovir, a prodrug, is readily phosphorylated by the suicide gene HSV-TK within  HSV-TK-transduced lymphocytes to its monophosphate form and, subsequently, converted into its active triphosphate form, which specifically kills HSV-TK- transduced donor lymphocytes. "
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C67047",
+            "nciConceptName": "HSV-TK-Transduced Donor Lymphocytes",
+            "termId": 536528,
+            "name": "HSV-TK-transduced donor lymphocytes",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "hsv-tk-transduced-donor-lymphocytes"
+        },
+        {
+            "aliases": null,
+            "definition": {
+                "html": "A peptide vaccine consisting of multiple epitopes derived from the human telomerase reverse transcriptase (hTERT), the catalytic subunit of human telomerase, with potential immunostimulating and antineoplastic activities. hTERT I540/R572Y/D988Y multipeptide vaccine contains strongly antigenic peptide epitopes I540 (9-mer), R572Y (9-mer) and D988Y (10-mer). Vaccination with this agent may elicit a cytotoxic T cell (CTL) response against telomerase-expressing tumor cells. Directly linked to tumorigenesis, telomerase is expressed in the majority of human cancer cells but is infrequently expressed in normal cells.",
+                "text": "A peptide vaccine consisting of multiple epitopes derived from the human telomerase reverse transcriptase (hTERT), the catalytic subunit of human telomerase, with potential immunostimulating and antineoplastic activities. hTERT I540/R572Y/D988Y multipeptide vaccine contains strongly antigenic peptide epitopes I540 (9-mer), R572Y (9-mer) and D988Y (10-mer). Vaccination with this agent may elicit a cytotoxic T cell (CTL) response against telomerase-expressing tumor cells. Directly linked to tumorigenesis, telomerase is expressed in the majority of human cancer cells but is infrequently expressed in normal cells."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C71761",
+            "nciConceptName": "hTERT I540/R572Y/D988Y Multipeptide Vaccine",
+            "termId": 559159,
+            "name": "hTERT I540/R572Y/D988Y multipeptide vaccine",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "htert-i540-r572y-d988y-multipeptide-vaccine"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "ForeignBrandName",
+                    "name": "Procure"
+                }
+            ],
+            "definition": {
+                "html": "A cancer vaccine containing autologous dendritic cells (DCs) that are pulsed with mRNA encoding human telomerase reverse transcriptase (hTERT) and  survivin peptide, with potential immunostimulatory and antineoplastic activities. Upon administration, hTERT mRNA/survivin peptide-double-loaded autologous dendritic cell vaccine may elicit an immune response against cancer cells expressing hTERT and survivin by activating cytotoxic T-cells (CTLs), natural killer cells (NKs), and B-lymphocytes. The tumor associated antigens (TAAs) hTERT, the catalytic subunit of human telomerase, and survivin, a member of the inhibitor of apoptosis (IAP) family of proteins, may be upregulated in certain tumor cell types and play key roles in tumor cell growth and survival.",
+                "text": "A cancer vaccine containing autologous dendritic cells (DCs) that are pulsed with mRNA encoding human telomerase reverse transcriptase (hTERT) and  survivin peptide, with potential immunostimulatory and antineoplastic activities. Upon administration, hTERT mRNA/survivin peptide-double-loaded autologous dendritic cell vaccine may elicit an immune response against cancer cells expressing hTERT and survivin by activating cytotoxic T-cells (CTLs), natural killer cells (NKs), and B-lymphocytes. The tumor associated antigens (TAAs) hTERT, the catalytic subunit of human telomerase, and survivin, a member of the inhibitor of apoptosis (IAP) family of proteins, may be upregulated in certain tumor cell types and play key roles in tumor cell growth and survival."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C99116",
+            "nciConceptName": "hTERT mRNA/Survivin Peptide-double-loaded Autologous Dendritic Cell Vaccine",
+            "termId": 715580,
+            "name": "hTERT mRNA /survivin peptide-double-loaded autologous dendritic cell vaccine",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "htert-mrna-survivin-peptide-double-loaded-autologous-dendritic-cell-vaccine"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "CodeName",
+                    "name": "GX 301"
+                },
+                {
+                    "type": "CodeName",
+                    "name": "GX301"
+                }
+            ],
+            "definition": {
+                "html": "A therapeutic cancer vaccine consisting of four epitopes derived from the human telomerase reverse transcriptase (hTERT), the catalytic subunit of human telomerase, including hTERT (540-548) acetate, hTERT (611-626) acetate, hTERT (672-686) acetate and hTERT (766-780) acetate, emulsified individually in the adjuvant montanide ISA-51 VG and administered with the immune response modifier (IRM) imiquimod, with potential immunostimulating and antineoplastic activities. Each hTERT peptide emulsion is administered individually by intradermal injection. Subsequently, imiquimod is applied topically to the injection site(s). Vaccination with GX 301 may elicit a cytotoxic T-cell (CTL) response against telomerase-expressing tumor cells. Telomerase is expressed in the majority of human cancer cells, infrequently expressed in normal cells, and is directly linked to tumorigenesis. Imiquimod stimulates cytokine production through the activation of toll-like receptor 7 (TLR-7), and also exhibits antiproliferative effects. Montanide ISA-51, also known as incomplete Freund's adjuvant (IFA), is a stabilized water-in-oil emulsion containing mineral oil with mannide oleate, which contains vegetable-grade (VG) oleic acid derived from olive oil. ISA-51 non-specifically stimulates cell-mediated immune responses to antigens.",
+                "text": "A therapeutic cancer vaccine consisting of four epitopes derived from the human telomerase reverse transcriptase (hTERT), the catalytic subunit of human telomerase, including hTERT (540-548) acetate, hTERT (611-626) acetate, hTERT (672-686) acetate and hTERT (766-780) acetate, emulsified individually in the adjuvant montanide ISA-51 VG and administered with the immune response modifier (IRM) imiquimod, with potential immunostimulating and antineoplastic activities. Each hTERT peptide emulsion is administered individually by intradermal injection. Subsequently, imiquimod is applied topically to the injection site(s). Vaccination with GX 301 may elicit a cytotoxic T-cell (CTL) response against telomerase-expressing tumor cells. Telomerase is expressed in the majority of human cancer cells, infrequently expressed in normal cells, and is directly linked to tumorigenesis. Imiquimod stimulates cytokine production through the activation of toll-like receptor 7 (TLR-7), and also exhibits antiproliferative effects. Montanide ISA-51, also known as incomplete Freund's adjuvant (IFA), is a stabilized water-in-oil emulsion containing mineral oil with mannide oleate, which contains vegetable-grade (VG) oleic acid derived from olive oil. ISA-51 non-specifically stimulates cell-mediated immune responses to antigens."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C119616",
+            "nciConceptName": "hTERT Multipeptide/Montanide ISA-51 VG/Imiquimod Vaccine GX 301",
+            "termId": 766744,
+            "name": "hTERT multipeptide/Montanide ISA-51 VG/imiquimod GX 301",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "htert-multipeptide-montanide-isa-51-vg-imiquimod-vaccine-gx-301"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "CodeName",
+                    "name": "V934/V935"
+                }
+            ],
+            "definition": {
+                "html": "A cancer vaccine directed against human telomerase reverse transcriptase (hTERT), the catalytic subunit of human telomerase, with potential immunostimulating and antineoplastic activities. Upon administration, hTERT vaccine V934/V935 may elicit a cytotoxic T cell (CTL) response against telomerase-expressing tumor cells, which may result in tumor cell death. Telomerase is involved in the restoration and maintenance of telomere length and so  the functional lifespan of cells. Abnormally reactivated in tumorigenesis, telomerase is expressed in the majority of human cancer cells but is not expressed or is expressed at very low levels in normal cells.",
+                "text": "A cancer vaccine directed against human telomerase reverse transcriptase (hTERT), the catalytic subunit of human telomerase, with potential immunostimulating and antineoplastic activities. Upon administration, hTERT vaccine V934/V935 may elicit a cytotoxic T cell (CTL) response against telomerase-expressing tumor cells, which may result in tumor cell death. Telomerase is involved in the restoration and maintenance of telomere length and so  the functional lifespan of cells. Abnormally reactivated in tumorigenesis, telomerase is expressed in the majority of human cancer cells but is not expressed or is expressed at very low levels in normal cells."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C80055",
+            "nciConceptName": "hTERT Vaccine V934/V935",
+            "termId": 615723,
+            "name": "hTERT vaccine V934/V935",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "htert-vaccine-v934-v935"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "CodeName",
+                    "name": "INVAC-1"
+                }
+            ],
+            "definition": {
+                "html": "A DNA vaccine consisting of a plasmid encoding a modified, inactive form of the human telomerase reverse transcriptase (hTERT), the catalytic subunit of human telomerase which synthesizes telomeric DNA at the chromosome ends, fused to ubiquitin, with potential immunostimulating and antineoplastic activities. Upon intradermal vaccination of the hTERT encoding DNA vaccine INVAC-1 in combination with electroporation, hTERT protein is expressed and activates the immune system to mount a cytotoxic T-cell (CTL) response against telomerase-expressing tumor cells, which may result in tumor cell death. Telomerase prolongs the functional lifespan of cells via the restoration and maintenance of telomere length. Abnormally activated in tumorigenesis, telomerase is expressed in the majority of human cancer cells, but its expression is low or non-existent in normal cells. hTERT conjugation to ubiquitin, a 76 amino-acid peptide involved in the regulation of normal protein intracellular turnover in the cytoplasm, enhances proteasome-dependent degradation of the hTERT protein, increases hTERT presentation by major histocompatibility complex (MHC) class I molecules and results in an increased immune response against hTERT.",
+                "text": "A DNA vaccine consisting of a plasmid encoding a modified, inactive form of the human telomerase reverse transcriptase (hTERT), the catalytic subunit of human telomerase which synthesizes telomeric DNA at the chromosome ends, fused to ubiquitin, with potential immunostimulating and antineoplastic activities. Upon intradermal vaccination of the hTERT encoding DNA vaccine INVAC-1 in combination with electroporation, hTERT protein is expressed and activates the immune system to mount a cytotoxic T-cell (CTL) response against telomerase-expressing tumor cells, which may result in tumor cell death. Telomerase prolongs the functional lifespan of cells via the restoration and maintenance of telomere length. Abnormally activated in tumorigenesis, telomerase is expressed in the majority of human cancer cells, but its expression is low or non-existent in normal cells. hTERT conjugation to ubiquitin, a 76 amino-acid peptide involved in the regulation of normal protein intracellular turnover in the cytoplasm, enhances proteasome-dependent degradation of the hTERT protein, increases hTERT presentation by major histocompatibility complex (MHC) class I molecules and results in an increased immune response against hTERT."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C119737",
+            "nciConceptName": "hTERT-encoding DNA Vaccine INVAC-1",
+            "termId": 766989,
+            "name": "hTERT-encoding DNA vaccine INVAC-1",
+            "firstLetter": "h",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "htert-encoding-dna-vaccine-invac-1"
         }
     ],
     "links": null
