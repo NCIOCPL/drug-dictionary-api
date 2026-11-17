@@ -581,15 +581,6 @@
             "prettyUrlName": "selitrectinib"
         },
         {
-            "preferredName": "norgestrel",
-            "termId": 39310,
-            "name": "(17alpha)-13-ethyl-17-hydroxy-18,19-dinorpregn-4-en-20-yn-3-one",
-            "firstLetter": "#",
-            "type": "DrugAlias",
-            "termNameType": "ChemicalStructureName",
-            "prettyUrlName": "norgestrel"
-        },
-        {
             "preferredName": "levonorgestrel",
             "termId": 534399,
             "name": "(17Alpha)-13-ethyl-17-hydroxy-18,19-dinorpregn-4-en-20-yn-3-one",
@@ -597,6 +588,15 @@
             "type": "DrugAlias",
             "termNameType": "ChemicalStructureName",
             "prettyUrlName": "levonorgestrel"
+        },
+        {
+            "preferredName": "norgestrel",
+            "termId": 39310,
+            "name": "(17alpha)-13-ethyl-17-hydroxy-18,19-dinorpregn-4-en-20-yn-3-one",
+            "firstLetter": "#",
+            "type": "DrugAlias",
+            "termNameType": "ChemicalStructureName",
+            "prettyUrlName": "norgestrel"
         },
         {
             "preferredName": "ethinyl estradiol",
