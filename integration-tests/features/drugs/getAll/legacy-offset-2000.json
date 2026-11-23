@@ -1,136 +1,173 @@
 {
     "meta": {
-        "totalResults": 7728,
+        "totalResults": 7704,
         "from": 2000
     },
     "results": [
         {
             "aliases": [
                 {
-                    "type": "Synonym",
-                    "name": "CART-33 TCR zeta:CD137 cells"
+                    "type": "CodeName",
+                    "name": "SPL-108"
                 },
                 {
-                    "type": "Synonym",
-                    "name": "CART33 TCR zeta:CD137 cells"
-                },
-                {
-                    "type": "Synonym",
-                    "name": "anti-CD33 TCR zeta:CD137 CAR T cells"
+                    "type": "CodeName",
+                    "name": "SPL 108"
                 }
             ],
             "definition": {
-                "html": "Autologous T-lymphocytes transduced with a retroviral vector expressing a chimeric antigen receptor (CAR) consisting of an anti-CD33 scFv (single chain variable fragment) coupled to the signaling domain of 4-1BB (CD137) and the zeta chain of the T-cell receptor (TCRzeta), with potential immunomodulating and antineoplastic activities. Upon transfusion, CD33-specific CAR retroviral vector-transduced autologous T lymphocytes target CD33-expressing tumor cells and induce selective toxicity in CD33-expressing tumor cells. Following binding to CD33, the 4-1BB co-stimulatory molecule signaling domain enhances both activation and signaling. Inclusion of the 4-1BB signaling domain may also increase the antitumor activity when compared to the inclusion of the CD3-zeta chain alone. CD33 is expressed on normal non-pluripotent hematopoietic stem cells as well as on myeloid leukemia cells.",
-                "text": "Autologous T-lymphocytes transduced with a retroviral vector expressing a chimeric antigen receptor (CAR) consisting of an anti-CD33 scFv (single chain variable fragment) coupled to the signaling domain of 4-1BB (CD137) and the zeta chain of the T-cell receptor (TCRzeta), with potential immunomodulating and antineoplastic activities. Upon transfusion, CD33-specific CAR retroviral vector-transduced autologous T lymphocytes target CD33-expressing tumor cells and induce selective toxicity in CD33-expressing tumor cells. Following binding to CD33, the 4-1BB co-stimulatory molecule signaling domain enhances both activation and signaling. Inclusion of the 4-1BB signaling domain may also increase the antitumor activity when compared to the inclusion of the CD3-zeta chain alone. CD33 is expressed on normal non-pluripotent hematopoietic stem cells as well as on myeloid leukemia cells."
+                "html": "A proprietary agent that targets the cancer stem cell (CSC) antigen CD44, with potential antineoplastic activity. Although the mechanism of action has not been elucidated, following subcutaneous administration, CD44 targeted agent SPL-108 binds to CD44 and prevents the activation of various CD44-mediated signal transduction pathways, which may lead to reduced proliferation of CD44-expressing tumor stem cells. CD44, a transmembrane glycoprotein and hyaluronic acid receptor, is expressed in healthy tissue and overexpressed in numerous cancer cell types; it plays a key role in the proliferation, migration and survival of tumor cells.",
+                "text": "A proprietary agent that targets the cancer stem cell (CSC) antigen CD44, with potential antineoplastic activity. Although the mechanism of action has not been elucidated, following subcutaneous administration, CD44 targeted agent SPL-108 binds to CD44 and prevents the activation of various CD44-mediated signal transduction pathways, which may lead to reduced proliferation of CD44-expressing tumor stem cells. CD44, a transmembrane glycoprotein and hyaluronic acid receptor, is expressed in healthy tissue and overexpressed in numerous cancer cell types; it plays a key role in the proliferation, migration and survival of tumor cells."
             },
             "drugInfoSummaryLink": null,
-            "nciConceptId": "C107190",
-            "nciConceptName": "CD33CAR-CD3zeta-4-1BB-expressing Autologous T-Lymphocytes",
-            "termId": 750489,
-            "name": "CD33CAR-CD3zeta-4-1BB-expressing autologous T-lymphocytes",
+            "nciConceptId": "C142813",
+            "nciConceptName": "CD44 Targeted Agent SPL-108",
+            "termId": 789749,
+            "name": "CD44 targeted agent SPL-108",
             "firstLetter": "c",
             "type": "DrugTerm",
             "termNameType": "PreferredName",
-            "prettyUrlName": "cd33car-cd3zeta-4-1bb-expressing-autologous-t-lymphocytes"
-        },
-        {
-            "aliases": null,
-            "definition": {
-                "html": "A preparation of donor T-lymphocytes that are transfected with a retroviral vector encoding a chimeric suicide gene consisting of the extracellular and transmembrane domains of human CD34 and mutant 75 of the herpes simplex virus thymidine kinase  (HSV-TK75) with potential controllable immunomodulating activity.  Donor T cell therapy following allogeneic hematopoietic stem cell (HSC) transplantation may result in a graft-versus-leukemia (GVL) and help control transplant-related viral infections. In the event that graft-versus-host disease (GVHD) develops due to donor lymphocyte infusion, CD34/TK75-transduced donor lymphocytes may be selectively eliminated by administration of the prodrug antiviral agent ganciclovir GCV.  In CD34/T75-transduced donor lymphocytes, GCV is phosphorylated by expressed HSV-TK75 to its monophosphate form and, subsequently, converted into its active triphosphate form, which specifically kills the donor lymphocytes.  The expressed CD34 moiety of the chimeric suicide gene serves as a selection marker; mutant 75 of HSV-TK confers increased GCV sensitivity.",
-                "text": "A preparation of donor T-lymphocytes that are transfected with a retroviral vector encoding a chimeric suicide gene consisting of the extracellular and transmembrane domains of human CD34 and mutant 75 of the herpes simplex virus thymidine kinase  (HSV-TK75) with potential controllable immunomodulating activity.  Donor T cell therapy following allogeneic hematopoietic stem cell (HSC) transplantation may result in a graft-versus-leukemia (GVL) and help control transplant-related viral infections. In the event that graft-versus-host disease (GVHD) develops due to donor lymphocyte infusion, CD34/TK75-transduced donor lymphocytes may be selectively eliminated by administration of the prodrug antiviral agent ganciclovir GCV.  In CD34/T75-transduced donor lymphocytes, GCV is phosphorylated by expressed HSV-TK75 to its monophosphate form and, subsequently, converted into its active triphosphate form, which specifically kills the donor lymphocytes.  The expressed CD34 moiety of the chimeric suicide gene serves as a selection marker; mutant 75 of HSV-TK confers increased GCV sensitivity."
-            },
-            "drugInfoSummaryLink": null,
-            "nciConceptId": "C82409",
-            "nciConceptName": "CD34/TK75 Retroviral Vector-Transduced Donor Lymphocytes",
-            "termId": 640980,
-            "name": "CD34/TK75-transduced donor lymphocytes",
-            "firstLetter": "c",
-            "type": "DrugTerm",
-            "termNameType": "PreferredName",
-            "prettyUrlName": "cd34-tk75-retroviral-vector-transduced-donor-lymphocytes"
+            "prettyUrlName": "cd44-targeted-agent-spl-108"
         },
         {
             "aliases": [
                 {
                     "type": "Synonym",
-                    "name": "nTregs"
+                    "name": "4SCAR-CD44v6 T cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "CD44v6-specific CAR gene-engineered T cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "4SCAR-CD44v6 T cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "CD44v6 CAR-T cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "anti-CD44v6 CAR T cells"
                 }
             ],
             "definition": {
-                "html": "Regulatory T cells that express CD4 and CD25 (interleukin 2 receptor) antigens, with immunomodulating activity.. CD4+CD25+ T regulatory cells (Tregs), a subset of CD4+ T cells expressing high levels of CD25 and the transcription factor Foxp3, are essential in maintaining immunologic homeostasis, preventing autoimmunity by suppressing self-reactive T cells;  CD4+CD25+ Tregs may induce tolerance to allogeneic organ transplants such as hematopoetic stem cell transplants (HSCTs).\n",
-                "text": "Regulatory T cells that express CD4 and CD25 (interleukin 2 receptor) antigens, with immunomodulating activity.. CD4+CD25+ T regulatory cells (Tregs), a subset of CD4+ T cells expressing high levels of CD25 and the transcription factor Foxp3, are essential in maintaining immunologic homeostasis, preventing autoimmunity by suppressing self-reactive T cells;  CD4+CD25+ Tregs may induce tolerance to allogeneic organ transplants such as hematopoetic stem cell transplants (HSCTs).\n"
+                "html": "A preparation of genetically modified T lymphocytes transduced with a lentiviral vector encoding a fourth-generation specific chimeric antigen receptor (4SCAR) specific for CD44 variant domain 6 (CD44v6), with potential immunomodulating and antineoplastic activities. Upon administration, CD44v6-specific CAR T cells specifically recognize and kill CD44v6-expressing tumor cells. CD44, a transmembrane glycoprotein and hyaluronic acid receptor, is expressed in healthy tissue and overexpressed in numerous cancer cell types. CD44v6, the isoform containing the variant domain 6 of CD44 gene, plays a key role in tumor cell invasion, proliferation and metastasis.\n",
+                "text": "A preparation of genetically modified T lymphocytes transduced with a lentiviral vector encoding a fourth-generation specific chimeric antigen receptor (4SCAR) specific for CD44 variant domain 6 (CD44v6), with potential immunomodulating and antineoplastic activities. Upon administration, CD44v6-specific CAR T cells specifically recognize and kill CD44v6-expressing tumor cells. CD44, a transmembrane glycoprotein and hyaluronic acid receptor, is expressed in healthy tissue and overexpressed in numerous cancer cell types. CD44v6, the isoform containing the variant domain 6 of CD44 gene, plays a key role in tumor cell invasion, proliferation and metastasis.\n"
             },
             "drugInfoSummaryLink": null,
-            "nciConceptId": "C78829",
-            "nciConceptName": "CD4+ CD25+ Regulatory T Cells",
-            "termId": 601870,
-            "name": "CD4+CD25+ regulatory T cells",
+            "nciConceptId": "C173368",
+            "nciConceptName": "CD44v6-specific CAR T-cells",
+            "termId": 801822,
+            "name": "CD44v6-specific CAR-T cells",
             "firstLetter": "c",
             "type": "DrugTerm",
             "termNameType": "PreferredName",
-            "prettyUrlName": "cd4-cd25-regulatory-t-cells"
+            "prettyUrlName": "cd44v6-specific-car-t-cells"
         },
         {
             "aliases": [
                 {
-                    "type": "CodeName",
-                    "name": "CP-870,893"
+                    "type": "Synonym",
+                    "name": "donor CD45RA-depleted (memory) T cells"
                 },
                 {
-                    "type": "LexicalVariant",
-                    "name": "Anti-CD40 Monoclonal Antibody CP-870,893"
+                    "type": "Synonym",
+                    "name": "CD45RA-depleted allogeneic T cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "CD45RA-depleted donor T cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "CD45RA-depleted allogeneic T lymphocytes"
                 }
             ],
             "definition": {
-                "html": "A fully human monoclonal antibody (mAb) agonist of the cell surface receptor CD40 with potential immunostimulatory and antineoplastic activities. Similar to the CD40 ligand (CD40L or CD154), CD40 agonist monoclonal antibody CP-870,893 binds to CD40 on a variety of immune cell types, triggering the cellular proliferation and  activation of antigen-presenting cells (APCs), activating B cells and T cells,  and enhancing the immune response; in addition, this agent may activate CD40 present on the surfaces of some solid tumor cells, resulting in apoptosis and decreased tumor growth. CD40, a member of the tumor necrosis factor (TNF) receptor superfamily, is expressed on various immune cells, many B-cell malignancies, and some solid tumors, mediating both indirect tumor cell killing through the activation of the immune system and  direct tumor cell apoptosis.",
-                "text": "A fully human monoclonal antibody (mAb) agonist of the cell surface receptor CD40 with potential immunostimulatory and antineoplastic activities. Similar to the CD40 ligand (CD40L or CD154), CD40 agonist monoclonal antibody CP-870,893 binds to CD40 on a variety of immune cell types, triggering the cellular proliferation and  activation of antigen-presenting cells (APCs), activating B cells and T cells,  and enhancing the immune response; in addition, this agent may activate CD40 present on the surfaces of some solid tumor cells, resulting in apoptosis and decreased tumor growth. CD40, a member of the tumor necrosis factor (TNF) receptor superfamily, is expressed on various immune cells, many B-cell malignancies, and some solid tumors, mediating both indirect tumor cell killing through the activation of the immune system and  direct tumor cell apoptosis."
+                "html": "A preparation of hematopoietic progenitor cells (HPCs) from a haploidentical donor that have been depleted of T-cell receptor (TCR) alpha and beta (TCRa/b+) as well as CD19-positive (CD19+) cells, that can potentially be used for immune reconstitution purposes. The TCR alpha/beta/CD19-depleted HPCs contain high amounts of natural killer (NK) cells, gamma/delta T-cells, CD34+ stem cells, monocytes, and dendritic cells (DCs), while devoid of alpha/beta T cells and CD19-positive B cells. The TCR alpha/beta/CD19-depleted HPCs are used for allogeneic hematopoietic cell transplantation (HCT) and may allow for rapid and sustained engraftment, rapid immune reconstitution, and may prevent or reduce graft-versus-host disease (GvHD).",
+                "text": "A preparation of hematopoietic progenitor cells (HPCs) from a haploidentical donor that have been depleted of T-cell receptor (TCR) alpha and beta (TCRa/b+) as well as CD19-positive (CD19+) cells, that can potentially be used for immune reconstitution purposes. The TCR alpha/beta/CD19-depleted HPCs contain high amounts of natural killer (NK) cells, gamma/delta T-cells, CD34+ stem cells, monocytes, and dendritic cells (DCs), while devoid of alpha/beta T cells and CD19-positive B cells. The TCR alpha/beta/CD19-depleted HPCs are used for allogeneic hematopoietic cell transplantation (HCT) and may allow for rapid and sustained engraftment, rapid immune reconstitution, and may prevent or reduce graft-versus-host disease (GvHD)."
             },
             "drugInfoSummaryLink": null,
-            "nciConceptId": "C74008",
-            "nciConceptName": "CD40 Agonist Monoclonal Antibody CP-870,893",
-            "termId": 588974,
-            "name": "CD40 agonist monoclonal antibody CP-870,893",
+            "nciConceptId": "C157369",
+            "nciConceptName": "CD45RA-depleted Donor T-lymphocytes",
+            "termId": 796920,
+            "name": "CD45RA-depleted donor T lymphocytes",
             "firstLetter": "c",
             "type": "DrugTerm",
             "termNameType": "PreferredName",
-            "prettyUrlName": "cd40-agonist-monoclonal-antibody-cp-870893"
+            "prettyUrlName": "cd45ra-depleted-donor-t-lymphocytes"
         },
         {
             "aliases": [
                 {
-                    "type": "CodeName",
-                    "name": "APX005M"
+                    "type": "Synonym",
+                    "name": "lgGl-ALX-148"
                 },
                 {
                     "type": "CodeName",
-                    "name": "APX 005"
+                    "name": "ALX-148"
                 },
                 {
                     "type": "CodeName",
-                    "name": "APX 005M"
+                    "name": "ALX148"
                 },
                 {
                     "type": "CodeName",
-                    "name": "APX-005M"
+                    "name": "ALX 148"
                 },
                 {
-                    "type": "CodeName",
-                    "name": "EPI-0050"
+                    "type": "Synonym",
+                    "name": "SIRPa variant ALX148"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "CD47/SIRPa-blocking agent ALX148"
                 }
             ],
             "definition": {
-                "html": "A humanized monoclonal antibody agonist of the cell surface receptor CD40, with potential immunostimulatory and antineoplastic activities. Similar to the endogenous CD40 ligand (CD40L or CD154), CD40 agonistic monoclonal antibody APX005M binds to CD40 on a variety of immune cell types. This triggers the cellular proliferation and activation of antigen-presenting cells (APCs), and activates B-cells, and effector and memory T-cells. This results in an enhanced immune response against tumor cells. APX005M also binds to and activates CD40 present on the surfaces of some solid tumor cells, leading to apoptosis and decreased tumor growth. CD40, a cell surface receptor and member of the tumor necrosis factor (TNF) receptor superfamily, is expressed on various immune cells and certain cancer cells; it mediates both indirect tumor cell killing through the activation of the immune system and direct tumor cell apoptosis.",
-                "text": "A humanized monoclonal antibody agonist of the cell surface receptor CD40, with potential immunostimulatory and antineoplastic activities. Similar to the endogenous CD40 ligand (CD40L or CD154), CD40 agonistic monoclonal antibody APX005M binds to CD40 on a variety of immune cell types. This triggers the cellular proliferation and activation of antigen-presenting cells (APCs), and activates B-cells, and effector and memory T-cells. This results in an enhanced immune response against tumor cells. APX005M also binds to and activates CD40 present on the surfaces of some solid tumor cells, leading to apoptosis and decreased tumor growth. CD40, a cell surface receptor and member of the tumor necrosis factor (TNF) receptor superfamily, is expressed on various immune cells and certain cancer cells; it mediates both indirect tumor cell killing through the activation of the immune system and direct tumor cell apoptosis."
+                "html": "A variant of signal regulatory protein alpha (SIRPa) that antagonizes the human cell surface antigen CD47, with potential phagocytosis-inducing, immunostimulating and antineoplastic activities. Upon administration, ALX148 binds to CD47 expressed on tumor cells and prevents the interaction of CD47 with its ligand SIRPa, a protein expressed on phagocytic cells. This prevents CD47/SIRPa-mediated signaling and abrogates the CD47/SIRPa-mediated inhibition of phagocytosis. This induces pro-phagocytic signaling mediated by the binding of the pro-phagocytic signaling protein calreticulin (CRT), which is specifically expressed on the surface of tumor cells, to low-density lipoprotein (LDL) receptor-related protein (LRP), expressed on macrophages. This results in macrophage activation and the specific phagocytosis of tumor cells. In addition, blocking CD47 signaling activates both an anti-tumor cytotoxic T-lymphocyte (CTL) immune response and T-cell-mediated killing of CD47-expressing tumor cells. CD47, also called integrin-associated protein (IAP), is a tumor-associated antigen (TAA) expressed on normal, healthy hematopoietic stem cells (HSC) and overexpressed on the surface of a variety of cancer cells. Expression of CD47, and its interaction with SIRPa, leads to the inhibition of macrophage activation and protects cancer cells from phagocytosis, which allows cancer cells to proliferate.",
+                "text": "A variant of signal regulatory protein alpha (SIRPa) that antagonizes the human cell surface antigen CD47, with potential phagocytosis-inducing, immunostimulating and antineoplastic activities. Upon administration, ALX148 binds to CD47 expressed on tumor cells and prevents the interaction of CD47 with its ligand SIRPa, a protein expressed on phagocytic cells. This prevents CD47/SIRPa-mediated signaling and abrogates the CD47/SIRPa-mediated inhibition of phagocytosis. This induces pro-phagocytic signaling mediated by the binding of the pro-phagocytic signaling protein calreticulin (CRT), which is specifically expressed on the surface of tumor cells, to low-density lipoprotein (LDL) receptor-related protein (LRP), expressed on macrophages. This results in macrophage activation and the specific phagocytosis of tumor cells. In addition, blocking CD47 signaling activates both an anti-tumor cytotoxic T-lymphocyte (CTL) immune response and T-cell-mediated killing of CD47-expressing tumor cells. CD47, also called integrin-associated protein (IAP), is a tumor-associated antigen (TAA) expressed on normal, healthy hematopoietic stem cells (HSC) and overexpressed on the surface of a variety of cancer cells. Expression of CD47, and its interaction with SIRPa, leads to the inhibition of macrophage activation and protects cancer cells from phagocytosis, which allows cancer cells to proliferate."
             },
             "drugInfoSummaryLink": null,
-            "nciConceptId": "C123734",
-            "nciConceptName": "CD40 Agonistic Monoclonal Antibody APX005M",
-            "termId": 775520,
-            "name": "CD40 agonistic monoclonal antibody APX005M",
+            "nciConceptId": null,
+            "nciConceptName": null,
+            "termId": 787529,
+            "name": "CD47 antagonist ALX-148",
             "firstLetter": "c",
             "type": "DrugTerm",
             "termNameType": "PreferredName",
-            "prettyUrlName": "cd40-agonistic-monoclonal-antibody-apx005m"
+            "prettyUrlName": "cd47-antagonist-alx-148"
+        },
+        {
+            "aliases": [
+                {
+                    "type": "Synonym",
+                    "name": "CD56-enriched donor lymphocytes"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "CD56-enriched donor cells"
+                },
+                {
+                    "type": "Synonym",
+                    "name": "CD56+/CD3+ donor cells"
+                }
+            ],
+            "definition": {
+                "html": "A population of CD3-positive lymphocytes expressing the CD56 surface antigen, with potential immunomodulating activity. Upon infusion of the CD56-enriched CD3-positive donor lymphocytes, these cells may facilitate the reconstitution of CD4-positive T cells, regulatory T cells (Tregs) and natural killer (NK) cells, which may reduce the incidence of post-transplant graft-versus-host disease (GvHD) following haploidentical stem cell transplant (SCT). CD56 is a transmembrane glycoprotein also known as neural cell adhesion molecule 1 (NCAM-1).",
+                "text": "A population of CD3-positive lymphocytes expressing the CD56 surface antigen, with potential immunomodulating activity. Upon infusion of the CD56-enriched CD3-positive donor lymphocytes, these cells may facilitate the reconstitution of CD4-positive T cells, regulatory T cells (Tregs) and natural killer (NK) cells, which may reduce the incidence of post-transplant graft-versus-host disease (GvHD) following haploidentical stem cell transplant (SCT). CD56 is a transmembrane glycoprotein also known as neural cell adhesion molecule 1 (NCAM-1)."
+            },
+            "drugInfoSummaryLink": null,
+            "nciConceptId": "C157500",
+            "nciConceptName": "CD56-enriched CD3-positive Donor Lymphocytes",
+            "termId": 796843,
+            "name": "CD56-enriched CD3-positive donor lymphocytes",
+            "firstLetter": "c",
+            "type": "DrugTerm",
+            "termNameType": "PreferredName",
+            "prettyUrlName": "cd56-enriched-cd3-positive-donor-lymphocytes"
         }
     ],
     "links": null

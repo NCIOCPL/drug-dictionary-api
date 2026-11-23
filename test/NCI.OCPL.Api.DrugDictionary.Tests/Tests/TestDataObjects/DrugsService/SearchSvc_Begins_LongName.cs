@@ -32,7 +32,10 @@ namespace NCI.OCPL.Api.DrugDictionary.Tests
             ""preferred_name""
         ]
     },
-    ""sort"": { ""name"": {} },
+    ""sort"": [
+        { ""name"": { ""order"": ""asc"" } },
+        { ""preferred_name"": { ""order"": ""asc"" } }
+    ],
     ""query"": {
         ""bool"": {
             ""should"": [
